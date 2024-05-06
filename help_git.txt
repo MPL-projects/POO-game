@@ -33,10 +33,10 @@ pr aller sur la branche main
 pr récup ce qui a été fait par les autres
 >> git pull
 
-on modifie
-
 pr aller sur la branche Louis (ajouter un -b pr la créer)
 >> git checkout Louis
+
+on modifie
 
 pr voir les modifs
 >> git status

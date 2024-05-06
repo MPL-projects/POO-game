@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
     Menu engineMenu(appWindow.renderer, appWindow.mainWindow);
 
     //init the splash screen
-    engineMenu.initSplashScreen("Press Enter to start", "assets/liberation.ttf", "assets/background.bmp");
+    engineMenu.initSplashScreen("Press Enter to start", "assets/ttf/liberation.ttf", "assets/backgrounds_elements/menu/background.bmp");
 
     while (!quit){
 

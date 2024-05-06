@@ -1,0 +1,90 @@
+*** Faire une clé ssh ***
+
+>> cd /home/.ssh
+>> ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+>> cat fichier.pub
+et on a la clé
+
+ 
+*** Ajouter des modifs sur github sans branches***
+
+pr voir les modifs
+>> git status
+
+pr charger sur le prochain commit toutes les modifs
+>> git add .
+
+pr vérifier
+>> git status
+
+pr commenter nos ajouts
+>> git commit -m "on a modifié"
+
+pr tout envoyer
+>> git push
+
+
+
+*** Ajouter des modifs sur github avec des branches***
+
+pr aller sur la branche main
+>> git checkout main
+
+pr récup ce qui a été fait par les autres
+>> git pull
+
+pr aller sur la branche Louis (ajouter un -b pr la créer)
+>> git checkout Louis
+
+on modifie
+
+pr voir les modifs
+>> git status
+
+pr charger sur le prochain commit toutes les modifs
+>> git add .
+
+pr vérifier
+>> git status
+
+pr commenter nos ajouts
+>> git commit -m "on a modifié"
+
+pr tt envoyer sur la branche louis
+>> git push origin Louis
+
+pr ajouter ce qu'il y a au main dans Louis
+>> git pull origin main
+
+on teste si nos codes fonctionne tjr
+
+
+	!!! si ça merde !!!
+
+	pr aller sur la branche main
+	>> checkout main
+
+	pr récup le distant sur le local (ça dépends de si on veut mettre a jour la branche local)
+	>> git pull origin main    OU   >> git fetch main
+
+	pr aller sur Louis
+	>> git checkout Louis
+
+	pr merge le main avec Louis
+	>> git merge main
+
+	on en revient alors au mm point que si on avait fait git 		pull origin main
+
+	on teste à nouveau si nos codes fonctionnent
+
+	!!! fin de la merde !!!
+
+
+pr aller sur la branche main
+>> git checkout main
+
+pr merge Louis avec main
+>> git merge Louis
+
+on push dans origin main
+>> git push origin main

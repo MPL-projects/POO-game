@@ -59,25 +59,25 @@ pr ajouter ce qu'il y a au main dans Louis
 on teste si nos codes fonctionne tjr
 
 
-!!! si ça merde !!!
+	!!! si ça merde !!!
 
-pr aller sur la branche main
->> checkout main
+	pr aller sur la branche main
+	>> checkout main
 
-pr récup le distant sur le local (ça dépends de si on veut mettre a jour la branche local)
->> git pull origin main    OU   >> git fetch main
+	pr récup le distant sur le local (ça dépends de si on veut mettre a jour la branche local)
+	>> git pull origin main    OU   >> git fetch main
 
-pr aller sur Louis
->> git checkout Louis
+	pr aller sur Louis
+	>> git checkout Louis
 
-pr merge le main avec Louis
->> git merge main
+	pr merge le main avec Louis
+	>> git merge main
 
-on en revient alors au mm point que si on avait fait git pull origin main
+	on en revient alors au mm point que si on avait fait git 		pull origin main
 
-on teste à nouveau si nos codes fonctionnent
+	on teste à nouveau si nos codes fonctionnent
 
-!!! fin de la merde !!!
+	!!! fin de la merde !!!
 
 
 pr aller sur la branche main

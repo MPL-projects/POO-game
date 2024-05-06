@@ -1,6 +1,5 @@
 #include "../include/menu.hpp"
 
-
 Menu::Menu(SDL_Renderer *windowsplashFontRenderer, SDL_Window *window){
     TTF_Init();
     splashFontRenderer = windowsplashFontRenderer;

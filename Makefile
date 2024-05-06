@@ -9,7 +9,7 @@ SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
 
 # Le nom de l'exécutable
-EXEC = main
+EXEC = main_menu
 
 all: $(EXEC)
 

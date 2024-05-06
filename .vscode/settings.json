@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "files.associations": {
         "*.c": "c",
         "cctype": "cpp",
@@ -68,4 +69,9 @@
         "typeindex": "cpp",
         "typeinfo": "cpp"
     }
+=======
+	"files.associations": {
+		"iostream": "cpp"
+	}
+>>>>>>> 6efa19b3d621365214e19d746c0eff946c13a833
 }

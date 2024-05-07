@@ -7,8 +7,12 @@
 
 #include "../include/menu.hpp"
 
+#include "../include/button.hpp"
+
+
 using namespace std;
 
+bool menu = false;
 
 int main(int argc, char *argv[]){
 
@@ -17,29 +21,39 @@ int main(int argc, char *argv[]){
     SDL_Event event;
 
     Window appWindow;
-    appWindow.createWindow("Menu Demonstration", 800, 600);
+    appWindow.createWindow("Menu", 800, 600);
 
     Menu engineMenu(appWindow.renderer, appWindow.mainWindow);
-
-    //init the splash screen
-    engineMenu.initSplashScreen("Press Enter to start", "assets/ttf/liberation.ttf", "assets/images/backgrounds_elements/menu/background.bmp");
 
     while (!quit){
 
         SDL_PollEvent(&event);
-        if(event.type==SDL_WINDOWEVENT && event.window.event==SDL_WINDOWEVENT_CLOSE){
+        if((event.type==SDL_WINDOWEVENT && event.window.event==SDL_WINDOWEVENT_CLOSE)||(event.type == SDL_QUIT)){
             quit = true;
         }
         else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN) {
             std::cout << "Enter key pressed!" << std::endl;
-            //engineMenu.initSplashScreen("Ready !! ", "assets/ttf/liberation.ttf", "assets/images/backgrounds_elements/grass.png");
+            menu = true;
+            engineMenu.quitSplashScreen();
+
+            
+
+            //init the game
+            // engineMenu.initMenu();
+
         }
+
 
         //clear the render
         SDL_RenderClear(appWindow.renderer);
 
-        //render the splash screen
-        engineMenu.displaySplashScreen();
+        if (menu){
+            engineMenu.displayMenu();
+        }else{
+            //render the splash screen
+            engineMenu.displaySplashScreen();
+        }
+        
 
         //render the new texture
         SDL_RenderPresent(appWindow.renderer);

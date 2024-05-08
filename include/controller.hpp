@@ -3,6 +3,7 @@
 // #include "player.hpp"
 #include <SDL2/SDL.h>
 #include "event.hpp"
+#include "game.hpp"
 #include <iostream>
 using namespace std;
 class Player;
@@ -24,10 +25,12 @@ public:
         handler.registerEvent(SDL_KEYUP, [this](SDL_Event const &event){
             if (event.key.keysym.sym == SDLK_ESCAPE) {
                 std::cerr << "test1" << std::endl;
+                Game::stopGame();
                 } 
             });
         handler.registerEvent(SDL_QUIT, [this](SDL_Event const &event){
             std::cerr << "test2" << std::endl; 
+            Game::stopGame();
             });
     }
 };

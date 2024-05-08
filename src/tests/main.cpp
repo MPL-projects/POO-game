@@ -151,6 +151,7 @@
 
 #include "../../include/player.hpp"
 #include "../../include/event.hpp"
+#include "../../include/game.hpp"
 
 int main(int argc, char **argv)
 {
@@ -161,37 +162,16 @@ int main(int argc, char **argv)
     // player.controller->player->test = 10;
     // std::cerr << player.test << std::endl;
 
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0) {
-        fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
-        return 1;
-    }
-
-    SDL_Window *window = SDL_CreateWindow(
-            "hello_sdl2",
-            SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-            SCREEN_WIDTH, SCREEN_HEIGHT,
-            SDL_WINDOW_SHOWN
-    );
-
-    if (window == nullptr) {
-        std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
-        return 1;
-    }
-    SDL_Surface *screenSurface = SDL_GetWindowSurface(window);
+    
 
     
     // main loop
-    Event eventHandler;
-    Player player;
-    player.controller->registerWithEventHandler(eventHandler);
-    bool running = true;
-    while (running)
-    {
-        eventHandler.handleEvents();
-        running = SDL_UpdateWindowSurface(window);
-        if (running != false || running != true){running = true;}
-    }
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    
+    
+    
+    Game game;
+
+    game.run();
+
     return 0;
 }

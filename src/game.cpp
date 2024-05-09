@@ -31,6 +31,9 @@ void Game::run(){
 
     Player player;
     player.controller->registerWithEventHandler(eventHandler);
+    Player player2;
+    player2.test = 6;
+    player2.controller->registerWithEventHandler(eventHandler);
     while (RUNNING)
     {
         eventHandler.handleEvents();

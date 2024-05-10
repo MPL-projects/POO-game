@@ -2,8 +2,12 @@
 #define GAME_HPP
 
 #include "event.hpp"
+#include "player.hpp"
 
 #include <iostream>
+#include <vector>
+
+using namespace std;
 
 
 //Game class
@@ -15,7 +19,7 @@ public:
     // ~Game();
 
     // void init();
-    // void update();
+    void update();
     // void render();
     void run();
 
@@ -23,6 +27,11 @@ public:
     static void stopGame(){RUNNING = false;};
 
     Event eventHandler;
+    SDL_Surface *screenSurface;
+    SDL_Window *window;
+
+    vector<Player*> players;
+
 
 private:
     static bool RUNNING;

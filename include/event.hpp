@@ -5,7 +5,9 @@
 #include <map>
 #include <vector>
 #include <SDL2/SDL.h>
-
+#include <iostream>
+#include <string>
+#include <string_view>
 using namespace std;
 
 class Event
@@ -25,12 +27,23 @@ public:
         {
             for (auto &cb : _registeredCallbacks[static_cast<SDL_EventType>(event.type)])
             {
+                std::cerr << (cb ? "callable" : "not callable") << std::endl;
                 cb(event);
             }
         }
     }
 
-private:
+    void print_map(std::string comment, const map<SDL_EventType, vector<EventCallback>> &m)
+    {
+        std::cerr << comment;
+
+        for (const auto &n : m)
+            std::cerr << n.first << " = " << n.second.size() << "; ";
+
+        std::cerr << '\n';
+    }
+
+    // private:
     map<SDL_EventType, vector<EventCallback>> _registeredCallbacks;
 };
 #endif

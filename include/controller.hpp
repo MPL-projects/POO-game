@@ -3,7 +3,6 @@
 // #include "player.hpp"
 #include <SDL2/SDL.h>
 #include "event.hpp"
-#include "game.hpp"
 #include <iostream>
 using namespace std;
 class Player;
@@ -13,11 +12,15 @@ class Controller
 public:
     Player *player;
     Controller(Player *player_);
-    // ~Controller();
+    ~Controller();
     // void events();
+    int test2;
+    SDL_GameController *controller;
 
     // static int controllers;
     void registerWithEventHandler(Event &handler);
+    void getMove();
+    static int id;
 };
 
 #endif

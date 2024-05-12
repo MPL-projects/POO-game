@@ -24,7 +24,7 @@ public:
 
     // void init();
     void update();
-    void render();
+    void renderGame();
     void run();
 
     static bool isRunning(){return RUNNING;};

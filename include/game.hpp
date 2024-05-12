@@ -4,6 +4,8 @@
 #include "event.hpp"
 #include "player.hpp"
 #include "window.hpp"
+#include "menu.hpp"
+
 
 
 
@@ -29,6 +31,7 @@ public:
 
     static bool isRunning(){return RUNNING;};
     static void stopGame(){RUNNING = false;};
+    static int gameStatus;
 
     
 
@@ -45,5 +48,6 @@ public:
 private:
     static bool RUNNING;
     void intiMainMenu();
+    
 };
 #endif

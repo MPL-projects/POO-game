@@ -1,4 +1,5 @@
 #include "../include/button.hpp"
+#include "../include/game.hpp"
 
 Button::Button(SDL_Renderer *renderer, int x, int y, int width, int height,
                const std::vector<std::string> &imagePaths, const std::string &fontPath, const std::string &name)
@@ -78,6 +79,9 @@ void Button::handleEvent(const SDL_Event &event)
         {
             m_currentTextureIndex = 1;
             m_isPressed = !m_isPressed;
+            Game::gameStatus = 1;
+            
+            
         }
     }
 }
@@ -105,7 +109,7 @@ void Button::render()
 
 bool Button::isPressed() const
 {
-    std::cout << "isPresse = " << m_isPressed << std::endl;
+    // std::cout << "isPresse = " << m_isPressed << std::endl;
     return m_isPressed;
     
 }

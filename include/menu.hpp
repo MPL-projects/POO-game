@@ -18,6 +18,7 @@ public:
     void displayMenu(const std::string& backPath);
     void handleEvents(SDL_Event &event);
     void addButton(Button* button); // Function to add buttons to the menu
+    bool buttonStatus(Button* button);
 
 private:
     SDL_Window *windowScreen;

@@ -23,7 +23,7 @@ void Menu::displayMenu(const std::string& backPath) {
     for(auto button : buttons) {
         button->render(); // Render each button
     }
-    SDL_RenderPresent(m_renderer);
+    // SDL_RenderPresent(m_renderer);
 }
 
 void Menu::backgroundMenuScreen(const std::string&  imagePath) {
@@ -45,6 +45,7 @@ void Menu::destroyMenuScreen() {
 
 void Menu::handleEvents(SDL_Event &event) {
     // Handle events for buttons or other interactive elements
+    std::cout<< event.type << "\n";
     for(auto button : buttons) {
         button->handleEvent(event);
     }
@@ -52,4 +53,8 @@ void Menu::handleEvents(SDL_Event &event) {
 
 void Menu::addButton(Button* button) {
     buttons.push_back(button);
+}
+
+bool buttonStatus(Button* button){
+    return button->isPressed();
 }

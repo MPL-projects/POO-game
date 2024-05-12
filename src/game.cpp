@@ -9,6 +9,8 @@
 #define SCREEN_HEIGHT 480
 
 bool Game::RUNNING = true;
+int Game::gameStatus = 0;
+
 
 
 void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
@@ -44,19 +46,33 @@ Game::Game()
 
 void Game::run()
 {
-
     SDL_Event event;
+    intiMainMenu();
     while (RUNNING)
     {
         while (SDL_PollEvent(&event)) {
             appWindow->handleEvents(event);
             players[0]->handle_events(event);
             // players[1]->handle_events(event);
+            mainMenu->handleEvents(event);
+            
         }
-        SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0x33, 0x33, 0x33));
+        SDL_RenderClear(appWindow->renderer);
+        switch (gameStatus)
+        {
+            case 0 :
+                mainMenu->displayMenu("assets/images/backgrounds_elements/menu/background1.jpg");
+                break;
+            case 1 : 
+                update();
+                renderGame();
+        }
+        SDL_RenderPresent(appWindow->renderer);
+
+        // SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0x33, 0x33, 0x33));
         // eventHandler.handleEvents();
-        update();
-        renderGame();
+        // update();
+        // renderGame();
         // SDL_UpdateWindowSurface(window);
         // SDL_UpdateWindowSurface(appWindow->mainWindow);
     }
@@ -73,11 +89,11 @@ void Game::update(){
 }
 
 void Game::renderGame(){
-    SDL_RenderClear(appWindow->renderer);
+    // SDL_RenderClear(appWindow->renderer);
     SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
 	SDL_RenderFillRect(appWindow->renderer, nullptr);
     players[0]->draw(appWindow->renderer);
-    SDL_RenderPresent(appWindow->renderer);
+    // SDL_RenderPresent(appWindow->renderer);
 }
 
 
@@ -88,6 +104,7 @@ Game::~Game(){
     players.clear();
     delete appWindow;
     delete screenSurface;
+    delete mainMenu;
     appWindow->destroyWindow();
 
 }

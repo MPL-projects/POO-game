@@ -5,7 +5,7 @@ int const SPRITESHEET_LEFT = 4;
 int const SPRITESHEET_RIGHT = 4;
 int const SPRITESHEET_DOWN = 3;
 
-StickFigure::StickFigure(SDL_Renderer *renderer): m_spritesheet("player1.png", 10, 6, renderer)
+StickFigure::StickFigure(SDL_Renderer *renderer): m_spritesheet("assets/images/players/player1.png", 10, 6, renderer)
 {
     float ratio = 2.5;
     m_position.x = 0;

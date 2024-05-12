@@ -1,6 +1,7 @@
 #include "../include/game.hpp"
 #include "../include/player.hpp"
 #include "../include/window.hpp"
+#include "../include/menu.hpp"
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
@@ -24,24 +25,15 @@ void renderCross(SDL_Surface *screenSurface , int x, int y, float x1, float x2) 
 
 Game::Game()
 {
-    // if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0)
-    // {
-    //     fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
-    //     return;
-    // }
-    // window = SDL_CreateWindow("hello_sdl2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     appWindow = new Window;
     appWindow->createWindow("POO-Game", SCREEN_WIDTH, SCREEN_HEIGHT);
-    // if (window == nullptr)
-    // {
-    //     std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
-    //     return;
-    // }
-    // screenSurface = SDL_GetWindowSurface(window);
+    
     screenSurface = appWindow->screenSurface;
+    
     // players = new Player;
     for(int i=0; i<2;i++){
         players.push_back(new Player(appWindow->renderer));
+       
         // players[i]->controller->registerWithEventHandlers(eventHandler);
 
     }
@@ -55,7 +47,7 @@ void Game::run()
     while (RUNNING)
     {
         while (SDL_PollEvent(&event)) {
-            appWindow->hendleEvents(event);
+            appWindow->handleEvents(event);
         }
         SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0x33, 0x33, 0x33));
         // eventHandler.handleEvents();
@@ -82,9 +74,11 @@ void Game::render(){
 
 
 Game::~Game(){
+    for (auto& player : players) {
+        delete player;
+    }
+    players.clear();
     delete appWindow;
-    delete players[0];
-    delete players[1];
     delete screenSurface;
     appWindow->destroyWindow();
 

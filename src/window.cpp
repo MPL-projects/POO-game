@@ -20,7 +20,7 @@ void Window::destroyWindow(){
     SDL_Quit();            
 }
 
-void Window::hendleEvents(SDL_Event &event){
+void Window::handleEvents(SDL_Event &event){
     if((event.type==SDL_WINDOWEVENT && event.window.event==SDL_WINDOWEVENT_CLOSE)||(event.type == SDL_QUIT) ){
         Game::stopGame();
     }

@@ -21,3 +21,6 @@ $(EXEC): $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(EXEC)
+
+run_valgrind:
+	valgrind --leak-check=full ./$(EXEC)

@@ -1,102 +1,54 @@
+// menu.cpp
 #include "../include/menu.hpp"
 
 Menu::Menu(SDL_Renderer *menuFontRenderer, SDL_Window *window)
 {
     TTF_Init();
-    splashFontRenderer = menuFontRenderer;
+    m_renderer = menuFontRenderer;
     windowScreen = window;
-    splashScreenTextBlink = 0;
     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
 }
 
-/*Voici mes trois fonction public*/
-void Menu::initSplashScreen(const char *displayName, const char *fontFamily, const char *backgroundImg)
-{
-    prepareSplashScreen(displayName, fontFamily, backgroundImg);
+Menu::~Menu() {
+    destroyMenuScreen();
+    for (auto button : buttons) {
+        delete button;
+    }
+    TTF_Quit();
 }
 
-void Menu::displaySplashScreen()
-{
-    initSplashScreen("Press Enter to start", "assets/ttf/liberation.ttf", "assets/images/backgrounds_elements/menu/background.bmp");
-    renderSplashScreen();
+void Menu::displayMenu() {
+    backgroundMenuScreen("assets/images/backgrounds_elements/menu/background1.jpg");
+    for(auto button : buttons) {
+        button->render(); // Render each button
+    }
+    SDL_RenderPresent(m_renderer);
 }
 
-void Menu::quitSplashScreen()
-{
-    destroySplashScreen();
+void Menu::backgroundMenuScreen(const std::string&  imagePath) {
+    SDL_Surface* surface = IMG_Load(imagePath.c_str());
+    if (!surface) {
+        throw std::runtime_error("Failed to load image: " + imagePath);
+    }
+    back_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
+    SDL_FreeSurface(surface);
+    SDL_RenderCopy(m_renderer, back_texture, NULL, NULL);
 }
 
-/*Fonction private*/
-void Menu::prepareSplashScreen(const char *displayName, const char *fontFamily, const char *backgroundImg)
-{
-    splashFont = TTF_OpenFont(fontFamily, 25);
-    splashText = displayName;
-
-    if (backgroundImg != NULL)
-    {
-
-        splashImageRenderer = SDL_CreateRenderer(windowScreen, -1, 0);
-        SDL_Surface *splashBackgroundSurface = SDL_LoadBMP(backgroundImg);
-        splashImageTexture = SDL_CreateTextureFromSurface(splashFontRenderer, splashBackgroundSurface);
+void Menu::destroyMenuScreen() {
+    if (back_texture) {
+        SDL_DestroyTexture(back_texture);
+        back_texture = nullptr;
     }
 }
 
-void Menu::renderSplashScreen()
-{
-    renderSplashBackground();
-    renderSplashScreenText();
-}
-
-void Menu::renderSplashScreenText()
-{
-    int textWidth = 0;
-    int textHeight = 0;
-
-    SDL_Color color = {255, 255, 255};
-    splashFontSurface = TTF_RenderText_Solid(splashFont, splashText, color);
-    splashFontTexture = SDL_CreateTextureFromSurface(splashFontRenderer, splashFontSurface);
-
-    splashScreenTextBlink++;
-    if (splashScreenTextBlink == 100)
-    {
-
-        splashScreenTextBlink = 0;
-    }
-
-    // Handle splash screen text blinkg effect
-    if (splashScreenTextBlink < 50)
-    {
-
-        SDL_QueryTexture(splashFontTexture, NULL, NULL, &textWidth, &textHeight);
-
-        const int devideScreenWidth = windowWidth / 2;
-        const int deviceText = textWidth / 2;
-        const int dediceScreenHeight = windowHeight / 2;
-
-        SDL_Rect fontStruct = {devideScreenWidth - deviceText, dediceScreenHeight, textWidth, textHeight};
-        SDL_RenderCopy(splashFontRenderer, splashFontTexture, NULL, &fontStruct);
-    }
-    else
-    {
-
-        splashFontTexture = NULL;
-        splashFontSurface = NULL;
+void Menu::handleEvents(SDL_Event &event) {
+    // Handle events for buttons or other interactive elements
+    for(auto button : buttons) {
+        button->handleEvent(event);
     }
 }
 
-void Menu::renderSplashBackground()
-{
-    SDL_RenderCopy(splashFontRenderer, splashImageTexture, NULL, NULL);
-    SDL_RenderPresent(splashFontRenderer);
-}
-
-void Menu::destroySplashScreen()
-{
-    SDL_DestroyTexture(splashFontTexture);
-    SDL_FreeSurface(splashFontSurface);
-}
-
-void Menu::displayMenu(){
-    initSplashScreen("", "assets/ttf/liberation.ttf", "assets/images/backgrounds_elements/menu/nine_path_2.png.png");
-    renderSplashScreen();
+void Menu::addButton(Button* button) {
+    buttons.push_back(button);
 }

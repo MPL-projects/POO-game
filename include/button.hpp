@@ -7,6 +7,7 @@
 #include <string>
 #include <stdexcept>
 #include <vector>
+#include <iostream>
 
 class Button {
 private:
@@ -24,12 +25,12 @@ public:
     int get_y() const {return m_rect.y;};
     int get_w() const {return m_rect.w;};
     int get_wh() const {return m_rect.h;};
-    Button(SDL_Renderer* renderer, int x, int y, int width, int height, const std::vector<std::string>& imagePaths, const std::string& fontPath);
+    Button(SDL_Renderer* renderer, int x, int y, int width, int height, const std::vector<std::string>& imagePaths, const std::string& fontPath, const std::string& name);
     ~Button();
     void handleEvent(const SDL_Event& event); 
     void render();
 
-    bool isPressed() const { return m_isPressed; }
+    bool isPressed() const;
 };
 
-#endif //Class Button
+#endif

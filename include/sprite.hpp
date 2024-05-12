@@ -1,5 +1,7 @@
+#ifndef SPRITE_HPP
+#define SPRITE_HPP
 #include <SDL2/SDL_image.h>
-#include "../include/window.hpp"
+#include "window.hpp"
 #include <iostream>
 
 using namespace std;
@@ -36,6 +38,7 @@ public:
         y += dy;
     }
 };
+#endif
 
 int main() {
     Window window;

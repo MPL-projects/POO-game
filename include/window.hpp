@@ -14,6 +14,7 @@ class Window {
 
         void createWindow(const char *windowTitle, const int width, const int height);
         void destroyWindow();
+        void hendleEvents(SDL_Event &event);
 
 
 };

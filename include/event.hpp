@@ -45,5 +45,7 @@ public:
 
     // private:
     map<SDL_EventType, vector<EventCallback>> _registeredCallbacks;
+
+    ~Event(){}
 };
 #endif

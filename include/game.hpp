@@ -6,8 +6,10 @@
 #include "window.hpp"
 
 
+
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -37,9 +39,11 @@ public:
     vector<Player*> players;
     // Player *players;
     Window *appWindow;
+    Menu *mainMenu;
 
 
 private:
     static bool RUNNING;
+    void intiMainMenu();
 };
 #endif

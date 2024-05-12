@@ -2,6 +2,8 @@
 #include "../include/player.hpp"
 #include "../include/window.hpp"
 #include "../include/menu.hpp"
+#include "../include/button.hpp"
+
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
@@ -85,3 +87,9 @@ Game::~Game(){
 }
 
 
+void Game::intiMainMenu(){
+    mainMenu = new Menu(appWindow->renderer, appWindow->mainWindow);
+    std::vector<std::string> buttonImagePaths = { "assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png" };
+    Button* playButton = new Button(appWindow->renderer, 100, 100, 160, 80, buttonImagePaths , "assets/ttf/liberation.ttf", "Play");
+    mainMenu->addButton(playButton);
+}

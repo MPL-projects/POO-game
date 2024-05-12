@@ -7,6 +7,7 @@ Menu::Menu(SDL_Renderer *menuFontRenderer, SDL_Window *window)
     m_renderer = menuFontRenderer;
     windowScreen = window;
     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+
 }
 
 Menu::~Menu() {
@@ -17,8 +18,8 @@ Menu::~Menu() {
     TTF_Quit();
 }
 
-void Menu::displayMenu() {
-    backgroundMenuScreen("assets/images/backgrounds_elements/menu/background1.jpg");
+void Menu::displayMenu(const std::string& backPath) {
+    backgroundMenuScreen(backPath);
     for(auto button : buttons) {
         button->render(); // Render each button
     }

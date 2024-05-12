@@ -1,4 +1,4 @@
-#include "spritesheet.hpp"
+#include "../include/spritesheet.hpp"
 #include <iostream>
 
 Spritesheet::Spritesheet(char const *path, int row, int column, SDL_Renderer *renderer)

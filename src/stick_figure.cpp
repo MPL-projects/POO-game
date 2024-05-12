@@ -1,4 +1,4 @@
-#include "stick_figure.hpp"
+#include "../include/stick_figure.hpp"
 
 int const SPRITESHEET_UP = 5;
 int const SPRITESHEET_LEFT = 4;

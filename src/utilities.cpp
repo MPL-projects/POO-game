@@ -1,4 +1,4 @@
-#include "utilities.hpp"
+#include "../include/utilities.hpp"
 
 SDL_Surface *load_bmp(char const *path)
 {

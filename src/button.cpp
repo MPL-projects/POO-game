@@ -2,9 +2,9 @@
 #include "../include/game.hpp"
 
 Button::Button(SDL_Renderer *renderer, int x, int y, int width, int height,
-               const std::vector<std::string> &imagePaths, const std::string &fontPath, const std::string &name)
+               const std::vector<std::string> &imagePaths, const std::string &fontPath, const std::string &name, int a)
     : m_rect({x, y, width, height}), m_renderer(renderer),
-      m_currentTextureIndex(0), m_isPressed(false)
+      m_currentTextureIndex(0), m_isPressed(false), action(a)
 {
     for (const auto &imagePath : imagePaths)
     {
@@ -79,7 +79,7 @@ void Button::handleEvent(const SDL_Event &event)
         {
             m_currentTextureIndex = 1;
             m_isPressed = !m_isPressed;
-            Game::gameStatus = 1;
+            Game::gameStatus = action;
             
             
         }

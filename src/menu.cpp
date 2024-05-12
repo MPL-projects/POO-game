@@ -45,7 +45,6 @@ void Menu::destroyMenuScreen() {
 
 void Menu::handleEvents(SDL_Event &event) {
     // Handle events for buttons or other interactive elements
-    std::cout<< event.type << "\n";
     for(auto button : buttons) {
         button->handleEvent(event);
     }

@@ -19,13 +19,14 @@ private:
     SDL_Texture* m_textTexture;
 
     bool m_isPressed;
+    int action;
 
 public:
     int get_x() const {return m_rect.x;};
     int get_y() const {return m_rect.y;};
     int get_w() const {return m_rect.w;};
     int get_wh() const {return m_rect.h;};
-    Button(SDL_Renderer* renderer, int x, int y, int width, int height, const std::vector<std::string>& imagePaths, const std::string& fontPath, const std::string& name);
+    Button(SDL_Renderer* renderer, int x, int y, int width, int height, const std::vector<std::string>& imagePaths, const std::string& fontPath, const std::string& name, int a);
     ~Button();
     void handleEvent(const SDL_Event& event); 
     void render();

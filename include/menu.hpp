@@ -1,46 +1,33 @@
+// menu.hpp
 #ifndef MENU_HPP
 #define MENU_HPP
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
-
-
-using namespace std;
+#include <string>
+#include <stdexcept> 
+#include <vector>
+#include "../include/button.hpp"
 
 class Menu {
-    public:
+public:
+    Menu(SDL_Renderer *menuFontRenderer, SDL_Window *window);
+    ~Menu(); // Destructor to handle cleanup
 
-        Menu(SDL_Renderer *menuFontRenderer, SDL_Window *window);
+    void displayMenu();
+    void handleEvents(SDL_Event &event);
+    void addButton(Button* button); // Function to add buttons to the menu
 
-        /*First screen*/
-        void displaySplashScreen();
-        void quitSplashScreen();
+private:
+    SDL_Window *windowScreen;
+    std::vector<Button*> buttons;
+    SDL_Renderer *m_renderer;
+    SDL_Texture *back_texture;
+    int windowHeight, windowWidth;
 
-
-        /*Seconde screen*/
-        void displayMenu();
-        // void quitMenu();
-
-    private:
-        SDL_Window *windowScreen;
-        SDL_Renderer *splashFontRenderer, *splashImageRenderer, *menu_renderer;
-        SDL_Texture *splashFontTexture, *splashImageTexture;
-        SDL_Surface *splashFontSurface;
-        TTF_Font *splashFont;
-        const char *splashText;
-
-        int windowHeight, windowWidth, splashScreenTextBlink;
-
-        /*First screen*/
-        void initSplashScreen(const char *displayName, const char *fontFamily, const char *backgroundImg = NULL);
-        void prepareSplashScreen(const char *displayName, const char *fontFamily, const char *backgroundImg);
-        void renderSplashScreenText();
-        void renderSplashBackground();
-        void renderSplashScreen();
-        void destroySplashScreen();
-
-
+    void backgroundMenuScreen(const std::string&  imagePath);
+    void destroyMenuScreen();
 };
 
-#endif //Class Menu
+#endif

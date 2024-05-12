@@ -1,70 +1,39 @@
+// main.cpp
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-
+#include <SDL2/SDL_image.h>
 #include <iostream>
-
 #include "../include/window.hpp"
-
 #include "../include/menu.hpp"
-
 #include "../include/button.hpp"
 
-
-using namespace std;
-
-bool menu = false;
-
-int main(int argc, char *argv[]){
-
+int main(int argc, char *argv[]) {
     bool quit = false;
-
     SDL_Event event;
-
     Window appWindow;
     appWindow.createWindow("Menu", 800, 600);
-
     Menu engineMenu(appWindow.renderer, appWindow.mainWindow);
 
-    while (!quit){
+    // Create and add buttons to the menu
+    std::vector<std::string> buttonImagePaths = { "assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png" };
+    Button* playButton = new Button(appWindow.renderer, 100, 100, 160, 80, buttonImagePaths , "assets/ttf/liberation.ttf", "Play");
+    engineMenu.addButton(playButton);
 
-        SDL_PollEvent(&event);
-        if((event.type==SDL_WINDOWEVENT && event.window.event==SDL_WINDOWEVENT_CLOSE)||(event.type == SDL_QUIT)){
-            quit = true;
-        }
-        else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN) {
-            std::cout << "Enter key pressed!" << std::endl;
-            menu = true;
-            engineMenu.quitSplashScreen();
-
-            
-
-            //init the game
-            // engineMenu.initMenu();
-
+    while (!quit) {
+        while (SDL_PollEvent(&event)) {
+            if((event.type==SDL_WINDOWEVENT && event.window.event==SDL_WINDOWEVENT_CLOSE)||(event.type == SDL_QUIT) ){
+                quit = true;
+            }
+            engineMenu.handleEvents(event); // Handle events for buttons
+            playButton->isPressed();
         }
 
-
-        //clear the render
         SDL_RenderClear(appWindow.renderer);
-
-        if (menu){
-            engineMenu.displayMenu();
-        }else{
-            //render the splash screen
-            engineMenu.displaySplashScreen();
-        }
-        
-
-        //render the new texture
-        SDL_RenderPresent(appWindow.renderer);
+        engineMenu.displayMenu();
         SDL_Delay(20);
     }
 
-    
-    engineMenu.quitSplashScreen();
-
+    // Cleanup
+    delete playButton;
     appWindow.destroyWindow();
-
     return 0;
-
 }

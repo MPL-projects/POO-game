@@ -16,19 +16,9 @@ public:
     int test;
     // Player(SDL_Renderer *renderer, const char *imagePath, int startX, int startY) : Sprite(renderer, imagePath, startX, startY){};
     // Player(const Player &player_);
-<<<<<<< HEAD
     Player(SDL_Renderer *renderer) : StickFigure(renderer) {test=5;};
     ~Player(){delete controller;};
-=======
-    Player(){test=5; x = 0; y = 0;};
-<<<<<<< HEAD
-    ~Player(){delete controller;};
-=======
-    ~Player(){
-        delete controller;
-        };
->>>>>>> main
->>>>>>> 20192e9d467df85be1faa52dc84e3d4a3c8af13c
+
 
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };

@@ -14,7 +14,7 @@ SDL_GameController *findController() {
         }
     }
     std::cerr << "ccccccccccc" << std::endl;
-
+    SDL_GameControllerClose(nullptr);
     return nullptr;
 }
 
@@ -33,7 +33,13 @@ Controller::Controller(Player *player_)
 }
 
 Controller::~Controller(){
-    std::cerr << "Controller Destructor" << std::endl;
+    // std::cerr << "Controller Destructor" << std::endl;
+    // delete player;
+    // SDL_GameControllerClose(controller);
+    // delete controller;
+    // if (controller) {
+    //     SDL_GameControllerClose(controller);
+    // }
 }
 
 void Controller::registerWithEventHandler(Event &handler)
@@ -49,6 +55,7 @@ void Controller::registerWithEventHandler(Event &handler)
             std::cerr << "test2" << std::endl; 
             Game::stopGame(); });
 }
+
 
 void Controller::getMove(){
     if (controller) {

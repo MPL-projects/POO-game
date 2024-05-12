@@ -10,9 +10,10 @@ int main(int argc, char *argv[]) {
     bool quit = false;
     SDL_Event event;
     Window appWindow;
-    appWindow.createWindow("Menu", 800, 600);
-    Menu engineMenu(appWindow.renderer, appWindow.mainWindow);
+    appWindow.createWindow("POO-Game", 800, 600);
 
+
+    Menu engineMenu(appWindow.renderer, appWindow.mainWindow);
     // Create and add buttons to the menu
     std::vector<std::string> buttonImagePaths = { "assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png" };
     Button* playButton = new Button(appWindow.renderer, 100, 100, 160, 80, buttonImagePaths , "assets/ttf/liberation.ttf", "Play");

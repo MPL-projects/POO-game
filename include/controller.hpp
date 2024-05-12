@@ -21,6 +21,10 @@ public:
     void registerWithEventHandler(Event &handler);
     void getMove();
     static int id;
+
+    Event eventId1,eventId2;
+
+    // void unregisterEvents(Event &handler);
 };
 
 #endif

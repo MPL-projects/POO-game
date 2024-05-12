@@ -3,6 +3,8 @@
 
 #include "event.hpp"
 #include "player.hpp"
+#include "window.hpp"
+
 
 #include <iostream>
 #include <vector>
@@ -16,7 +18,7 @@ class Game
 {
 public:
     Game();
-    // ~Game();
+    ~Game();
 
     // void init();
     void update();
@@ -26,11 +28,15 @@ public:
     static bool isRunning(){return RUNNING;};
     static void stopGame(){RUNNING = false;};
 
-    Event eventHandler;
+    
+
+    // Event eventHandler;
     SDL_Surface *screenSurface;
-    SDL_Window *window;
+    // SDL_Window *window;
 
     vector<Player*> players;
+    // Player *players;
+    Window *appWindow;
 
 
 private:

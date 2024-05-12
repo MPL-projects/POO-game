@@ -13,8 +13,8 @@ StickFigure::StickFigure(SDL_Renderer *renderer): m_spritesheet("player1.png", 1
     m_position.w = 48 * ratio;
     m_position.h = 48 * ratio;
 
-    m_x = 0.0;
-    m_y = 0.0;
+    x = 0.0;
+    y = 0.0;
 
     m_direction = Direction::NONE;
     m_direction_prev = Direction::DOWN;
@@ -52,8 +52,8 @@ void StickFigure::update(double delta_time)
     switch(m_direction)
     {
         case Direction::NONE:
-            m_x += 0.0;
-            m_y += 0.0;
+            x += 0.0;
+            y += 0.0;
             switch(m_direction_prev)
                 {
                     case Direction::NONE:
@@ -74,26 +74,26 @@ void StickFigure::update(double delta_time)
                 }
             break;
         case Direction::UP:
-            m_y = m_y - (500.0 * delta_time);
+            y = y - (500.0 * delta_time);
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_UP);
             break;
         case Direction::DOWN:
-            m_y = m_y + (500.0 * delta_time);
+            y = y + (500.0 * delta_time);
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_DOWN);
             break;
         case Direction::LEFT:
-            m_x = m_x - (500.0 * delta_time);
+            x = x - (500.0 * delta_time);
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_LEFT);
             m_spritesheet.flip = SDL_FLIP_HORIZONTAL;
             break;
         case Direction::RIGHT:
-            m_x = m_x + (500.0 * delta_time);
+            x = x + (500.0 * delta_time);
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_RIGHT);
             break;
     }
 
-    m_position.x = m_x;
-    m_position.y = m_y;
+    m_position.x = x;
+    m_position.y = y;
 
     m_spritesheet_column++;
 

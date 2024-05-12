@@ -21,6 +21,8 @@ public:
     void handle_events(SDL_Event const &event);
     void update(double delta_time);
     void draw(SDL_Renderer *renderer);
+    double       x;
+    double       y;
 protected:
     Spritesheet  m_spritesheet;
     int          m_spritesheet_column;
@@ -28,7 +30,6 @@ protected:
     Direction    m_direction_prev;
 
     SDL_Rect     m_position;
-    double       m_x;
-    double       m_y;
+    
 };
 #endif

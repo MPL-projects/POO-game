@@ -20,7 +20,7 @@ public:
 
     // void init();
     void update();
-    // void render();
+    void render();
     void run();
 
     static bool isRunning(){return RUNNING;};

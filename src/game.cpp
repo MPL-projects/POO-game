@@ -76,3 +76,7 @@ void Game::update(){
     renderCross(screenSurface, 3 * SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2, players[1]->x, players[1]->y);
 }
 
+void Game::render(){
+    return;
+}
+

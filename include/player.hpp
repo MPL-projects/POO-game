@@ -22,6 +22,6 @@ public:
 
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
-    void move(double x1, double y1){m_x = x1; m_y = y1;};
+    void move(double x1, double y1){x = x1; y = y1;};
 };
 #endif

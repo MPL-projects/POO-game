@@ -7,8 +7,10 @@ using namespace std;
 
 class Gamepad : public Controller{
     public:
-        Gamepad();
-        SDL_GameController *findGamepad();
+        Gamepad(Player *player_);
+        ~Gamepad(){SDL_GameControllerClose(controller);};
+        SDL_GameController *controller;
+        void getMove();
 
 };
 

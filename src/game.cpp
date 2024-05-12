@@ -52,8 +52,9 @@ void Game::run()
     {
         while (SDL_PollEvent(&event)) {
             appWindow->handleEvents(event);
+            players[1]->handle_events(event);
             players[0]->handle_events(event);
-            // players[1]->handle_events(event);
+            
             mainMenu->handleEvents(event);
             
         }
@@ -85,6 +86,7 @@ void Game::update(){
     // players[0]->controller->getMove();
     // players[1]->controller->getMove();
     players[0]->update(1.0 / 60.0);
+    players[1]->update(1.0 / 60.0);
     
 }
 
@@ -93,6 +95,8 @@ void Game::renderGame(){
     SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
 	SDL_RenderFillRect(appWindow->renderer, nullptr);
     players[0]->draw(appWindow->renderer);
+    players[1]->draw(appWindow->renderer);
+    SDL_Delay(100);
     // SDL_RenderPresent(appWindow->renderer);
 }
 

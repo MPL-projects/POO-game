@@ -23,37 +23,12 @@ StickFigure::StickFigure(SDL_Renderer *renderer): m_spritesheet("assets/images/p
     m_spritesheet_column = 0;
 }
 
-void StickFigure::handle_events(SDL_Event const &event)
-{
-    switch(event.type)
-    {
-        case SDL_KEYUP:
-            m_direction_prev = m_direction;
-            m_direction = Direction::NONE;
-        case SDL_KEYDOWN:
-            Uint8 const *keys = SDL_GetKeyboardState(nullptr);
-            if (m_direction == Direction::NONE){
-                if(keys[SDL_SCANCODE_W] == 1)
-                    m_direction = Direction::UP;
-                else if(keys[SDL_SCANCODE_S] == 1)
-                    m_direction = Direction::DOWN;
-                else if(keys[SDL_SCANCODE_A] == 1)
-                    m_direction = Direction::LEFT;
-                else if(keys[SDL_SCANCODE_D] == 1)
-                    m_direction = Direction::RIGHT;
-            }
-            break;
-    }
-}
-
 void StickFigure::update(double delta_time)
 {
     m_spritesheet.flip = SDL_FLIP_NONE;
     switch(m_direction)
     {
         case Direction::NONE:
-            x += 0.0;
-            y += 0.0;
             switch(m_direction_prev)
                 {
                     case Direction::NONE:
@@ -74,26 +49,23 @@ void StickFigure::update(double delta_time)
                 }
             break;
         case Direction::UP:
-            y = y - (500.0 * delta_time);
+            move(0, - (500.0 * delta_time));
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_UP);
             break;
         case Direction::DOWN:
-            y = y + (500.0 * delta_time);
+            move(0, (500.0 * delta_time));
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_DOWN);
             break;
         case Direction::LEFT:
-            x = x - (500.0 * delta_time);
+            move(- (500.0 * delta_time), 0);
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_LEFT);
             m_spritesheet.flip = SDL_FLIP_HORIZONTAL;
             break;
         case Direction::RIGHT:
-            x = x + (500.0 * delta_time);
+            move((500.0 * delta_time), 0);
             m_spritesheet.select_sprite(m_spritesheet_column, SPRITESHEET_RIGHT);
             break;
     }
-
-    m_position.x = x;
-    m_position.y = y;
 
     m_spritesheet_column++;
 
@@ -104,5 +76,13 @@ void StickFigure::update(double delta_time)
 void StickFigure::draw(SDL_Renderer *renderer)
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
-    SDL_Delay(100);
+}
+
+void StickFigure::move(double dx, double dy){
+    x += dx;
+    y += dy;
+
+    m_position.x = x;
+    m_position.y = y;
+    
 }

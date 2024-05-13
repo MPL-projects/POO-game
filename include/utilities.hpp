@@ -7,4 +7,13 @@
 SDL_Surface *load_bmp(char const *path);
 bool checkCollision(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b);
 
+enum class Direction
+{
+    NONE,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+};
+
 #endif

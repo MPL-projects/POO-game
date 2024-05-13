@@ -5,12 +5,13 @@
 #include <vector>
 #include <string>
 #include <SDL2/SDL.h>
+#include <algorithm>
 
 using namespace std;
 
 class Keyboard : public Controller{
     public:
-        Keyboard(Player *player_);
+        Keyboard();
         ~Keyboard();
         void getMove();
         void handle_events(SDL_Event const &event);
@@ -21,6 +22,7 @@ class Keyboard : public Controller{
         std::map<std::string, vector<SDL_KeyCode>> Keys;
         int id;
         static int nb_keyboard;
+        
 
 
 };

@@ -1,5 +1,4 @@
 #include "../include/gamepad.hpp"
-#include "../include/player.hpp"
 #include "../include/game.hpp"
 
 SDL_GameController *findController() {
@@ -18,7 +17,7 @@ inline SDL_JoystickID getControllerInstanceID(SDL_GameController *controller) {
             SDL_GameControllerGetJoystick(controller));
 }
 
-Gamepad::Gamepad(Player *player_) : Controller(player_){
+Gamepad::Gamepad() : Controller(){
     controller = findController();
 }
 
@@ -27,7 +26,7 @@ void Gamepad::getMove(){
             float x = (float) SDL_GameControllerGetAxis(controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX) / (float) INT16_MAX;
             float y = (float) SDL_GameControllerGetAxis(controller, SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY) / (float) INT16_MAX;
             // renderCross(screenSurface, SCREEN_WIDTH / 4, SCREEN_HEIGHT / 2, x, y);
-            player->move(x, y);
+            // player->move(x, y);
         }
 
 }

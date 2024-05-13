@@ -3,15 +3,7 @@
 #include <SDL2/SDL.h>
 #include "spritesheet.hpp"
 #include <tuple>
-
-enum class Direction
-{
-    NONE,
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-};
+#include "utilities.hpp"
 
 class StickFigure
 {

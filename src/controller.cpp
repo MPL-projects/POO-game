@@ -1,12 +1,10 @@
 #include "../include/controller.hpp"
-#include "../include/player.hpp"
 #include "../include/game.hpp"
 
 int Controller::id = 0;
 
-Controller::Controller(Player *player_)
+Controller::Controller()
 {
-    player = player_;
 }
 
 // void Controller::registerWithEventHandler(Event &handler)

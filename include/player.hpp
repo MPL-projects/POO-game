@@ -16,7 +16,7 @@ public:
     Controller *controller;
     // Player(SDL_Renderer *renderer, const char *imagePath, int startX, int startY) : Sprite(renderer, imagePath, startX, startY){};
     // Player(const Player &player_);
-    Player(SDL_Renderer *renderer, const char* path_to_sprite) : StickFigure(renderer, path_to_sprite) {test=5;controller = new Keyboard(this);};
+    Player(SDL_Renderer *renderer, const char* path_to_sprite) : StickFigure(renderer, path_to_sprite) {controller = new Keyboard();};
     ~Player(){delete controller;};
     void handle_events(SDL_Event const &event);
 

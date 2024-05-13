@@ -1,6 +1,8 @@
 #include "../include/window.hpp"
 #include "../include/game.hpp"
 
+int Window::HEIGHT=0;
+int Window::WIDTH=0;
 
 void Window::createWindow(const char *windowTitle, const int width, const int height){
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0)
@@ -8,6 +10,8 @@ void Window::createWindow(const char *windowTitle, const int width, const int he
         fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
         return;
     }
+    WIDTH = width;
+    HEIGHT = height;
     mainWindow = SDL_CreateWindow(windowTitle, 10, 10, width, height, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(mainWindow, -1, 0);
     screenSurface = SDL_GetWindowSurface(mainWindow);

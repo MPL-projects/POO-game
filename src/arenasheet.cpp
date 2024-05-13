@@ -10,6 +10,7 @@ Arenasheet::Arenasheet(char const *path, SDL_Renderer *renderer)
     // std::cerr << m_clip.w << " " << m_clip.h << std::endl;
     SDL_FreeSurface(m_arena_image);
     flip = SDL_FLIP_NONE;
+    rotation = 0;
 
 }
 
@@ -32,9 +33,10 @@ void Arenasheet::select_sprite(int x, int y, int w, int h)
 void Arenasheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position)
 {
     // SDL_RenderCopy(renderer, m_spritesheet_image_texture, &m_clip, position);
-    SDL_RenderCopyEx(renderer, m_arena_image_texture, &m_clip, position, 0, nullptr, flip);
+    SDL_RenderCopyEx(renderer, m_arena_image_texture, &m_clip, position, rotation, nullptr, flip);
     // SDL_BlitSurface(m_spritesheet_image, &m_clip, window_surface, position);
 }
+
 
 
 

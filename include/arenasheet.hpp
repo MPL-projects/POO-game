@@ -12,8 +12,10 @@ public:
     void select_sprite(int x, int y, int w, int h);
     void draw_selected_sprite(SDL_Renderer *renderervoi, SDL_Rect *position);
     void set_filp(SDL_RendererFlip f){flip=f;};
+    void set_rotation(int r){rotation = r;};
     
     SDL_RendererFlip flip;
+    int rotation;
 
 private:
     

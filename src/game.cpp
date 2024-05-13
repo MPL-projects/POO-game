@@ -39,12 +39,11 @@ Game::Game()
     screenSurface = appWindow->screenSurface;
     
     // players = new Player;
-    for(int i=0; i<2;i++){
-        players.push_back(new Player(appWindow->renderer));
-       
-        // players[i]->controller->registerWithEventHandlers(eventHandler);
+    players.push_back(new Player(appWindow->renderer, "assets/images/players/player1.png"));
+	players.push_back(new Player(appWindow->renderer, "assets/images/players/player2.png"));
 
-    }
+    // players[i]->controller->registerWithEventHandlers(eventHandler);
+
     RUNNING = true;
 }
 

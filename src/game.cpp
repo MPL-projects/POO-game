@@ -3,10 +3,12 @@
 #include "../include/window.hpp"
 #include "../include/menu.hpp"
 #include "../include/button.hpp"
+#include "../include/arenasheet.hpp"
+#include "../include/arena.hpp"
 
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH 1366
+#define SCREEN_HEIGHT 768
 
 bool Game::RUNNING = true;
 int Game::gameStatus = 0;
@@ -48,6 +50,7 @@ void Game::run()
 {
     SDL_Event event;
     intiMainMenu();
+    initArena();
     while (RUNNING)
     {
         while (SDL_PollEvent(&event)) {
@@ -94,6 +97,7 @@ void Game::renderGame(){
     // SDL_RenderClear(appWindow->renderer);
     SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
 	SDL_RenderFillRect(appWindow->renderer, nullptr);
+    arena->drawArena(appWindow->renderer);
     players[0]->draw(appWindow->renderer);
     players[1]->draw(appWindow->renderer);
     SDL_Delay(100);
@@ -107,6 +111,7 @@ Game::~Game(){
     }
     players.clear();
     delete appWindow;
+    delete arena;
     delete screenSurface;
     delete mainMenu;
     appWindow->destroyWindow();
@@ -119,4 +124,8 @@ void Game::intiMainMenu(){
     std::vector<std::string> buttonImagePaths = { "assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png" };
     Button* playButton = new Button(appWindow->renderer, (SCREEN_WIDTH-160)/2, (SCREEN_HEIGHT-80)/2, 160, 80, buttonImagePaths , "assets/ttf/liberation.ttf", "Play",1);
     mainMenu->addButton(playButton);
+}
+
+void Game::initArena(){
+    arena = new Arena(appWindow->renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 }

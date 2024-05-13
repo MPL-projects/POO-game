@@ -90,8 +90,8 @@ void Game::run()
 void Game::update(){
     // players[0]->controller->getMove();
     // players[1]->controller->getMove();
-    players[0]->update(1.0 / 60.0);
-    players[1]->update(1.0 / 60.0);
+    players[0]->update(1.0 / 40.0);
+    players[1]->update(1.0 / 40.0);
     
 }
 
@@ -102,7 +102,7 @@ void Game::renderGame(){
     scene->drawScene(appWindow->renderer);
     players[0]->draw(appWindow->renderer);
     players[1]->draw(appWindow->renderer);
-    SDL_Delay(100);
+    SDL_Delay(50);
     // SDL_RenderPresent(appWindow->renderer);
 }
 

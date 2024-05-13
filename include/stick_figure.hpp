@@ -8,7 +8,8 @@
 class StickFigure
 {
 public:
-    StickFigure(SDL_Renderer *renderer);
+
+    StickFigure(SDL_Renderer *renderer, const char* path_to_sprite);
     ~StickFigure() = default;
 
     void handle_events(SDL_Event const &event);

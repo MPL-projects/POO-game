@@ -8,6 +8,7 @@ Keyboard::Keyboard() : Controller(){
     Keys["DOWN"].insert(Keys["DOWN"].end(),{SDLK_s, SDLK_DOWN});
     Keys["RIGHT"].insert(Keys["RIGHT"].end(),{SDLK_d, SDLK_RIGHT});
     Keys["LEFT"].insert(Keys["LEFT"].end(),{SDLK_q, SDLK_LEFT});
+    Keys["ATT"].insert(Keys["ATT"].end(),{SDLK_e, SDLK_m});
     id = nb_keyboard;
     nb_keyboard++;
     ev.push_back(Direction::NONE);
@@ -73,6 +74,8 @@ void Keyboard::handle_events(SDL_Event const &event)
                 ev.push_back(Direction::LEFT);
             else if(Keys["RIGHT"][id] == event.key.keysym.sym)
                 ev.push_back(Direction::RIGHT);
+            else if(Keys["ATT"][id] == event.key.keysym.sym)
+                att = true;
             break;
     }
 }

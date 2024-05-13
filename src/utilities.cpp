@@ -18,14 +18,14 @@ bool checkCollision(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b){
     int topA, topB;
     int bottomA, bottomB;
 
-    for( int Abox = 0; Abox < a.size(); Abox++ )
+    for( int Abox = 0; Abox < (int)a.size(); Abox++ )
     {
         leftA = a[ Abox ].x;
         rightA = a[ Abox ].x + a[ Abox ].w;
         topA = a[ Abox ].y;
         bottomA = a[ Abox ].y + a[ Abox ].h;
 
-        for( int Bbox = 0; Bbox < b.size(); Bbox++ )
+        for( int Bbox = 0; Bbox < (int)b.size(); Bbox++ )
         {
             leftB = b[ Bbox ].x;
             rightB = b[ Bbox ].x + b[ Bbox ].w;
@@ -33,6 +33,25 @@ bool checkCollision(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b){
             bottomB = b[ Bbox ].y + b[ Bbox ].h;
 
             if( ( ( bottomA <= topB ) || ( topA >= bottomB ) || ( rightA <= leftB ) || ( leftA >= rightB ) ) == false )
+            {
+                return true;
+            }
+        }
+    }
+
+    //If neither set of collision boxes touched
+    return false;
+}
+
+bool checkCollision2(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b){
+    //SDL_IntersectRect()
+    
+
+    for(auto& ra : a)
+    {
+        for(auto& rb : b)
+        {
+            if(SDL_HasIntersection(&ra, &rb))
             {
                 return true;
             }

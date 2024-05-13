@@ -14,6 +14,7 @@
 bool Game::RUNNING = true;
 int Game::gameStatus = 0;
 Scene* Game::scene = nullptr;
+std::vector<Player*> Game::players;
 
 
 

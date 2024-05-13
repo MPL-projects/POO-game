@@ -41,7 +41,7 @@ public:
     SDL_Surface *screenSurface;
     // SDL_Window *window;
 
-    vector<Player*> players;
+    static vector<Player*> players;
     // Player *players;
     Window *appWindow;
     Menu *mainMenu;

@@ -14,16 +14,21 @@ class Player : public StickFigure
 {
 public:
     Controller *controller;
-    int test;
     // Player(SDL_Renderer *renderer, const char *imagePath, int startX, int startY) : Sprite(renderer, imagePath, startX, startY){};
     // Player(const Player &player_);
-    Player(SDL_Renderer *renderer) : StickFigure(renderer) {test=5;controller = new Keyboard();};
+    Player(SDL_Renderer *renderer);
     ~Player(){delete controller;};
     void handle_events(SDL_Event const &event);
+
+    static int nb_players;
 
 
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
+private:
+    int strength;
+    int life;
+    void initMeleeAttack();
     
 };
 #endif

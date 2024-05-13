@@ -20,6 +20,8 @@ public:
     Direction m_direction_prev;
     std::vector<SDL_Rect> &get_boxes();
     void move_boxes();
+    void meleeAttack();
+    int id;
 
 protected:
     double x;
@@ -31,5 +33,7 @@ protected:
     SDL_Rect m_position;
     double x_off;
     double y_off;
+    Direction att_dir;
+    bool hit;
 };
 #endif

@@ -19,6 +19,7 @@ public:
     static int id;
 
     std::vector<Direction> ev;
+    bool att;
 };
 
 #endif

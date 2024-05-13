@@ -1,4 +1,6 @@
 #include "../include/stick_figure.hpp"
+#include "../include/window.hpp"
+#include "../include/game.hpp"
 
 int const SPRITESHEET_UP = 5;
 int const SPRITESHEET_LEFT = 4;
@@ -81,8 +83,40 @@ void StickFigure::draw(SDL_Renderer *renderer)
 void StickFigure::move(double dx, double dy){
     x += dx;
     y += dy;
+    move_boxes(dx, dy);
+
+    bool isCollisions = checkCollision(collisions_boxes, otherColliders);
+
+    if( ( x < 0 ) || ( x + m_position.w > Window::WIDTH ) || isCollisions )
+    {
+        //Move back
+        x -= dx;
+        move_boxes(-dx,0);
+    }
+
+    //If the dot collided or went too far up or down
+    if( ( y < 0 ) || ( y + m_position.h > Window::HEIGHT ) || isCollisions )
+    {
+        //Move back
+        y -= dy;
+        move_boxes(0,-dy);
+    }
 
     m_position.x = x;
     m_position.y = y;
     
+}
+
+void StickFigure::move_boxes(double dx, double dy){
+    //Go through the dot's collision boxes
+    for(auto &box : collisions_boxes)
+    {
+        box.x += dx;
+        box.y += dy;
+    }
+}
+
+std::vector<SDL_Rect> StickFigure::get_boxes()
+{
+    return collisions_boxes;
 }

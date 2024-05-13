@@ -5,6 +5,7 @@
 #include "player.hpp"
 #include "window.hpp"
 #include "menu.hpp"
+#include "arena.hpp"
 
 
 
@@ -43,11 +44,13 @@ public:
     // Player *players;
     Window *appWindow;
     Menu *mainMenu;
+    Arena *arena;
 
 
 private:
     static bool RUNNING;
     void intiMainMenu();
+    void initArena();
     
 };
 #endif

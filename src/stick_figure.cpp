@@ -20,10 +20,10 @@ StickFigure::StickFigure(SDL_Renderer *renderer, const char* path_to_sprite): m_
     x = m_position.x;
     y = m_position.y;
 
-    bb_off.push_back({m_position.w/3, 2*m_position.h/5});
+    bb_off.push_back({m_position.w/3, 3*m_position.h/5});
     
     // SDL_Rect r = {m_position.x + bb_off[0][0], m_position.y + bb_off[1][0], m_position.w/4, m_position.h/2};
-    SDL_Rect r = {(int)x + bb_off[0][0], (int)y + bb_off[0][1], m_position.w/3, m_position.h/2};
+    SDL_Rect r = {(int)x + bb_off[0][0], (int)y + bb_off[0][1], m_position.w/3, m_position.h/3};
     bb.push_back(r);
     
     
@@ -135,9 +135,9 @@ void StickFigure::draw(SDL_Renderer *renderer)
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
     // SDL_RenderDrawRect(renderer, &m_position);
-    SDL_RenderDrawRect(renderer, &bb[0]);
-    if(bb.size() > 1)
-        SDL_RenderDrawRect(renderer, &bb.back());
+    // SDL_RenderDrawRect(renderer, &bb[0]);
+    // if(bb.size() > 1)
+    //     SDL_RenderDrawRect(renderer, &bb.back());
 }
 
 void bounds(double &p, int bb_p, int bb_s, int bb_off_p, int size_p){

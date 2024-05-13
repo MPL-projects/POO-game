@@ -32,15 +32,15 @@ void Player::initMeleeAttack(){
     SDL_Rect att_bb;
     std::vector<int> att_bb_off;
 
-    int r_w = bb[0].w;
-    int r_h = 30;
+    int r_w = bb[0].h;
+    int r_h = bb[0].w/2;
     switch(att_dir){
         case Direction::UP:
-            att_bb_off = {bb_off[0][0], bb_off[0][1]-r_h};
+            att_bb_off = {bb_off[0][0]+(bb[0].w-r_w)/2, bb_off[0][1]-3*r_h/5};
             att_bb = {(int)x + att_bb_off[0], (int)y + att_bb_off[1], r_w, r_h};
             break;
         case Direction::DOWN:
-            att_bb_off = {bb_off[0][0], bb_off[0][1]+bb[0].h};
+            att_bb_off = {bb_off[0][0]+(bb[0].w-r_w)/2, bb_off[0][1]+bb[0].h-r_h/2};
             att_bb = {(int)x + att_bb_off[0], (int)y + att_bb_off[1], r_w, r_h};
             break;
         case Direction::LEFT:

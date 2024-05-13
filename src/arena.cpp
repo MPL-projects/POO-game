@@ -21,11 +21,8 @@ Arena::~Arena(){
 }
 
 void Arena::drawArena(SDL_Renderer *renderer){
-    std::cout << "test 1\n";
     drawFloor(renderer);
-    std::cout << "test 2\n";
     drawHouse(renderer);
-    std::cout << "test 3\n";
     drawTree(renderer);
     // drawWall(renderer);
 }
@@ -49,9 +46,7 @@ void Arena::drawWall(SDL_Renderer *renderer){
 }
 
 void Arena::drawFloor(SDL_Renderer *renderer){
-    std::cout << "test a\n";
     floor->select_sprite(32,176,32,32);
-    std::cout << "test b\n";
     int offsetX = 0;
     int offsetY = 0;
     int floor_w = (screen_width / 6)+ 1;

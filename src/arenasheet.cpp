@@ -3,7 +3,6 @@
 
 Arenasheet::Arenasheet(char const *path, SDL_Renderer *renderer)
 {
-    std::cout << "aaaa\n";
     m_arena_image = load_bmp(path);
     m_arena_image_texture = SDL_CreateTextureFromSurface(renderer, m_arena_image);
     m_clip = {0,0,0,0};
@@ -23,9 +22,7 @@ Arenasheet::~Arenasheet()
 
 void Arenasheet::select_sprite(int x, int y, int w, int h)
 {
-    std::cout << "test x\n";
     m_clip.x = x;
-    std::cout << "test y\n";
     m_clip.y = y;
     m_clip.w = w;
     m_clip.h = h;

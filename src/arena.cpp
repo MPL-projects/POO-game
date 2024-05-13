@@ -9,10 +9,10 @@ Arena::Arena(SDL_Renderer *renderer) : Scene()
 {
     screen_width = Window::WIDTH;
     screen_height = Window::HEIGHT;
-    floor = new Arenasheet("assets/images/backgrounds_elements/floors/TilesetFloor.png",renderer);
-    tree = new Arenasheet("assets/images/backgrounds_elements/TilesetNature.png",renderer);
-    abandonedHouse = new Arenasheet("assets/images/backgrounds_elements/TilesetVillageAbandoned.png",renderer);
-    water = new Arenasheet("assets/images/backgrounds_elements/TilesetWater1.png",renderer);
+    floor = new Scenesheet("assets/images/backgrounds_elements/floors/TilesetFloor.png",renderer);
+    tree = new Scenesheet("assets/images/backgrounds_elements/TilesetNature.png",renderer);
+    abandonedHouse = new Scenesheet("assets/images/backgrounds_elements/TilesetVillageAbandoned.png",renderer);
+    water = new Scenesheet("assets/images/backgrounds_elements/TilesetWater1.png",renderer);
 
 }
 

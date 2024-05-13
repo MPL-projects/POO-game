@@ -3,11 +3,11 @@
 #include <SDL2/SDL.h>
 #include "utilities.hpp"
 
-class Arenasheet
+class Scenesheet
 {
 public:
-    Arenasheet(char const *path, SDL_Renderer *renderer);
-    ~Arenasheet();
+    Scenesheet(char const *path, SDL_Renderer *renderer);
+    ~Scenesheet();
 
     void select_sprite(int x, int y, int w, int h);
     void draw_selected_sprite(SDL_Renderer *renderervoi, SDL_Rect *position);

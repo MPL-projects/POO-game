@@ -3,8 +3,7 @@
 #include "../include/window.hpp"
 #include "../include/menu.hpp"
 #include "../include/button.hpp"
-#include "../include/arenasheet.hpp"
-#include "../include/arena.hpp"
+#include "../include/scenesheet.hpp"
 #include "../include/scene.hpp"
 
 

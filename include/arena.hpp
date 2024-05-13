@@ -1,7 +1,7 @@
 #ifndef ARENA_HPP
 #define ARENA_HPP
 #include <SDL2/SDL.h>
-#include "arenasheet.hpp"
+#include "scenesheet.hpp"
 #include  "scene.hpp"
 
 class Arena : public Scene
@@ -17,7 +17,7 @@ public:
 protected:
     int screen_width, screen_height;
     SDL_Rect     m_position;
-    Arenasheet  *wall, *floor, *tree, *abandonedHouse, *water;
+    Scenesheet  *floor, *tree, *abandonedHouse, *water;
     void drawWall(SDL_Renderer *renderer);
     void drawFloor(SDL_Renderer *renderer);
     void drawTree(SDL_Renderer *renderer);

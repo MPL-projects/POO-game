@@ -1,7 +1,7 @@
-#include "../include/arenasheet.hpp"
+#include "../include/scenesheet.hpp"
 #include <iostream>
 
-Arenasheet::Arenasheet(char const *path, SDL_Renderer *renderer)
+Scenesheet::Scenesheet(char const *path, SDL_Renderer *renderer)
 {
     m_arena_image = load_bmp(path);
     m_arena_image_texture = SDL_CreateTextureFromSurface(renderer, m_arena_image);
@@ -14,14 +14,14 @@ Arenasheet::Arenasheet(char const *path, SDL_Renderer *renderer)
 
 }
 
-Arenasheet::~Arenasheet()
+Scenesheet::~Scenesheet()
 {
     // SDL_FreeSurface(m_spritesheet_image);
     SDL_DestroyTexture(m_arena_image_texture);
 }
 
 
-void Arenasheet::select_sprite(int x, int y, int w, int h)
+void Scenesheet::select_sprite(int x, int y, int w, int h)
 {
     m_clip.x = x;
     m_clip.y = y;
@@ -30,7 +30,7 @@ void Arenasheet::select_sprite(int x, int y, int w, int h)
 }
 
 
-void Arenasheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position)
+void Scenesheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position)
 {
     // SDL_RenderCopy(renderer, m_spritesheet_image_texture, &m_clip, position);
     SDL_RenderCopyEx(renderer, m_arena_image_texture, &m_clip, position, rotation, nullptr, flip);

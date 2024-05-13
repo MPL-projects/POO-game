@@ -7,7 +7,7 @@ Arenasheet::Arenasheet(char const *path, SDL_Renderer *renderer)
     m_arena_image_texture = SDL_CreateTextureFromSurface(renderer, m_arena_image);
     m_clip = {0,0,0,0};
    
-    std::cerr << m_clip.w << " " << m_clip.h << std::endl;
+    // std::cerr << m_clip.w << " " << m_clip.h << std::endl;
     SDL_FreeSurface(m_arena_image);
     flip = SDL_FLIP_NONE;
 

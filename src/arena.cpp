@@ -3,7 +3,7 @@
 
 
 
-Arena::Arena(SDL_Renderer *renderer, int w, int h)
+Arena::Arena(SDL_Renderer *renderer, int w, int h) : Scene()
 {
     screen_width = w;
     screen_height = h;
@@ -20,7 +20,7 @@ Arena::~Arena(){
     delete tree;
 }
 
-void Arena::drawArena(SDL_Renderer *renderer){
+void Arena::drawScene(SDL_Renderer *renderer){
     drawFloor(renderer);
     drawHouse(renderer);
     drawTree(renderer);

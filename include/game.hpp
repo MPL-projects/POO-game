@@ -6,6 +6,7 @@
 #include "window.hpp"
 #include "menu.hpp"
 #include "arena.hpp"
+#include "scene.hpp"
 
 
 
@@ -44,7 +45,7 @@ public:
     // Player *players;
     Window *appWindow;
     Menu *mainMenu;
-    Arena *arena;
+    static Scene *scene ;
 
 
 private:

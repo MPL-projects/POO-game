@@ -5,6 +5,7 @@
 #include "../include/button.hpp"
 #include "../include/arenasheet.hpp"
 #include "../include/arena.hpp"
+#include "../include/scene.hpp"
 
 
 #define SCREEN_WIDTH 1366
@@ -12,6 +13,7 @@
 
 bool Game::RUNNING = true;
 int Game::gameStatus = 0;
+Scene* Game::scene = nullptr;
 
 
 
@@ -97,7 +99,7 @@ void Game::renderGame(){
     // SDL_RenderClear(appWindow->renderer);
     SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
 	SDL_RenderFillRect(appWindow->renderer, nullptr);
-    arena->drawArena(appWindow->renderer);
+    scene->drawScene(appWindow->renderer);
     players[0]->draw(appWindow->renderer);
     players[1]->draw(appWindow->renderer);
     SDL_Delay(100);
@@ -111,7 +113,7 @@ Game::~Game(){
     }
     players.clear();
     delete appWindow;
-    delete arena;
+    delete scene;
     delete screenSurface;
     delete mainMenu;
     appWindow->destroyWindow();
@@ -127,5 +129,5 @@ void Game::intiMainMenu(){
 }
 
 void Game::initArena(){
-    arena = new Arena(appWindow->renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+    scene = new Arena(appWindow->renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 }

@@ -2,15 +2,17 @@
 #define ARENA_HPP
 #include <SDL2/SDL.h>
 #include "arenasheet.hpp"
+#include  "scene.hpp"
 
-class Arena
+class Arena : public Scene
 {
 public:
 
     Arena(SDL_Renderer *renderer, int w, int h);
     ~Arena();
 
-    void drawArena(SDL_Renderer *renderer);
+   void drawScene(SDL_Renderer *renderer);
+   
 
 protected:
     int screen_width, screen_height;

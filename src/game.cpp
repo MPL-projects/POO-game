@@ -17,19 +17,19 @@ Scene* Game::scene = nullptr;
 
 
 
-void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
-    SDL_Rect rect = {x, y - w / 2, 1, w};
-    SDL_FillRect(screenSurface, &rect, color);
+// void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
+//     SDL_Rect rect = {x, y - w / 2, 1, w};
+//     SDL_FillRect(screenSurface, &rect, color);
 
-    rect = {x - w / 2, y, w, 1};
-    SDL_FillRect(screenSurface, &rect, color);
-}
+//     rect = {x - w / 2, y, w, 1};
+//     SDL_FillRect(screenSurface, &rect, color);
+// }
 
-void renderCross(SDL_Surface *screenSurface , int x, int y, float x1, float x2) {
-    renderCross1(screenSurface, x, y, 20, SDL_MapRGB(screenSurface->format, 0x99, 0x99, 0x99));
-    renderCross1(screenSurface, x + x1 * SCREEN_WIDTH * 0.2f, y + x2 * SCREEN_HEIGHT * 0.2f,
-            10, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xAA));
-}
+// void renderCross(SDL_Surface *screenSurface , int x, int y, float x1, float x2) {
+//     renderCross1(screenSurface, x, y, 20, SDL_MapRGB(screenSurface->format, 0x99, 0x99, 0x99));
+//     renderCross1(screenSurface, x + x1 * SCREEN_WIDTH * 0.2f, y + x2 * SCREEN_HEIGHT * 0.2f,
+//             10, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xAA));
+// }
 
 Game::Game()
 {
@@ -129,5 +129,5 @@ void Game::intiMainMenu(){
 }
 
 void Game::initArena(){
-    scene = new Arena(appWindow->renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+    scene = new Arena(appWindow->renderer);
 }

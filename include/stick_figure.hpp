@@ -26,7 +26,7 @@ public:
     
     Direction    m_direction;
     Direction    m_direction_prev;
-    std::vector<SDL_Rect> get_boxes();
+    std::vector<SDL_Rect>& get_boxes();
     void move_boxes(double dx, double dy);
 protected:
     double x;

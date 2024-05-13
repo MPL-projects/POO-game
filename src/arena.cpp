@@ -1,12 +1,14 @@
 #include "../include/arena.hpp"
+#include "../include/window.hpp"
+
 #include <iostream>
 
 
 
-Arena::Arena(SDL_Renderer *renderer, int w, int h) : Scene()
+Arena::Arena(SDL_Renderer *renderer) : Scene()
 {
-    screen_width = w;
-    screen_height = h;
+    screen_width = Window::WIDTH;
+    screen_height = Window::HEIGHT;
     wall = new Arenasheet("assets/images/backgrounds_elements/walls/walls.png",renderer);
     floor = new Arenasheet("assets/images/backgrounds_elements/floors/TilesetFloor.png",renderer);
     house = new Arenasheet("assets/images/backgrounds_elements/TilesetHouse.png",renderer);

@@ -1,6 +1,7 @@
 #include "../include/stick_figure.hpp"
 #include "../include/window.hpp"
 #include "../include/game.hpp"
+#include "../include/scene.hpp"
 
 int const SPRITESHEET_UP = 5;
 int const SPRITESHEET_LEFT = 4;
@@ -85,7 +86,7 @@ void StickFigure::move(double dx, double dy){
     y += dy;
     move_boxes(dx, dy);
 
-    bool isCollisions = checkCollision(collisions_boxes, otherColliders);
+    bool isCollisions = checkCollision(collisions_boxes, Game::scene->get_boxes());
 
     if( ( x < 0 ) || ( x + m_position.w > Window::WIDTH ) || isCollisions )
     {
@@ -116,7 +117,7 @@ void StickFigure::move_boxes(double dx, double dy){
     }
 }
 
-std::vector<SDL_Rect> StickFigure::get_boxes()
+std::vector<SDL_Rect>& StickFigure::get_boxes()
 {
     return collisions_boxes;
 }

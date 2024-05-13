@@ -8,7 +8,7 @@ class Arena : public Scene
 {
 public:
 
-    Arena(SDL_Renderer *renderer, int w, int h);
+    Arena(SDL_Renderer *renderer);
     ~Arena();
 
    void drawScene(SDL_Renderer *renderer);

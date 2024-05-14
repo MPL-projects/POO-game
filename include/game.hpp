@@ -45,6 +45,7 @@ public:
     // Player *players;
     Window *appWindow;
     Menu *mainMenu;
+    Menu *mainChooseSkin;
     static Scene *scene ;
 
 
@@ -52,6 +53,7 @@ private:
     static bool RUNNING;
     void initMainMenu();
     void initArena();
+	void initChooseSkin();
     
 };
 #endif

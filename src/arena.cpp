@@ -1,5 +1,5 @@
 #include "../include/arena.hpp"
-#include "../include/window.hpp"
+#include "../include/game.hpp"
 
 #include <iostream>
 
@@ -7,8 +7,8 @@
 
 Arena::Arena(SDL_Renderer *renderer) : Scene()
 {
-    screen_width = Window::WIDTH;
-    screen_height = Window::HEIGHT;
+    screen_width = Game::appWindow->WIDTH;
+    screen_height = Game::appWindow->HEIGHT;
     floor = new Scenesheet("assets/images/backgrounds_elements/floors/TilesetFloor.png",renderer);
     tree = new Scenesheet("assets/images/backgrounds_elements/TilesetNature.png",renderer);
     abandonedHouse = new Scenesheet("assets/images/backgrounds_elements/TilesetVillageAbandoned.png",renderer);

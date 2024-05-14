@@ -130,7 +130,7 @@ void Sprite::move(double dx, double dy){
 
     // if(bb[0].x < 0){x = - bb_off[0][0];}
     // else if( bb[0].x + bb[0].w > Window::WIDTH ){x = Window::WIDTH - bb[0].w - bb_off[0][0];}
-    bounds(x, bb[0].x, bb[0].w, bb_off[0][0], Window::WIDTH);
+    bounds(x, bb[0].x, bb[0].w, bb_off[0][0], Game::appWindow->WIDTH);
 
 
 
@@ -149,7 +149,7 @@ void Sprite::move(double dx, double dy){
 
     // if(bb[0].y < 0){y = - bb_off[0][1];}
     // else if( bb[0].y + bb[0].h > Window::HEIGHT ){y = Window::HEIGHT - bb[0].h - bb_off[0][1];}
-    bounds(y, bb[0].y, bb[0].h, bb_off[0][1], Window::HEIGHT);
+    bounds(y, bb[0].y, bb[0].h, bb_off[0][1], Game::appWindow->HEIGHT);
 
 
 

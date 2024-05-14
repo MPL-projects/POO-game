@@ -12,7 +12,7 @@ class Controller
 {
 public:
     Controller();
-    virtual ~Controller(){att=false;block=false;};
+    virtual ~Controller(){};
 
     virtual void handle_events(SDL_Event const &event)=0;
     

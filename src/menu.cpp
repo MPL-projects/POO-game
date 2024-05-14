@@ -1,13 +1,15 @@
 // menu.cpp
 #include "../include/menu.hpp"
+#include "../include/utilities.hpp"
+#include "../include/game.hpp"
 
-Menu::Menu(SDL_Renderer *menuFontRenderer, SDL_Window *window)
+Menu::Menu()
 {
     TTF_Init();
-    m_renderer = menuFontRenderer;
-    windowScreen = window;
-    SDL_GetWindowSize(window, &windowWidth, &windowHeight);
-
+    m_renderer = Game::appWindow->renderer;
+    windowWidth = Game::appWindow->HEIGHT;
+    windowHeight = Game::appWindow->WIDTH;
+    //add a default background texture (white rectangle for example)
 }
 
 Menu::~Menu() {
@@ -18,21 +20,21 @@ Menu::~Menu() {
     TTF_Quit();
 }
 
-void Menu::displayMenu(const std::string& backPath) {
-    backgroundMenuScreen(backPath);
+void Menu::displayMenu() {
+    render_background();
     for(auto button : buttons) {
         button->render(); // Render each button
     }
-    // SDL_RenderPresent(m_renderer);
 }
 
-void Menu::backgroundMenuScreen(const std::string&  imagePath) {
-    SDL_Surface* surface = IMG_Load(imagePath.c_str());
-    if (!surface) {
-        throw std::runtime_error("Failed to load image: " + imagePath);
-    }
+void Menu::setBackground(const std::string&  imagePath) {
+    SDL_Surface* surface = load_png(imagePath.c_str());
     back_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
     SDL_FreeSurface(surface);
+    SDL_RenderCopy(m_renderer, back_texture, NULL, NULL);
+}
+
+void Menu::render_background() {
     SDL_RenderCopy(m_renderer, back_texture, NULL, NULL);
 }
 

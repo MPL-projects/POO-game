@@ -42,7 +42,7 @@ public:
 
     static vector<Player*> players;
     // Player *players;
-    Window *appWindow;
+    static Window *appWindow;
     Menu *mainMenu;
     Menu *mainChooseSkin;
     static Scene *scene ;

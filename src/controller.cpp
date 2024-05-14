@@ -5,7 +5,8 @@ int Controller::id = 0;
 
 Controller::Controller()
 {
-    att = false;
+    att=false;
+    block=false;
 }
 
 // void Controller::registerWithEventHandler(Event &handler)

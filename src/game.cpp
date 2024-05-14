@@ -14,6 +14,7 @@ bool Game::RUNNING = true;
 int Game::gameStatus = 0;
 Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
+Window* Game::appWindow;
 
 // void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
 //     SDL_Rect rect = {x, y - w / 2, 1, w};
@@ -82,7 +83,7 @@ void Game::run()
 		switch (gameStatus)
 		{
 			case 0:
-				mainMenu->displayMenu("assets/images/backgrounds_elements/menu/foggy.png");
+				mainMenu->displayMenu();
 				break;
 
 			case 1:
@@ -91,7 +92,7 @@ void Game::run()
 				break;
 
 			case 2:
-				mainChooseSkin->displayMenu("assets/images/backgrounds_elements/menu/foggy.png");
+				mainChooseSkin->displayMenu();
 				break;
 		}
 
@@ -155,7 +156,8 @@ Game::~Game()
 
 void Game::initMainMenu()
 {
-	mainMenu = new Menu(appWindow->renderer, appWindow->mainWindow);
+	mainMenu = new Menu();
+    mainMenu->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 
 	// Go to Combat Button
@@ -173,7 +175,8 @@ void Game::initMainMenu()
 
 void Game::initChooseSkin()
 {
-	mainChooseSkin = new Menu(appWindow->renderer, appWindow->mainWindow);
+	mainChooseSkin = new Menu();
+    mainChooseSkin->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
 
 	// Init the arrow buttons to choose character
 	std::vector<std::string> buttonImagePaths_right = {"assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png"};

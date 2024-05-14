@@ -12,24 +12,24 @@
 
 class Menu {
 public:
-    Menu(SDL_Renderer *menuFontRenderer, SDL_Window *window);
+    Menu();
     ~Menu(); // Destructor to handle cleanup
 
-    void displayMenu(const std::string& backPath);
+    void displayMenu();
     void handleEvents(SDL_Event &event);
     void addButton(Button* button); // Function to add buttons to the menu
     bool buttonStatus(Button* button);
+    void setBackground(const std::string&  imagePath);
 
 private:
-    SDL_Window *windowScreen;
     std::vector<Button*> buttons;
     SDL_Renderer *m_renderer;
     SDL_Texture *back_texture;
 
     int windowHeight, windowWidth;
 
-    void backgroundMenuScreen(const std::string&  imagePath);
     void destroyMenuScreen();
+    void render_background();
 };
 
 #endif

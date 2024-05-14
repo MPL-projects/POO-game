@@ -1,7 +1,7 @@
 #include "../include/player.hpp"
 
 int Player::nb_players = 0;
-Player::Player(SDL_Renderer *renderer, const char* path_to_sprite) : Sprite(renderer, path_to_sprite)
+Player::Player(const char* path_to_sprite) : Sprite(path_to_sprite)
 {
     controller = new Keyboard();
     life = 100;

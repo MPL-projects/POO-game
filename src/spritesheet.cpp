@@ -1,11 +1,12 @@
 #include "../include/spritesheet.hpp"
+#include "../include/game.hpp"
 #include <iostream>
 
-Spritesheet::Spritesheet(char const *path, int nb_row, int nb_column, SDL_Renderer *renderer)
+Spritesheet::Spritesheet(char const *path, int nb_row, int nb_column) : renderer(Game::appWindow->renderer)
 {
     row = nb_row;
     column = nb_column;
-    load_skin(path, renderer);
+    load_skin(path);
     
     flip = SDL_FLIP_NONE;
 }
@@ -28,7 +29,7 @@ void Spritesheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *positio
     // SDL_BlitSurface(m_spritesheet_image, &m_clip, window_surface, position);
 }
 
-void Spritesheet::load_skin(char const *path, SDL_Renderer *renderer){
+void Spritesheet::load_skin(char const *path){
     m_spritesheet_image = load_png(path);
     m_spritesheet_image_texture = SDL_CreateTextureFromSurface(renderer, m_spritesheet_image);
     height =  m_spritesheet_image->h;

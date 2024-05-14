@@ -15,7 +15,7 @@ map<Direction, int> row_sprite = {{Direction::UP, 5}, {Direction::LEFT, 4}, {Dir
 map<Direction, vector<double>> dm = {{Direction::UP, {0, - (500.0 * delta_time_)}}, {Direction::LEFT, {- (500.0 * delta_time_), 0}}, {Direction::RIGHT, {(500.0 * delta_time_), 0}}, {Direction::DOWN, {0, (500.0 * delta_time_)}}};
 map<Direction, SDL_RendererFlip> fl = {{Direction::UP, SDL_FLIP_NONE}, {Direction::LEFT, SDL_FLIP_HORIZONTAL}, {Direction::RIGHT, SDL_FLIP_NONE}, {Direction::DOWN, SDL_FLIP_NONE}};
 
-Sprite::Sprite(SDL_Renderer *renderer, const char* path_to_sprite): m_spritesheet(path_to_sprite, 10, 6, renderer)
+Sprite::Sprite(const char* path_to_sprite): renderer(Game::appWindow->renderer), m_spritesheet(path_to_sprite, 10, 6)
 {
     float ratio = 2.5;
     m_position.x = 100;
@@ -106,7 +106,7 @@ void Sprite::meleeAttack(){
     }
 }
 
-void Sprite::draw(SDL_Renderer *renderer)
+void Sprite::draw()
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
     // SDL_RenderDrawRect(renderer, &m_position);
@@ -203,6 +203,6 @@ std::vector<SDL_Rect>& Sprite::get_boxes()
     return bb;
 }
 
-void Sprite::change_skin(const char* path, SDL_Renderer *renderer){
-    m_spritesheet.load_skin(path, renderer);
+void Sprite::change_skin(const char* path){
+    m_spritesheet.load_skin(path);
 }

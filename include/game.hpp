@@ -46,10 +46,10 @@ public:
     Menu *mainMenu;
     Menu *mainChooseSkin;
     static Scene *scene ;
+    static bool RUNNING;
 
 
 private:
-    static bool RUNNING;
     void initMainMenu();
     void initArena();
     void drawPlayers();

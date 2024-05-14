@@ -1,7 +1,8 @@
 #include "../include/scenesheet.hpp"
+#include "../include/game.hpp"
 #include <iostream>
 
-Scenesheet::Scenesheet(char const *path, SDL_Renderer *renderer)
+Scenesheet::Scenesheet(char const *path) : renderer(Game::appWindow->renderer)
 {
     m_arena_image = load_png(path);
     m_arena_image_texture = SDL_CreateTextureFromSurface(renderer, m_arena_image);
@@ -30,7 +31,7 @@ void Scenesheet::select_sprite(int x, int y, int w, int h)
 }
 
 
-void Scenesheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position)
+void Scenesheet::draw_selected_sprite(SDL_Rect *position)
 {
     // SDL_RenderCopy(renderer, m_spritesheet_image_texture, &m_clip, position);
     SDL_RenderCopyEx(renderer, m_arena_image_texture, &m_clip, position, rotation, nullptr, flip);

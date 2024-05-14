@@ -51,6 +51,7 @@ private:
     static bool RUNNING;
     void intiMainMenu();
     void initArena();
+    void drawPlayers();
     
 };
 #endif

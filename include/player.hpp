@@ -20,6 +20,9 @@ public:
     void handle_events(SDL_Event const &event);
 
     static int nb_players;
+    bool operator<( const Player*& val ) const { 
+        return y < val->y; 
+    }
 
 
     // void addController() { controller = Gamepad(); };

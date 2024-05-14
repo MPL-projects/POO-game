@@ -13,7 +13,7 @@ public:
     ~Sprite() = default;
 
     void handle_events(SDL_Event const &event);
-    void update(double delta_time);
+    void update();
     void draw(SDL_Renderer *renderer);
     void move(double x1, double y1);
 
@@ -23,10 +23,11 @@ public:
     void move_boxes();
     void meleeAttack();
     int id;
-
-protected:
     double x;
     double y;
+
+protected:
+    
     Spritesheet m_spritesheet;
     int m_spritesheet_column;
     std::vector<SDL_Rect> bb; // boundings boxes

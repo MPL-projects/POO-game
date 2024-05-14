@@ -185,3 +185,7 @@ std::vector<SDL_Rect>& Sprite::get_boxes()
 {
     return bb;
 }
+
+void Sprite::change_skin(const char* path, SDL_Renderer *renderer){
+    m_spritesheet.load_skin(path, renderer);
+}

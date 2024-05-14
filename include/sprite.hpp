@@ -25,6 +25,7 @@ public:
     int id;
     double x;
     double y;
+    void change_skin(const char* path, SDL_Renderer *renderer);
 
 protected:
     

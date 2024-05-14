@@ -149,6 +149,7 @@ Game::~Game()
     delete scene;
     delete screenSurface;
     delete mainMenu;
+	delete mainChooseSkin;
     appWindow->destroyWindow();
 }
 

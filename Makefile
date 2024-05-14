@@ -20,7 +20,7 @@ $(EXEC): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f src/*.o $(EXEC)
 
 run_valgrind:
 	valgrind --leak-check=full --show-reachable=yes ./$(EXEC)

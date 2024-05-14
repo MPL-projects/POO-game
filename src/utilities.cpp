@@ -1,7 +1,7 @@
 #include "../include/utilities.hpp"
 #include <iostream>
 
-SDL_Surface *load_bmp(char const *path)
+SDL_Surface *load_png(char const *path)
 {
     SDL_Surface *image_surface = IMG_Load(path);
 

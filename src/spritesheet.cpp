@@ -29,7 +29,7 @@ void Spritesheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *positio
 }
 
 void Spritesheet::load_skin(char const *path, SDL_Renderer *renderer){
-    m_spritesheet_image = load_bmp(path);
+    m_spritesheet_image = load_png(path);
     m_spritesheet_image_texture = SDL_CreateTextureFromSurface(renderer, m_spritesheet_image);
     height =  m_spritesheet_image->h;
     width = m_spritesheet_image->w;

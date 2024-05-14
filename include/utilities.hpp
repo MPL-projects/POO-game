@@ -4,7 +4,7 @@
 #include <SDL2/SDL_image.h>
 #include <vector>
 
-SDL_Surface *load_bmp(char const *path);
+SDL_Surface *load_png(char const *path);
 bool checkCollision(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b);
 bool checkCollision2(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b);
 

@@ -1,4 +1,4 @@
-#include "../include/stick_figure.hpp"
+#include "../include/sprite.hpp"
 #include "../include/window.hpp"
 #include "../include/game.hpp"
 #include "../include/scene.hpp"
@@ -9,7 +9,7 @@ int const SPRITESHEET_LEFT = 4;
 int const SPRITESHEET_RIGHT = 4;
 int const SPRITESHEET_DOWN = 3;
 
-StickFigure::StickFigure(SDL_Renderer *renderer, const char* path_to_sprite): m_spritesheet(path_to_sprite, 10, 6, renderer)
+Sprite::Sprite(SDL_Renderer *renderer, const char* path_to_sprite): m_spritesheet(path_to_sprite, 10, 6, renderer)
 {
     float ratio = 2.5;
     m_position.x = 100;
@@ -39,7 +39,7 @@ StickFigure::StickFigure(SDL_Renderer *renderer, const char* path_to_sprite): m_
     hit=false;
 }
 
-void StickFigure::update(double delta_time)
+void Sprite::update(double delta_time)
 {
     m_spritesheet.flip = SDL_FLIP_NONE;
     int mult = 2;
@@ -120,7 +120,7 @@ void StickFigure::update(double delta_time)
         m_spritesheet_column = 0;
 }
 
-void StickFigure::meleeAttack(){
+void Sprite::meleeAttack(){
     for(auto& player : Game::players){
         if(player->id != id && !hit){
             if(checkCollision2(bb, player->bb)){
@@ -131,7 +131,7 @@ void StickFigure::meleeAttack(){
     }
 }
 
-void StickFigure::draw(SDL_Renderer *renderer)
+void Sprite::draw(SDL_Renderer *renderer)
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
     // SDL_RenderDrawRect(renderer, &m_position);
@@ -145,7 +145,7 @@ void bounds(double &p, int bb_p, int bb_s, int bb_off_p, int size_p){
     else if( bb_p + bb_s > size_p ){p = size_p - bb_s - bb_off_p;}
 }
 
-void StickFigure::move(double dx, double dy){
+void Sprite::move(double dx, double dy){
     x += dx;
     move_boxes();
 
@@ -194,7 +194,7 @@ void StickFigure::move(double dx, double dy){
 
 
 
-void StickFigure::move_boxes(){
+void Sprite::move_boxes(){
     for( int i = 0; i < (int)bb.size(); i++ )
     {
         bb[i].x = x + bb_off[i][0];
@@ -223,7 +223,7 @@ void StickFigure::move_boxes(){
     // }
 }
 
-std::vector<SDL_Rect>& StickFigure::get_boxes()
+std::vector<SDL_Rect>& Sprite::get_boxes()
 {
     return bb;
 }

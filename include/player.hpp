@@ -4,13 +4,12 @@
 #include "gamepad.hpp"
 #include "keyboard.hpp"
 #include <iostream>
-#include "stick_figure.hpp"
+#include "sprite.hpp"
 #include <SDL2/SDL.h>
 
 using namespace std;
 
-// class Player : public Sprite
-class Player : public StickFigure
+class Player : public Sprite
 {
 public:
     Controller *controller;

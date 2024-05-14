@@ -50,7 +50,7 @@ Game::Game()
 void Game::run()
 {
     SDL_Event event;
-    intiMainMenu();
+    initMainMenu();
     initArena();
     while (RUNNING)
     {
@@ -120,12 +120,14 @@ Game::~Game(){
 }
 
 
-void Game::intiMainMenu(){
+void Game::initMainMenu(){
     mainMenu = new Menu(appWindow->renderer, appWindow->mainWindow);
     std::vector<std::string> buttonImagePaths = { "assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png" };
     Button* playButton = new Button(appWindow->renderer, (SCREEN_WIDTH-160)/2, (SCREEN_HEIGHT-80)/2, 160, 80, buttonImagePaths , "assets/ttf/liberation.ttf", "Play",1);
     mainMenu->addButton(playButton);
 }
+
+
 
 void Game::initArena(){
     scene = new Arena(appWindow->renderer);

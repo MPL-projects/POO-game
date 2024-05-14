@@ -4,13 +4,12 @@
 #include "gamepad.hpp"
 #include "keyboard.hpp"
 #include <iostream>
-#include "stick_figure.hpp"
+#include "sprite.hpp"
 #include <SDL2/SDL.h>
 
 using namespace std;
 
-// class Player : public Sprite
-class Player : public StickFigure
+class Player : public Sprite
 {
 public:
     Controller *controller;
@@ -21,6 +20,9 @@ public:
     void handle_events(SDL_Event const &event);
 
     static int nb_players;
+    bool operator<( const Player*& val ) const { 
+        return y < val->y; 
+    }
 
 
     // void addController() { controller = Gamepad(); };

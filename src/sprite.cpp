@@ -1,15 +1,21 @@
-#include "../include/stick_figure.hpp"
+#include "../include/sprite.hpp"
 #include "../include/window.hpp"
 #include "../include/game.hpp"
 #include "../include/scene.hpp"
 #include <vector>
+#include <map>
 
+using namespace std;
+double delta_time_ = 1.0/150.0;
 int const SPRITESHEET_UP = 5;
 int const SPRITESHEET_LEFT = 4;
 int const SPRITESHEET_RIGHT = 4;
 int const SPRITESHEET_DOWN = 3;
+map<Direction, int> row_sprite = {{Direction::UP, 5}, {Direction::LEFT, 4}, {Direction::RIGHT, 4}, {Direction::DOWN, 3}};
+map<Direction, vector<double>> dm = {{Direction::UP, {0, - (500.0 * delta_time_)}}, {Direction::LEFT, {- (500.0 * delta_time_), 0}}, {Direction::RIGHT, {(500.0 * delta_time_), 0}}, {Direction::DOWN, {0, (500.0 * delta_time_)}}};
+map<Direction, SDL_RendererFlip> fl = {{Direction::UP, SDL_FLIP_NONE}, {Direction::LEFT, SDL_FLIP_HORIZONTAL}, {Direction::RIGHT, SDL_FLIP_NONE}, {Direction::DOWN, SDL_FLIP_NONE}};
 
-StickFigure::StickFigure(SDL_Renderer *renderer, const char* path_to_sprite): m_spritesheet(path_to_sprite, 10, 6, renderer)
+Sprite::Sprite(SDL_Renderer *renderer, const char* path_to_sprite): m_spritesheet(path_to_sprite, 10, 6, renderer)
 {
     float ratio = 2.5;
     m_position.x = 100;
@@ -39,72 +45,22 @@ StickFigure::StickFigure(SDL_Renderer *renderer, const char* path_to_sprite): m_
     hit=false;
 }
 
-void StickFigure::update(double delta_time)
+void Sprite::update()
 {
-    m_spritesheet.flip = SDL_FLIP_NONE;
-    int mult = 2;
-    int column_int = m_spritesheet_column/mult;
+    Direction dir = att_dir;
+    int mult = 10, column_int = m_spritesheet_column/mult, off=3;
     if(att_dir == Direction::NONE){
-        switch(m_direction)
-        {
-            case Direction::NONE:
-                switch(m_direction_prev)
-                    {
-                        case Direction::NONE:
-                        break;
-                        case Direction::UP:
-                            m_spritesheet.select_sprite(column_int, SPRITESHEET_UP-3);
-                            break;
-                        case Direction::DOWN:
-                            m_spritesheet.select_sprite(column_int, SPRITESHEET_DOWN-3);
-                            break;
-                        case Direction::LEFT:
-                            m_spritesheet.select_sprite(column_int, SPRITESHEET_LEFT-3);
-                            m_spritesheet.flip = SDL_FLIP_HORIZONTAL;
-                            break;
-                        case Direction::RIGHT:
-                            m_spritesheet.select_sprite(column_int, SPRITESHEET_RIGHT-3);
-                            break;
-                    }
-                break;
-            case Direction::UP:
-                move(0, - (500.0 * delta_time));
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_UP);
-                break;
-            case Direction::DOWN:
-                move(0, (500.0 * delta_time));
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_DOWN);
-                break;
-            case Direction::LEFT:
-                move(- (500.0 * delta_time), 0);
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_LEFT);
-                m_spritesheet.flip = SDL_FLIP_HORIZONTAL;
-                break;
-            case Direction::RIGHT:
-                move((500.0 * delta_time), 0);
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_RIGHT);
-                break;
+        if(m_direction == Direction::NONE){
+            dir = m_direction_prev;
+            off = -3;
+        }
+        else{
+            dir = m_direction;
+            move(dm[m_direction][0], dm[m_direction][1]);
+            off = 0;
         }
     }
     else{
-        switch(att_dir)
-        {
-            case Direction::NONE:
-            break;
-            case Direction::UP:
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_UP+3);
-                break;
-            case Direction::DOWN:
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_DOWN+3);
-                break;
-            case Direction::LEFT:
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_LEFT+3);
-                m_spritesheet.flip = SDL_FLIP_HORIZONTAL;
-                break;
-            case Direction::RIGHT:
-                m_spritesheet.select_sprite(column_int, SPRITESHEET_RIGHT+3);
-                break;
-        }
         meleeAttack();
         if(m_spritesheet_column > mult*3){
             att_dir = Direction::NONE;
@@ -113,6 +69,8 @@ void StickFigure::update(double delta_time)
             hit=false;
         }
     }
+    m_spritesheet.select_sprite(column_int, row_sprite[dir]+ off);
+    m_spritesheet.flip = fl[dir];
 
     m_spritesheet_column++;
 
@@ -120,7 +78,7 @@ void StickFigure::update(double delta_time)
         m_spritesheet_column = 0;
 }
 
-void StickFigure::meleeAttack(){
+void Sprite::meleeAttack(){
     for(auto& player : Game::players){
         if(player->id != id && !hit){
             if(checkCollision2(bb, player->bb)){
@@ -131,7 +89,7 @@ void StickFigure::meleeAttack(){
     }
 }
 
-void StickFigure::draw(SDL_Renderer *renderer)
+void Sprite::draw(SDL_Renderer *renderer)
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
     // SDL_RenderDrawRect(renderer, &m_position);
@@ -145,7 +103,7 @@ void bounds(double &p, int bb_p, int bb_s, int bb_off_p, int size_p){
     else if( bb_p + bb_s > size_p ){p = size_p - bb_s - bb_off_p;}
 }
 
-void StickFigure::move(double dx, double dy){
+void Sprite::move(double dx, double dy){
     x += dx;
     move_boxes();
 
@@ -194,7 +152,7 @@ void StickFigure::move(double dx, double dy){
 
 
 
-void StickFigure::move_boxes(){
+void Sprite::move_boxes(){
     for( int i = 0; i < (int)bb.size(); i++ )
     {
         bb[i].x = x + bb_off[i][0];
@@ -223,7 +181,11 @@ void StickFigure::move_boxes(){
     // }
 }
 
-std::vector<SDL_Rect>& StickFigure::get_boxes()
+std::vector<SDL_Rect>& Sprite::get_boxes()
 {
     return bb;
+}
+
+void Sprite::change_skin(const char* path, SDL_Renderer *renderer){
+    m_spritesheet.load_skin(path, renderer);
 }

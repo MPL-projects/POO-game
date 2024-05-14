@@ -1,78 +1,42 @@
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
-#include <SDL2/SDL_image.h>
-#include "window.hpp"
-#include <iostream>
+#include <SDL2/SDL.h>
+#include "spritesheet.hpp"
+#include <tuple>
+#include "utilities.hpp"
 
-using namespace std;
-
-class Sprite {
+class Sprite
+{
 public:
-    SDL_Texture* texture;
-    int x, y;
-    int width, height;
 
-    Sprite(SDL_Renderer* renderer, const char* imagePath, int startX, int startY) {
-        // Charger l'image PNG
-        SDL_Surface* surface = IMG_Load(imagePath);
-        if (!surface) {
-            // Gestion de l'erreur si le chargement de l'image échoue
-            cerr << "Failed to load image: " << IMG_GetError() << endl;
-            return;
-        }
-        texture = SDL_CreateTextureFromSurface(renderer, surface);
-        SDL_FreeSurface(surface);
-        
-        SDL_QueryTexture(texture, NULL, NULL, &width, &height);
-        x = startX;
-        y = startY;
-    }
+    Sprite(SDL_Renderer *renderer, const char* path_to_sprite);
+    ~Sprite() = default;
 
-    void draw(SDL_Renderer* renderer) {
-        SDL_Rect dstRect = {x, y, width, height};
-        SDL_RenderCopy(renderer, texture, NULL, &dstRect);
-    }
+    void handle_events(SDL_Event const &event);
+    void update();
+    void draw(SDL_Renderer *renderer);
+    void move(double x1, double y1);
 
-    void move(int dx, int dy) {
-        x += dx;
-        y += dy;
-    }
+    Direction m_direction;
+    Direction m_direction_prev;
+    std::vector<SDL_Rect> &get_boxes();
+    void move_boxes();
+    void meleeAttack();
+    int id;
+    double x;
+    double y;
+    void change_skin(const char* path, SDL_Renderer *renderer);
+
+protected:
+    
+    Spritesheet m_spritesheet;
+    int m_spritesheet_column;
+    std::vector<SDL_Rect> bb; // boundings boxes
+    std::vector<std::vector<int>> bb_off; // boundings boxes offset
+    SDL_Rect m_position;
+    double x_off;
+    double y_off;
+    Direction att_dir;
+    bool hit;
 };
 #endif
-
-int main() {
-    Window window;
-    window.createWindow("SDL Sprite Movement", 800, 600);
-
-    SDL_Event event;
-    bool quit = false;
-
-    // Charger une texture pour le sprite
-    Sprite sprite(window.renderer, "sprite.png", 0, 0); // Charger une image PNG
-
-    while (!quit) {
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                quit = true;
-            }
-        }
-
-        // Mise à jour de la position du sprite (par exemple, déplacement vers la droite)
-        sprite.move(1, 0);
-
-        // Effacer l'écran
-        SDL_SetRenderDrawColor(window.renderer, 0, 0, 0, 255);
-        SDL_RenderClear(window.renderer);
-
-        // Dessiner le sprite
-        sprite.draw(window.renderer);
-
-        // Rafraîchir l'écran
-        SDL_RenderPresent(window.renderer);
-
-        SDL_Delay(10); // Petit délai pour contrôler la vitesse du mouvement
-    }
-
-    window.destroyWindow();
-    return 0;
-}

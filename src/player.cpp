@@ -1,7 +1,7 @@
 #include "../include/player.hpp"
 
 int Player::nb_players = 0;
-Player::Player(SDL_Renderer *renderer, const char* path_to_sprite) : StickFigure(renderer, path_to_sprite)
+Player::Player(SDL_Renderer *renderer, const char* path_to_sprite) : Sprite(renderer, path_to_sprite)
 {
     controller = new Keyboard();
     life = 100;
@@ -35,6 +35,8 @@ void Player::initMeleeAttack(){
     int r_w = bb[0].h;
     int r_h = bb[0].w/2;
     switch(att_dir){
+        case Direction::NONE:
+            break;
         case Direction::UP:
             att_bb_off = {bb_off[0][0]+(bb[0].w-r_w)/2, bb_off[0][1]-3*r_h/5};
             att_bb = {(int)x + att_bb_off[0], (int)y + att_bb_off[1], r_w, r_h};

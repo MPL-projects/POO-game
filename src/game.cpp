@@ -5,12 +5,15 @@
 #include "../include/button.hpp"
 #include "../include/scenesheet.hpp"
 #include "../include/scene.hpp"
+#include <algorithm>
 
 #define SCREEN_WIDTH 1366
 #define SCREEN_HEIGHT 768
 
 bool Game::RUNNING = true;
 int Game::gameStatus = 0;
+Scene *Game::scene = nullptr;
+std::vector<Player *> Game::players;
 Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
 
@@ -110,37 +113,45 @@ void Game::run()
 
 void Game::update()
 {
-	// players[0]->controller->getMove();
-	// players[1]->controller->getMove();
-	players[0]->update(1.0 / 40.0);
-	players[1]->update(1.0 / 40.0);
+    // players[0]->controller->getMove();
+    // players[1]->controller->getMove();
+    players[0]->update();
+    players[1]->update();
 }
 
 void Game::renderGame()
 {
-	// SDL_RenderClear(appWindow->renderer);
-	SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
-	SDL_RenderFillRect(appWindow->renderer, nullptr);
-	scene->drawScene(appWindow->renderer);
-	players[0]->draw(appWindow->renderer);
-	players[1]->draw(appWindow->renderer);
-	SDL_Delay(50);
-	// SDL_RenderPresent(appWindow->renderer);
+    // SDL_RenderClear(appWindow->renderer);
+    SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(appWindow->renderer, nullptr);
+    scene->drawScene(appWindow->renderer);
+    drawPlayers();
+    SDL_Delay(10);
+    // SDL_RenderPresent(appWindow->renderer);
+}
+
+void Game::drawPlayers()
+{
+    std::vector<Player *> p;
+    for (auto &player : players)
+        p.push_back(player);
+    std::sort(p.begin(), p.end(), [](Player* &a, Player* &b){ return a->y < b->y; });
+    for (auto &player : p)
+        player->draw(appWindow->renderer);
 }
 
 Game::~Game()
 {
-	for (auto &player : players)
-	{
-		delete player;
-	}
-	players.clear();
-	delete appWindow;
-	delete scene;
-	delete screenSurface;
-	delete mainMenu;
-	delete mainChooseSkin;
-	appWindow->destroyWindow();
+    for (auto &player : players)
+    {
+        delete player;
+    }
+    players.clear();
+    delete appWindow;
+    delete scene;
+    delete screenSurface;
+    delete mainMenu;
+    appWindow->destroyWindow();
 }
 
 void Game::initMainMenu()

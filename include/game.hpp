@@ -1,7 +1,6 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "event.hpp"
 #include "player.hpp"
 #include "window.hpp"
 #include "menu.hpp"
@@ -53,6 +52,7 @@ private:
     static bool RUNNING;
     void initMainMenu();
     void initArena();
+    void drawPlayers();
 	void initChooseSkin();
     
 };

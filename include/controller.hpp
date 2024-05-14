@@ -12,7 +12,7 @@ class Controller
 {
 public:
     Controller();
-    virtual ~Controller(){};
+    virtual ~Controller(){att=false;block=false;};
 
     virtual void handle_events(SDL_Event const &event)=0;
     
@@ -20,6 +20,7 @@ public:
 
     std::vector<Direction> ev;
     bool att;
+    bool block;
 };
 
 #endif

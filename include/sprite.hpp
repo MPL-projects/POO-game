@@ -38,5 +38,8 @@ protected:
     double y_off;
     Direction att_dir;
     bool hit;
+    bool block;
+    int strength;
+    bool alive;
 };
 #endif

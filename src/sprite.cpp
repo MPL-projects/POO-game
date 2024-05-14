@@ -43,33 +43,46 @@ Sprite::Sprite(SDL_Renderer *renderer, const char* path_to_sprite): m_spriteshee
 
     att_dir = Direction::NONE;
     hit=false;
+    block = false;
+    alive = true;
 }
 
 void Sprite::update()
 {
     Direction dir = att_dir;
-    int mult = 10, column_int = m_spritesheet_column/mult, off=3;
-    if(att_dir == Direction::NONE){
-        if(m_direction == Direction::NONE){
-            dir = m_direction_prev;
-            off = -3;
-        }
+    int mult = 10, column_int = m_spritesheet_column/mult, off=3, col = column_int;
+    if(alive){
+        if(block){col = 0;off = 3;dir = m_direction==Direction::NONE ? m_direction_prev : m_direction;}
         else{
-            dir = m_direction;
-            move(dm[m_direction][0], dm[m_direction][1]);
-            off = 0;
+            if(att_dir == Direction::NONE){
+                if(m_direction == Direction::NONE){
+                    dir = m_direction_prev;
+                    off = -3;
+                }
+                else{
+                    dir = m_direction;
+                    move(dm[m_direction][0], dm[m_direction][1]);
+                    off = 0;
+                }
+            }
+            else{
+                meleeAttack();
+                if(m_spritesheet_column > mult*3){
+                    att_dir = Direction::NONE;
+                    bb.pop_back();
+                    bb_off.pop_back();
+                    hit=false;
+                }
+            }
         }
     }
     else{
-        meleeAttack();
-        if(m_spritesheet_column > mult*3){
-            att_dir = Direction::NONE;
-            bb.pop_back();
-            bb_off.pop_back();
-            hit=false;
-        }
+        if(m_spritesheet_column > mult*2)
+            m_spritesheet_column--;
+        dir = Direction::DOWN;
+        off = 6;
     }
-    m_spritesheet.select_sprite(column_int, row_sprite[dir]+ off);
+    m_spritesheet.select_sprite(col, row_sprite[dir]+ off);
     m_spritesheet.flip = fl[dir];
 
     m_spritesheet_column++;
@@ -81,9 +94,13 @@ void Sprite::update()
 void Sprite::meleeAttack(){
     for(auto& player : Game::players){
         if(player->id != id && !hit){
-            if(checkCollision2(bb, player->bb)){
+            std::vector<SDL_Rect> box = player->bb;
+            if(player->att_dir != Direction::NONE)
+                box.pop_back();
+            if(checkCollision2(bb, box)){
                 hit=true;
                 std::cerr << "Player " << player->id << " was hit" << std::endl;
+                player->take_damage(strength);
             }
         }
     }

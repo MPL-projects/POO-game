@@ -9,9 +9,12 @@ Keyboard::Keyboard() : Controller(){
     Keys["RIGHT"].insert(Keys["RIGHT"].end(),{SDLK_d, SDLK_RIGHT});
     Keys["LEFT"].insert(Keys["LEFT"].end(),{SDLK_q, SDLK_LEFT});
     Keys["ATT"].insert(Keys["ATT"].end(),{SDLK_e, SDLK_m});
+    Keys["DEF"].insert(Keys["DEF"].end(),{SDLK_r, SDLK_l});
     id = nb_keyboard;
     nb_keyboard++;
     ev.push_back(Direction::NONE);
+    block = false;
+    att = false;
 };
 
 Keyboard::~Keyboard(){
@@ -63,6 +66,8 @@ void Keyboard::handle_events(SDL_Event const &event)
                 ev.erase(std::remove(ev.begin(), ev.end(), Direction::LEFT), ev.end());
             else if(Keys["RIGHT"][id] == event.key.keysym.sym)
                 ev.erase(std::remove(ev.begin(), ev.end(), Direction::RIGHT), ev.end());
+            else if(Keys["DEF"][id] == event.key.keysym.sym)
+                block = false;
             break;
             break;
         case SDL_KEYDOWN:
@@ -76,6 +81,8 @@ void Keyboard::handle_events(SDL_Event const &event)
                 ev.push_back(Direction::RIGHT);
             else if(Keys["ATT"][id] == event.key.keysym.sym)
                 att = true;
+            else if(Keys["DEF"][id] == event.key.keysym.sym)
+                block = true;
             break;
     }
 }

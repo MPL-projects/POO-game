@@ -12,15 +12,21 @@ Player::Player(SDL_Renderer *renderer, const char* path_to_sprite) : Sprite(rend
 
 void Player::handle_events(SDL_Event const &event)
 {
-    if (controller->ev.back() != Direction::NONE)
-        m_direction_prev = controller->ev.back();
-    controller->handle_events(event);
-    m_direction = controller->ev.back();
-    if(att_dir != Direction::NONE)
-        controller->att = false;
-    if (controller->att){
-        controller->att = false;
-        initMeleeAttack();
+    if(alive){
+        if (controller->ev.back() != Direction::NONE)
+            m_direction_prev = controller->ev.back();
+        controller->handle_events(event);
+        m_direction = controller->ev.back();
+        if(att_dir != Direction::NONE)
+            controller->att = false;
+        if (controller->att){
+            controller->att = false;
+            initMeleeAttack();
+        }
+        if(controller->block)
+            block = true;
+        else
+            block = false;
     }
 }
 
@@ -56,4 +62,15 @@ void Player::initMeleeAttack(){
     }
     bb.push_back(att_bb);
     bb_off.push_back(att_bb_off);
+}
+
+void Player::take_damage(int damages){
+    if(!block){
+        life -= damages;
+        if(life <= 0){
+            alive = false;
+            life = 0;
+            m_spritesheet_column = 0;
+        }
+    }
 }

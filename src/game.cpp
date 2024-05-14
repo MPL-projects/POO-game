@@ -71,6 +71,7 @@ void Game::run()
             renderGame();
         }
         SDL_RenderPresent(appWindow->renderer);
+        SDL_Delay(10);
 
         // SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0x33, 0x33, 0x33));
         // eventHandler.handleEvents();
@@ -88,18 +89,17 @@ void Game::update()
 {
     // players[0]->controller->getMove();
     // players[1]->controller->getMove();
-    players[0]->update();
-    players[1]->update();
+    for(auto& player : players)
+        player->update();
 }
 
 void Game::renderGame()
 {
     // SDL_RenderClear(appWindow->renderer);
-    SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(appWindow->renderer, nullptr);
+    // SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
+    // SDL_RenderFillRect(appWindow->renderer, nullptr);
     scene->drawScene(appWindow->renderer);
     drawPlayers();
-    SDL_Delay(10);
     // SDL_RenderPresent(appWindow->renderer);
 }
 

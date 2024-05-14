@@ -20,15 +20,12 @@ public:
     void handle_events(SDL_Event const &event);
 
     static int nb_players;
-    bool operator<( const Player*& val ) const { 
-        return y < val->y; 
-    }
+    void take_damage(int damages);
 
 
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
 private:
-    int strength;
     int life;
     void initMeleeAttack();
     

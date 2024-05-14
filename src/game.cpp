@@ -14,8 +14,6 @@ bool Game::RUNNING = true;
 int Game::gameStatus = 0;
 Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
-Scene *Game::scene = nullptr;
-std::vector<Player *> Game::players;
 
 // void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
 //     SDL_Rect rect = {x, y - w / 2, 1, w};
@@ -177,8 +175,8 @@ void Game::initChooseSkin()
 	mainChooseSkin = new Menu(appWindow->renderer, appWindow->mainWindow);
 
 	// Init the arrow buttons to choose character
-	std::vector<std::string> buttonImagePaths_right = {"assets/images/backgrounds_elements/menu/buttons/arrow_icon.png", "assets/images/backgrounds_elements/menu/buttons/arrow_icon.png", "assets/images/backgrounds_elements/menu/buttons/arrow_icon.png"};
-	std::vector<std::string> buttonImagePaths_left = {"assets/images/backgrounds_elements/menu/buttons/arrow_icon.png", "assets/images/backgrounds_elements/menu/buttons/arrow_icon.png", "assets/images/backgrounds_elements/menu/buttons/arrow_icon.png"};
+	std::vector<std::string> buttonImagePaths_right = {"assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png"};
+	std::vector<std::string> buttonImagePaths_left = {"assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png"};
 
 	Button *playButton_right = new Button(appWindow->renderer, (SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", 0);
 	Button *playButton_left = new Button(appWindow->renderer, (SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", 0);

@@ -49,7 +49,7 @@ public:
 
 private:
     static bool RUNNING;
-    void intiMainMenu();
+    void initMainMenu();
     void initArena();
     void drawPlayers();
     

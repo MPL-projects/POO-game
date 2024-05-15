@@ -54,7 +54,7 @@ void Game::run()
 	initMainMenu();
 	initChooseSkin();
 	initArena();
-	Sprite skin("assets/images/players/player1.png");
+	Sprite skin("assets/images/players/player1.png", 2.5);
 	while (RUNNING)
 	{
 		while (SDL_PollEvent(&event))
@@ -199,7 +199,7 @@ void Game::initChooseSkin()
 	mainChooseSkin->addButton(goBackButton);
 
 	// Init a sprite
-	Sprite skin("assets/images/players/player1.png");
+	Sprite skin("assets/images/players/player1.png", 2.5);
 	
 }
 

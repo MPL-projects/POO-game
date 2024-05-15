@@ -51,10 +51,22 @@ Game::Game()
 void Game::run()
 {
 	SDL_Event event;
+	
 	initMainMenu();
-	initChooseSkin();
+	initChooseSkinPlayer1();
+	initChooseSkinPlayer2();
 	initArena();
-	Sprite skin("assets/images/players/player1.png");
+
+	Sprite skinPlayer1("assets/images/players/player1.png");
+	Sprite skinPlayer2("assets/images/players/player2.png");
+
+	std::vector<char *> paths_to_sprites;
+	paths_to_sprites.push_back("assets/images/players/player1.png");
+	paths_to_sprites.push_back("assets/images/players/player2.png");
+
+	int x_p1 = 0;
+	int x_p2 = 1;
+
 	while (RUNNING)
 	{
 		while (SDL_PollEvent(&event))
@@ -76,8 +88,45 @@ void Game::run()
 
 				// Choose Skin Menu
 				case 2:
-					mainChooseSkin->handleEvents(event);
+					mainChooseSkin1->handleEvents(event);
 					break;
+
+				case 3:
+					mainChooseSkin2->handleEvents(event);
+					break;
+				
+				case 4:
+					x_p1 += 1;
+					if (x_p1 > 1){x_p1 = 0;}
+					skinPlayer1.change_skin(paths_to_sprites[x_p1]);
+					players[0]->change_skin(paths_to_sprites[x_p1]);
+					gameStatus = 2;
+					break;
+
+				case 5:
+					x_p1 -= 1;
+					if (x_p1 < 0){x_p1 = 1;} 
+					skinPlayer1.change_skin(paths_to_sprites[x_p1]);
+					players[0]->change_skin(paths_to_sprites[x_p1]);
+					gameStatus = 2;
+					break;
+
+				case 6:
+					x_p2 += 1;
+					if (x_p2 > 1){x_p2 = 0;} 
+					skinPlayer2.change_skin(paths_to_sprites[x_p2]);
+					players[1]->change_skin(paths_to_sprites[x_p2]);
+					gameStatus = 3;
+					break;
+
+				case 7:
+					x_p2 -= 1;
+					if (x_p2 < 0){x_p2 = 1;} 
+					skinPlayer2.change_skin(paths_to_sprites[x_p2]);
+					players[1]->change_skin(paths_to_sprites[x_p2]);
+					gameStatus = 3;
+					break;
+
 			}
 		}
 
@@ -95,9 +144,15 @@ void Game::run()
 				break;
 
 			case 2:
-				skin.update();
-				mainChooseSkin->displayMenu();
-				skin.draw();
+				skinPlayer1.update();
+				mainChooseSkin1->displayMenu();
+				skinPlayer1.draw();
+				break;
+			
+			case 3:
+				skinPlayer2.update();
+				mainChooseSkin2->displayMenu();
+				skinPlayer2.draw();
 				break;
 		}
 
@@ -155,7 +210,8 @@ Game::~Game()
     delete scene;
     delete screenSurface;
     delete mainMenu;
-	delete mainChooseSkin;
+	delete mainChooseSkin1;
+	delete mainChooseSkin2;
     appWindow->destroyWindow();
 }
 
@@ -178,29 +234,46 @@ void Game::initMainMenu()
 	mainMenu->addButton(chooseSkinButton2);
 }
 
-void Game::initChooseSkin()
+void Game::initChooseSkinPlayer1()
 {
-	mainChooseSkin = new Menu();
-    mainChooseSkin->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
+	mainChooseSkin1 = new Menu();
+    mainChooseSkin1->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
 
 	// Init the arrow buttons to choose character
 	std::vector<std::string> buttonImagePaths_right = {"assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png"};
 	std::vector<std::string> buttonImagePaths_left = {"assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png"};
 
-	Button *playButton_right = new Button((SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", 0);
-	Button *playButton_left = new Button((SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", 0);
+	Button *playButton_right = new Button((SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", 4);
+	Button *playButton_left = new Button((SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", 5);
 
-	mainChooseSkin->addButton(playButton_right);
-	mainChooseSkin->addButton(playButton_left);
+	mainChooseSkin1->addButton(playButton_right);
+	mainChooseSkin1->addButton(playButton_left);
 
 	// Init the button to go back to the menu
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 	Button *goBackButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", 0);
-	mainChooseSkin->addButton(goBackButton);
+	mainChooseSkin1->addButton(goBackButton);
+}
 
-	// Init a sprite
-	Sprite skin("assets/images/players/player1.png");
-	
+void Game::initChooseSkinPlayer2()
+{
+	mainChooseSkin2 = new Menu();
+    mainChooseSkin2->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
+
+	// Init the arrow buttons to choose character
+	std::vector<std::string> buttonImagePaths_right = {"assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png"};
+	std::vector<std::string> buttonImagePaths_left = {"assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png"};
+
+	Button *playButton_right = new Button((SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", 6);
+	Button *playButton_left = new Button((SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", 7);
+
+	mainChooseSkin2->addButton(playButton_right);
+	mainChooseSkin2->addButton(playButton_left);
+
+	// Init the button to go back to the menu
+	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
+	Button *goBackButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", 0);
+	mainChooseSkin2->addButton(goBackButton);	
 }
 
 void Game::initArena()

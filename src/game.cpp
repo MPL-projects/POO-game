@@ -191,6 +191,8 @@ void Game::initChooseSkin()
 	mainChooseSkin->addButton(goBackButton);
 
 	// Init a sprite
+	Sprite skin(appWindow->renderer, "assets/images/players/player1.png");
+	skin.draw(appWindow->renderer);
 }
 
 void Game::initArena()

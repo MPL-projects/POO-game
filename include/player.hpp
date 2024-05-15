@@ -1,6 +1,5 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
-//#include "sprite.hpp"
 #include "gamepad.hpp"
 #include "keyboard.hpp"
 #include <iostream>

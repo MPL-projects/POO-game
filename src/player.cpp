@@ -1,7 +1,7 @@
 #include "../include/player.hpp"
 
 int Player::nb_players = 0;
-Player::Player(const char* path_to_sprite) : Sprite(path_to_sprite)
+Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite, ratio_)
 {
     controller = new Keyboard();
     life = 100;
@@ -60,8 +60,8 @@ void Player::initMeleeAttack(){
             att_bb = {(int)x + att_bb_off[0], (int)y + att_bb_off[1], r_h, r_w};
             break;
     }
-    bb.push_back(att_bb);
-    bb_off.push_back(att_bb_off);
+    bb_att.push_back(att_bb);
+    bb_att_off.push_back(att_bb_off);
 }
 
 void Player::take_damage(int damages){

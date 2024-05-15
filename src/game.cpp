@@ -38,8 +38,8 @@ Game::Game()
 	screenSurface = appWindow->screenSurface;
 
 	// players = new Player;
-	players.push_back(new Player("assets/images/players/player1.png"));
-	players.push_back(new Player("assets/images/players/player2.png"));
+	players.push_back(new Player("assets/images/players/player1.png", 2.5));
+	players.push_back(new Player("assets/images/players/player2.png", 2.5));
 
 	// players[i]->controller->registerWithEventHandlers(eventHandler);
 

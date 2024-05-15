@@ -30,6 +30,7 @@ void Player::handle_events(SDL_Event const &event)
     }
 }
 
+
 void Player::initMeleeAttack(){
     att_dir = m_direction;
     m_spritesheet_column = 0;

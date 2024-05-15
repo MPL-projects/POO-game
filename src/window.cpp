@@ -1,9 +1,6 @@
 #include "../include/window.hpp"
 #include "../include/game.hpp"
 
-int Window::HEIGHT=0;
-int Window::WIDTH=0;
-
 void Window::createWindow(const char *windowTitle, const int width, const int height){
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0)
     {

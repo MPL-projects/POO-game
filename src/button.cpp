@@ -1,18 +1,21 @@
 #include "../include/button.hpp"
 #include "../include/game.hpp"
+#include "../include/utilities.hpp"
 
-Button::Button(SDL_Renderer *renderer, int x, int y, int width, int height,
-               const std::vector<std::string> &imagePaths, const std::string &fontPath, const std::string &name, int a)
-    : m_rect({x, y, width, height}), m_renderer(renderer),
-      m_currentTextureIndex(0), m_isPressed(false), action(a)
+Button::Button(int x, int y, int width, int height,
+               const vector<string> &imagePaths, 
+               const string &fontPath, 
+               const string &name, 
+               int a): 
+               m_rect({x, y, width, height}), 
+               m_renderer(Game::appWindow->renderer),
+               m_currentTextureIndex(0), 
+               m_isPressed(false), 
+               action(a)
 {
     for (const auto &imagePath : imagePaths)
     {
-        SDL_Surface *surface = IMG_Load(imagePath.c_str());
-        if (!surface)
-        {
-            throw std::runtime_error("Failed to load image: " + imagePath);
-        }
+        SDL_Surface *surface = load_png(imagePath.c_str());
         SDL_Texture *texture = SDL_CreateTextureFromSurface(m_renderer, surface);
         SDL_FreeSurface(surface);
         m_textures.push_back(texture);

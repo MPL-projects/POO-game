@@ -14,6 +14,7 @@ bool Game::RUNNING = true;
 int Game::gameStatus = 0;
 Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
+Window* Game::appWindow;
 
 // void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
 //     SDL_Rect rect = {x, y - w / 2, 1, w};
@@ -37,8 +38,8 @@ Game::Game()
 	screenSurface = appWindow->screenSurface;
 
 	// players = new Player;
-	players.push_back(new Player(appWindow->renderer, "assets/images/players/player1.png"));
-	players.push_back(new Player(appWindow->renderer, "assets/images/players/player2.png"));
+	players.push_back(new Player("assets/images/players/player1.png"));
+	players.push_back(new Player("assets/images/players/player2.png"));
 
 	// players[i]->controller->registerWithEventHandlers(eventHandler);
 
@@ -82,7 +83,7 @@ void Game::run()
 		switch (gameStatus)
 		{
 			case 0:
-				mainMenu->displayMenu("assets/images/backgrounds_elements/menu/foggy.png");
+				mainMenu->displayMenu();
 				break;
 
 			case 1:
@@ -91,11 +92,12 @@ void Game::run()
 				break;
 
 			case 2:
-				mainChooseSkin->displayMenu("assets/images/backgrounds_elements/menu/foggy.png");
+				mainChooseSkin->displayMenu();
 				break;
 		}
 
 		SDL_RenderPresent(appWindow->renderer);
+        SDL_Delay(10);
 
 		// SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0x33, 0x33, 0x33));
 		// eventHandler.handleEvents();
@@ -113,18 +115,17 @@ void Game::update()
 {
     // players[0]->controller->getMove();
     // players[1]->controller->getMove();
-    players[0]->update();
-    players[1]->update();
+    for(auto& player : players)
+        player->update();
 }
 
 void Game::renderGame()
 {
     // SDL_RenderClear(appWindow->renderer);
-    SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(appWindow->renderer, nullptr);
-    scene->drawScene(appWindow->renderer);
+    // SDL_SetRenderDrawColor(appWindow->renderer, 255, 255, 255, 255);
+    // SDL_RenderFillRect(appWindow->renderer, nullptr);
+    scene->drawScene();
     drawPlayers();
-    SDL_Delay(10);
     // SDL_RenderPresent(appWindow->renderer);
 }
 
@@ -135,7 +136,7 @@ void Game::drawPlayers()
         p.push_back(player);
     std::sort(p.begin(), p.end(), [](Player* &a, Player* &b){ return a->y < b->y; });
     for (auto &player : p)
-        player->draw(appWindow->renderer);
+        player->draw();
 }
 
 Game::~Game()
@@ -155,39 +156,41 @@ Game::~Game()
 
 void Game::initMainMenu()
 {
-	mainMenu = new Menu(appWindow->renderer, appWindow->mainWindow);
+	mainMenu = new Menu();
+    mainMenu->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 
 	// Go to Combat Button
-	Button *combatButton = new Button(appWindow->renderer, (SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Combat", 1);
+	Button *combatButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Combat", 1);
 	mainMenu->addButton(combatButton);
 
 	// Go to Choose Skin Menu Button
-	Button *chooseSkinButton1 = new Button(appWindow->renderer, (SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 1 Skin", 2);
+	Button *chooseSkinButton1 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 1 Skin", 2);
 	mainMenu->addButton(chooseSkinButton1);
 
 	// Go to Choose Skin Menu Button
-	Button *chooseSkinButton2 = new Button(appWindow->renderer, (SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", 2);
+	Button *chooseSkinButton2 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", 2);
 	mainMenu->addButton(chooseSkinButton2);
 }
 
 void Game::initChooseSkin()
 {
-	mainChooseSkin = new Menu(appWindow->renderer, appWindow->mainWindow);
+	mainChooseSkin = new Menu();
+    mainChooseSkin->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
 
 	// Init the arrow buttons to choose character
 	std::vector<std::string> buttonImagePaths_right = {"assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png", "assets/images/backgrounds_elements/menu/buttons/left.png"};
 	std::vector<std::string> buttonImagePaths_left = {"assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png", "assets/images/backgrounds_elements/menu/buttons/right.png"};
 
-	Button *playButton_right = new Button(appWindow->renderer, (SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", 0);
-	Button *playButton_left = new Button(appWindow->renderer, (SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", 0);
+	Button *playButton_right = new Button((SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", 0);
+	Button *playButton_left = new Button((SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", 0);
 
 	mainChooseSkin->addButton(playButton_right);
 	mainChooseSkin->addButton(playButton_left);
 
 	// Init the button to go back to the menu
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
-	Button *goBackButton = new Button(appWindow->renderer, (SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", 0);
+	Button *goBackButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", 0);
 	mainChooseSkin->addButton(goBackButton);
 
 	// Init a sprite
@@ -197,5 +200,5 @@ void Game::initChooseSkin()
 
 void Game::initArena()
 {
-	scene = new Arena(appWindow->renderer);
+	scene = new Arena();
 }

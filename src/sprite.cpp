@@ -15,7 +15,7 @@ map<Direction, int> row_sprite = {{Direction::UP, 5}, {Direction::LEFT, 4}, {Dir
 map<Direction, vector<double>> dm = {{Direction::UP, {0, - (500.0 * delta_time_)}}, {Direction::LEFT, {- (500.0 * delta_time_), 0}}, {Direction::RIGHT, {(500.0 * delta_time_), 0}}, {Direction::DOWN, {0, (500.0 * delta_time_)}}};
 map<Direction, SDL_RendererFlip> fl = {{Direction::UP, SDL_FLIP_NONE}, {Direction::LEFT, SDL_FLIP_HORIZONTAL}, {Direction::RIGHT, SDL_FLIP_NONE}, {Direction::DOWN, SDL_FLIP_NONE}};
 
-Sprite::Sprite(SDL_Renderer *renderer, const char* path_to_sprite): m_spritesheet(path_to_sprite, 10, 6, renderer)
+Sprite::Sprite(const char* path_to_sprite): renderer(Game::appWindow->renderer), m_spritesheet(path_to_sprite, 10, 6)
 {
     float ratio = 2.5;
     m_position.x = 100;
@@ -43,33 +43,46 @@ Sprite::Sprite(SDL_Renderer *renderer, const char* path_to_sprite): m_spriteshee
 
     att_dir = Direction::NONE;
     hit=false;
+    block = false;
+    alive = true;
 }
 
 void Sprite::update()
 {
     Direction dir = att_dir;
-    int mult = 10, column_int = m_spritesheet_column/mult, off=3;
-    if(att_dir == Direction::NONE){
-        if(m_direction == Direction::NONE){
-            dir = m_direction_prev;
-            off = -3;
-        }
+    int mult = 10, column_int = m_spritesheet_column/mult, off=3, col = column_int;
+    if(alive){
+        if(block){col = 0;off = 3;dir = m_direction==Direction::NONE ? m_direction_prev : m_direction;}
         else{
-            dir = m_direction;
-            move(dm[m_direction][0], dm[m_direction][1]);
-            off = 0;
+            if(att_dir == Direction::NONE){
+                if(m_direction == Direction::NONE){
+                    dir = m_direction_prev;
+                    off = -3;
+                }
+                else{
+                    dir = m_direction;
+                    move(dm[m_direction][0], dm[m_direction][1]);
+                    off = 0;
+                }
+            }
+            else{
+                meleeAttack();
+                if(m_spritesheet_column > mult*3){
+                    att_dir = Direction::NONE;
+                    bb.pop_back();
+                    bb_off.pop_back();
+                    hit=false;
+                }
+            }
         }
     }
     else{
-        meleeAttack();
-        if(m_spritesheet_column > mult*3){
-            att_dir = Direction::NONE;
-            bb.pop_back();
-            bb_off.pop_back();
-            hit=false;
-        }
+        if(m_spritesheet_column > mult*2)
+            m_spritesheet_column--;
+        dir = Direction::DOWN;
+        off = 6;
     }
-    m_spritesheet.select_sprite(column_int, row_sprite[dir]+ off);
+    m_spritesheet.select_sprite(col, row_sprite[dir]+ off);
     m_spritesheet.flip = fl[dir];
 
     m_spritesheet_column++;
@@ -81,15 +94,19 @@ void Sprite::update()
 void Sprite::meleeAttack(){
     for(auto& player : Game::players){
         if(player->id != id && !hit){
-            if(checkCollision2(bb, player->bb)){
+            std::vector<SDL_Rect> box = player->bb;
+            if(player->att_dir != Direction::NONE)
+                box.pop_back();
+            if(checkCollision2(bb, box)){
                 hit=true;
                 std::cerr << "Player " << player->id << " was hit" << std::endl;
+                player->take_damage(strength);
             }
         }
     }
 }
 
-void Sprite::draw(SDL_Renderer *renderer)
+void Sprite::draw()
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
     // SDL_RenderDrawRect(renderer, &m_position);
@@ -113,7 +130,7 @@ void Sprite::move(double dx, double dy){
 
     // if(bb[0].x < 0){x = - bb_off[0][0];}
     // else if( bb[0].x + bb[0].w > Window::WIDTH ){x = Window::WIDTH - bb[0].w - bb_off[0][0];}
-    bounds(x, bb[0].x, bb[0].w, bb_off[0][0], Window::WIDTH);
+    bounds(x, bb[0].x, bb[0].w, bb_off[0][0], Game::appWindow->WIDTH);
 
 
 
@@ -132,7 +149,7 @@ void Sprite::move(double dx, double dy){
 
     // if(bb[0].y < 0){y = - bb_off[0][1];}
     // else if( bb[0].y + bb[0].h > Window::HEIGHT ){y = Window::HEIGHT - bb[0].h - bb_off[0][1];}
-    bounds(y, bb[0].y, bb[0].h, bb_off[0][1], Window::HEIGHT);
+    bounds(y, bb[0].y, bb[0].h, bb_off[0][1], Game::appWindow->HEIGHT);
 
 
 
@@ -186,6 +203,6 @@ std::vector<SDL_Rect>& Sprite::get_boxes()
     return bb;
 }
 
-void Sprite::change_skin(const char* path, SDL_Renderer *renderer){
-    m_spritesheet.load_skin(path, renderer);
+void Sprite::change_skin(const char* path){
+    m_spritesheet.load_skin(path);
 }

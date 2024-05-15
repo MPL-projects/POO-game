@@ -14,20 +14,17 @@ public:
     Controller *controller;
     // Player(SDL_Renderer *renderer, const char *imagePath, int startX, int startY) : Sprite(renderer, imagePath, startX, startY){};
     // Player(const Player &player_);
-    Player(SDL_Renderer *renderer, const char* path_to_sprite);
+    Player(const char* path_to_sprite);
     ~Player(){delete controller;};
     void handle_events(SDL_Event const &event);
 
     static int nb_players;
-    bool operator<( const Player*& val ) const { 
-        return y < val->y; 
-    }
+    void take_damage(int damages);
 
 
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
 private:
-    int strength;
     int life;
     void initMeleeAttack();
     

@@ -8,23 +8,21 @@ class Arena : public Scene
 {
 public:
 
-    Arena(SDL_Renderer *renderer);
+    Arena();
     ~Arena();
 
-   void drawScene(SDL_Renderer *renderer);
+   void drawScene();
    
 
 protected:
     int screen_width, screen_height;
     SDL_Rect     m_position;
     Scenesheet  *floor, *tree, *abandonedHouse, *water;
-    void drawWall(SDL_Renderer *renderer);
-    void drawFloor(SDL_Renderer *renderer);
-    void drawTree(SDL_Renderer *renderer);
-    void drawAbandonedHouse(SDL_Renderer *renderer);
-    void drawWater(SDL_Renderer *renderer);
-
-    
-    
+    SDL_Renderer *renderer;
+    void drawWall();
+    void drawFloor();
+    void drawTree();
+    void drawAbandonedHouse();
+    void drawWater();
 };
 #endif

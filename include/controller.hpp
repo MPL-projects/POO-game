@@ -20,6 +20,7 @@ public:
 
     std::vector<Direction> ev;
     bool att;
+    bool block;
 };
 
 #endif

@@ -9,12 +9,12 @@ class Sprite
 {
 public:
 
-    Sprite(SDL_Renderer *renderer, const char* path_to_sprite);
+    Sprite(const char* path_to_sprite);
     ~Sprite() = default;
 
     void handle_events(SDL_Event const &event);
     void update();
-    void draw(SDL_Renderer *renderer);
+    void draw();
     void move(double x1, double y1);
 
     Direction m_direction;
@@ -25,7 +25,7 @@ public:
     int id;
     double x;
     double y;
-    void change_skin(const char* path, SDL_Renderer *renderer);
+    void change_skin(const char* path);
 
 protected:
     
@@ -38,5 +38,9 @@ protected:
     double y_off;
     Direction att_dir;
     bool hit;
+    bool block;
+    int strength;
+    bool alive;
+    SDL_Renderer *renderer;
 };
 #endif

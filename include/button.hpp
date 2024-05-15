@@ -9,10 +9,24 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 class Button {
+public:
+    Button(int x, int y, int width, int height, const vector<string>& imagePaths, const string& fontPath, const string& name, int a);
+    ~Button();
+    int get_x() const {return m_rect.x;};
+    int get_y() const {return m_rect.y;};
+    int get_w() const {return m_rect.w;};
+    int get_wh() const {return m_rect.h;};
+    void handleEvent(const SDL_Event& event); 
+    void render();
+
+    bool isPressed() const;
+
 private:
     SDL_Rect m_rect;
-    std::vector<SDL_Texture*> m_textures;
+    vector<SDL_Texture*> m_textures;
     SDL_Renderer* m_renderer;
     int m_currentTextureIndex;
     TTF_Font* m_font;
@@ -21,17 +35,6 @@ private:
     bool m_isPressed;
     int action;
 
-public:
-    int get_x() const {return m_rect.x;};
-    int get_y() const {return m_rect.y;};
-    int get_w() const {return m_rect.w;};
-    int get_wh() const {return m_rect.h;};
-    Button(SDL_Renderer* renderer, int x, int y, int width, int height, const std::vector<std::string>& imagePaths, const std::string& fontPath, const std::string& name, int a);
-    ~Button();
-    void handleEvent(const SDL_Event& event); 
-    void render();
-
-    bool isPressed() const;
 };
 
 #endif

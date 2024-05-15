@@ -11,7 +11,7 @@ class Scene
 public:
     Scene(){};
     virtual ~Scene(){};
-    virtual void drawScene(SDL_Renderer *renderer) = 0;
+    virtual void drawScene() = 0;
     std::vector<SDL_Rect>& get_boxes(){return boxes;};
 
 private:

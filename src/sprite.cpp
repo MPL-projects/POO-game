@@ -15,9 +15,8 @@ map<Direction, int> row_sprite = {{Direction::UP, 5}, {Direction::LEFT, 4}, {Dir
 map<Direction, vector<double>> dm = {{Direction::UP, {0, - (500.0 * delta_time_)}}, {Direction::LEFT, {- (500.0 * delta_time_), 0}}, {Direction::RIGHT, {(500.0 * delta_time_), 0}}, {Direction::DOWN, {0, (500.0 * delta_time_)}}};
 map<Direction, SDL_RendererFlip> fl = {{Direction::UP, SDL_FLIP_NONE}, {Direction::LEFT, SDL_FLIP_HORIZONTAL}, {Direction::RIGHT, SDL_FLIP_NONE}, {Direction::DOWN, SDL_FLIP_NONE}};
 
-Sprite::Sprite(const char* path_to_sprite): renderer(Game::appWindow->renderer), m_spritesheet(path_to_sprite, 10, 6)
+Sprite::Sprite(const char* path_to_sprite, float ratio_): renderer(Game::appWindow->renderer), m_spritesheet(path_to_sprite, 10, 6), ratio(ratio_)
 {
-    float ratio = 2.5;
     m_position.x = 100;
     m_position.y = 100;
     m_position.w = 48 * ratio;
@@ -69,8 +68,8 @@ void Sprite::update()
                 meleeAttack();
                 if(m_spritesheet_column > mult*3){
                     att_dir = Direction::NONE;
-                    bb.pop_back();
-                    bb_off.pop_back();
+                    bb_att.clear();
+                    bb_att_off.clear();
                     hit=false;
                 }
             }
@@ -94,10 +93,7 @@ void Sprite::update()
 void Sprite::meleeAttack(){
     for(auto& player : Game::players){
         if(player->id != id && !hit){
-            std::vector<SDL_Rect> box = player->bb;
-            if(player->att_dir != Direction::NONE)
-                box.pop_back();
-            if(checkCollision2(bb, box)){
+            if(checkCollision2(bb_att, player->bb)){
                 hit=true;
                 std::cerr << "Player " << player->id << " was hit" << std::endl;
                 player->take_damage(strength);
@@ -174,6 +170,11 @@ void Sprite::move_boxes(){
     {
         bb[i].x = x + bb_off[i][0];
         bb[i].y = y + bb_off[i][1];
+    }
+    for( int i = 0; i < (int)bb_att.size(); i++ )
+    {
+        bb[i].x = x + bb_att_off[i][0];
+        bb[i].y = y + bb_att_off[i][1];
     }
     // //Go through the dot's collision boxes
     // for(auto &box : collisions_boxes)

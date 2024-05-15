@@ -38,8 +38,8 @@ Game::Game()
 	screenSurface = appWindow->screenSurface;
 
 	// players = new Player;
-	players.push_back(new Player("assets/images/players/player1.png"));
-	players.push_back(new Player("assets/images/players/player2.png"));
+	players.push_back(new Player("assets/images/players/player1.png", 2.5));
+	players.push_back(new Player("assets/images/players/player2.png", 2.5));
 
 	
 
@@ -56,6 +56,7 @@ void Game::run()
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
 	initArena();
+	Sprite skin("assets/images/players/player1.png", 2.5);
 
 	Sprite skinPlayer1("assets/images/players/player1.png");
 	Sprite skinPlayer2("assets/images/players/player2.png");
@@ -252,6 +253,11 @@ void Game::initChooseSkinPlayer1()
 	// Init the button to go back to the menu
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 	Button *goBackButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", 0);
+	mainChooseSkin->addButton(goBackButton);
+
+	// Init a sprite
+	Sprite skin("assets/images/players/player1.png", 2.5);
+	
 	mainChooseSkin1->addButton(goBackButton);
 }
 

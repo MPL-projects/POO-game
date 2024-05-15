@@ -14,7 +14,7 @@ public:
     Controller *controller;
     // Player(SDL_Renderer *renderer, const char *imagePath, int startX, int startY) : Sprite(renderer, imagePath, startX, startY){};
     // Player(const Player &player_);
-    Player(const char* path_to_sprite);
+    Player(const char* path_to_sprite, float ratio_);
     ~Player(){delete controller;};
     void handle_events(SDL_Event const &event);
 

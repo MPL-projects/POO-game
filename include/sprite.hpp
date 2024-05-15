@@ -9,7 +9,7 @@ class Sprite
 {
 public:
 
-    Sprite(const char* path_to_sprite);
+    Sprite(const char* path_to_sprite, float ratio_);
     ~Sprite() = default;
 
     void handle_events(SDL_Event const &event);
@@ -33,6 +33,8 @@ protected:
     int m_spritesheet_column;
     std::vector<SDL_Rect> bb; // boundings boxes
     std::vector<std::vector<int>> bb_off; // boundings boxes offset
+    std::vector<SDL_Rect> bb_att; // boundings boxes
+    std::vector<std::vector<int>> bb_att_off; // boundings boxes offset
     SDL_Rect m_position;
     double x_off;
     double y_off;
@@ -42,5 +44,6 @@ protected:
     int strength;
     bool alive;
     SDL_Renderer *renderer;
+    float ratio;
 };
 #endif

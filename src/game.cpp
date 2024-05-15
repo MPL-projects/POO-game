@@ -41,6 +41,8 @@ Game::Game()
 	players.push_back(new Player("assets/images/players/player1.png"));
 	players.push_back(new Player("assets/images/players/player2.png"));
 
+	
+
 	// players[i]->controller->registerWithEventHandlers(eventHandler);
 
 	RUNNING = true;
@@ -52,6 +54,7 @@ void Game::run()
 	initMainMenu();
 	initChooseSkin();
 	initArena();
+	Sprite skin("assets/images/players/player1.png");
 	while (RUNNING)
 	{
 		while (SDL_PollEvent(&event))
@@ -92,7 +95,9 @@ void Game::run()
 				break;
 
 			case 2:
+				skin.update();
 				mainChooseSkin->displayMenu();
+				skin.draw();
 				break;
 		}
 
@@ -195,7 +200,7 @@ void Game::initChooseSkin()
 
 	// Init a sprite
 	Sprite skin("assets/images/players/player1.png");
-	skin.draw();
+	
 }
 
 void Game::initArena()

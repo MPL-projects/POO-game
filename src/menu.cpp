@@ -13,10 +13,12 @@ Menu::Menu()
 }
 
 Menu::~Menu() {
-    destroyMenuScreen();
-    for (auto button : buttons) {
+    for (auto& button : buttons) {
         delete button;
     }
+    buttons.clear();
+    SDL_DestroyTexture(back_texture);
+    back_texture = NULL;
     TTF_Quit();
 }
 
@@ -31,18 +33,12 @@ void Menu::setBackground(const std::string&  imagePath) {
     SDL_Surface* surface = load_png(imagePath.c_str());
     back_texture = SDL_CreateTextureFromSurface(m_renderer, surface);
     SDL_FreeSurface(surface);
+    surface = NULL;
     SDL_RenderCopy(m_renderer, back_texture, NULL, NULL);
 }
 
 void Menu::render_background() {
     SDL_RenderCopy(m_renderer, back_texture, NULL, NULL);
-}
-
-void Menu::destroyMenuScreen() {
-    if (back_texture) {
-        SDL_DestroyTexture(back_texture);
-        back_texture = nullptr;
-    }
 }
 
 void Menu::handleEvents(SDL_Event &event) {

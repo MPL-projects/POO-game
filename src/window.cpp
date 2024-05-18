@@ -11,18 +11,36 @@ void Window::createWindow(const char *windowTitle, const int width, const int he
     HEIGHT = height;
     mainWindow = SDL_CreateWindow(windowTitle, 10, 10, width, height, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(mainWindow, -1, 0);
-    screenSurface = SDL_GetWindowSurface(mainWindow);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 }
 
-void Window::destroyWindow(){
-    SDL_UpdateWindowSurface(mainWindow);
+Window::~Window()
+{
+    SDL_DestroyRenderer(renderer);
+    renderer = NULL;
     SDL_DestroyWindow(mainWindow);
-    SDL_Quit();            
+    mainWindow = NULL;
+    SDL_Quit();   
 }
 
 void Window::handleEvents(SDL_Event &event){
-    if((event.type==SDL_WINDOWEVENT && event.window.event==SDL_WINDOWEVENT_CLOSE)||(event.type == SDL_QUIT) ){
-        Game::stopGame();
+    switch(event.type){
+        case SDL_WINDOWEVENT:
+            if(event.window.event!=SDL_WINDOWEVENT_CLOSE)
+                break;
+        case SDL_QUIT:
+            Game::stopGame();
+            break;
+        // case SDL_CONTROLLERDEVICEADDED:
+        //     if (!controller) {
+        //         controller = SDL_GameControllerOpen(event.cdevice.which);
+        //     }
+        //     break;
+        // case SDL_CONTROLLERDEVICEREMOVED:
+        //     if (controller && event.cdevice.which == getControllerInstanceID(controller)) {
+        //         SDL_GameControllerClose(controller);
+        //         controller = findController();
+        //     }
+        //     break;
     }
 }

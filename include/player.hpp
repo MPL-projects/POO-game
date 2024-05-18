@@ -21,11 +21,13 @@ public:
     static int nb_players;
     void take_damage(int damages);
 
+    Player operator=(const Player &player);
+
 
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
-private:
     int life;
+private:
     void initMeleeAttack();
     
 };

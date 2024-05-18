@@ -34,12 +34,6 @@ public:
     static void stopGame(){RUNNING = false;};
     static int gameStatus;
 
-    
-
-    // Event eventHandler;
-    SDL_Surface *screenSurface;
-    // SDL_Window *window;
-
     static vector<Player*> players;
     // Player *players;
     static Window *appWindow;
@@ -57,5 +51,6 @@ private:
     void drawPlayers();
 	void initChooseSkinPlayer1();
     void initChooseSkinPlayer2();
+    void destroyGame();
 };
 #endif

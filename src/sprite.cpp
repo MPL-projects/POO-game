@@ -15,8 +15,9 @@ map<Direction, int> row_sprite = {{Direction::UP, 5}, {Direction::LEFT, 4}, {Dir
 map<Direction, vector<double>> dm = {{Direction::UP, {0, - (500.0 * delta_time_)}}, {Direction::LEFT, {- (500.0 * delta_time_), 0}}, {Direction::RIGHT, {(500.0 * delta_time_), 0}}, {Direction::DOWN, {0, (500.0 * delta_time_)}}};
 map<Direction, SDL_RendererFlip> fl = {{Direction::UP, SDL_FLIP_NONE}, {Direction::LEFT, SDL_FLIP_HORIZONTAL}, {Direction::RIGHT, SDL_FLIP_NONE}, {Direction::DOWN, SDL_FLIP_NONE}};
 
-Sprite::Sprite(const char* path_to_sprite, float ratio_): renderer(Game::appWindow->renderer), m_spritesheet(path_to_sprite, 10, 6), ratio(ratio_)
+Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_sprite, 10, 6), ratio(ratio_)
 {
+    renderer = Game::appWindow->renderer;
     m_position.x = 100;
     m_position.y = 100;
     m_position.w = 48 * ratio;
@@ -44,6 +45,9 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): renderer(Game::appWind
     hit=false;
     block = false;
     alive = true;
+}
+
+Sprite::~Sprite(){
 }
 
 void Sprite::update()

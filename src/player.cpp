@@ -3,6 +3,7 @@
 int Player::nb_players = 0;
 Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite, ratio_)
 {
+    // controller = new Keyboard();
     controller = new Keyboard();
     life = 100;
     strength = 10;

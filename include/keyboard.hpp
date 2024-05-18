@@ -13,7 +13,6 @@ class Keyboard : public Controller{
     public:
         Keyboard();
         ~Keyboard();
-        void getMove();
         void handle_events(SDL_Event const &event);
     private:
         // enum class Keys{UP=SDL_SCANCODE_W, DOWN=SDL_SCANCODE_S, RIGHT=SDL_SCANCODE_D, LEFT=SDL_SCANCODE_A};

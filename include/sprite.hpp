@@ -2,8 +2,8 @@
 #define SPRITE_HPP
 #include <SDL2/SDL.h>
 #include "spritesheet.hpp"
-#include <tuple>
 #include "utilities.hpp"
+#include "effect.hpp"
 
 class Sprite
 {
@@ -12,7 +12,6 @@ public:
     Sprite(const char* path_to_sprite, float ratio_);
     ~Sprite();
 
-    void handle_events(SDL_Event const &event);
     void update();
     void draw();
     void move(double x1, double y1);
@@ -30,14 +29,13 @@ public:
 protected:
     
     Spritesheet m_spritesheet;
+    Effect *effect;
     int m_spritesheet_column;
     std::vector<SDL_Rect> bb; // boundings boxes
     std::vector<std::vector<int>> bb_off; // boundings boxes offset
     std::vector<SDL_Rect> bb_att; // boundings boxes
     std::vector<std::vector<int>> bb_att_off; // boundings boxes offset
     SDL_Rect m_position;
-    double x_off;
-    double y_off;
     Direction att_dir;
     bool hit;
     bool block;

@@ -75,4 +75,5 @@ void Player::take_damage(int damages){
             m_spritesheet_column = 0;
         }
     }
+    effect->show = true;
 }

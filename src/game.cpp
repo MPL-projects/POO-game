@@ -57,8 +57,11 @@ void Game::run()
 	initChooseSkinPlayer2();
 	initArena();
 
-	Sprite skinPlayer1("assets/images/players/player1.png", 2.5);
-	Sprite skinPlayer2("assets/images/players/player2.png", 2.5);
+	Sprite skinPlayer1("assets/images/players/player1.png", 15);
+	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
+
+	Sprite skinPlayer2("assets/images/players/player2.png", 15);
+	skinPlayer2.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2);
 
 	std::vector<char *> paths_to_sprites;
 	paths_to_sprites.push_back("assets/images/players/player1.png");
@@ -230,7 +233,7 @@ void Game::initMainMenu()
 	mainMenu->addButton(chooseSkinButton1);
 
 	// Go to Choose Skin Menu Button
-	Button *chooseSkinButton2 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", 2);
+	Button *chooseSkinButton2 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", 3);
 	mainMenu->addButton(chooseSkinButton2);
 }
 

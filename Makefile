@@ -26,4 +26,4 @@ run_valgrind:
 	valgrind --leak-check=full --show-reachable=yes ./$(EXEC)
 
 run_valgrind2:
-	valgrind --gen-suppressions=all --suppressions=linux_sdl_gl.sup --leak-check=full --show-leak-kinds=all -s ./$(EXEC)
+	valgrind --gen-suppressions=all --suppressions=linux_sdl_gl.sup --leak-check=full --show-leak-kinds=all ./$(EXEC)

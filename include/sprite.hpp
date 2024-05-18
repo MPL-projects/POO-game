@@ -10,7 +10,7 @@ class Sprite
 public:
 
     Sprite(const char* path_to_sprite, float ratio_);
-    ~Sprite() = default;
+    ~Sprite();
 
     void handle_events(SDL_Event const &event);
     void update();

@@ -14,6 +14,7 @@ Spritesheet::Spritesheet(char const *path, int nb_row, int nb_column) : renderer
 Spritesheet::~Spritesheet()
 {
     SDL_DestroyTexture(m_spritesheet_image_texture);
+    m_spritesheet_image_texture = NULL;
 }
 
 void Spritesheet::select_sprite(int x, int y)
@@ -30,11 +31,12 @@ void Spritesheet::draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *positio
 }
 
 void Spritesheet::load_skin(char const *path){
-    m_spritesheet_image = load_png(path);
+    SDL_Surface *m_spritesheet_image = load_png(path);
     m_spritesheet_image_texture = SDL_CreateTextureFromSurface(renderer, m_spritesheet_image);
     height =  m_spritesheet_image->h;
     width = m_spritesheet_image->w;
     m_clip.w = width / column;
     m_clip.h = height / row;
     SDL_FreeSurface(m_spritesheet_image);
+    m_spritesheet_image = NULL;
 }

@@ -28,7 +28,6 @@ private:
 
     int windowHeight, windowWidth;
 
-    void destroyMenuScreen();
     void render_background();
 };
 

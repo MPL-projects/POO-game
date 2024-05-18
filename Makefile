@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -std=c++11 -Wall -pthread
+CFLAGS = -std=c++11 -Wall -pthread -ggdb3
 LIBS = -lSDL2_image -lSDL2_ttf -lSDL2 -lpthread -lSDL2_mixer
 
 # Les fichiers source

@@ -34,16 +34,8 @@ Game::Game()
 {
 	appWindow = new Window;
 	appWindow->createWindow("POO-Game", SCREEN_WIDTH, SCREEN_HEIGHT);
-
-	screenSurface = appWindow->screenSurface;
-
-	// players = new Player;
 	players.push_back(new Player("assets/images/players/player1.png", 2.5));
 	players.push_back(new Player("assets/images/players/player2.png", 2.5));
-
-	
-
-	// players[i]->controller->registerWithEventHandlers(eventHandler);
 
 	RUNNING = true;
 }
@@ -170,14 +162,11 @@ void Game::run()
 		// SDL_UpdateWindowSurface(appWindow->mainWindow);
 	}
 
-	SDL_Quit();
-	SDL_DestroyRenderer(appWindow->renderer);
+    destroyGame();
 }
 
 void Game::update()
 {
-    // players[0]->controller->getMove();
-    // players[1]->controller->getMove();
     for(auto& player : players)
         player->update();
 }
@@ -200,22 +189,30 @@ void Game::drawPlayers()
     std::sort(p.begin(), p.end(), [](Player* &a, Player* &b){ return a->y < b->y; });
     for (auto &player : p)
         player->draw();
+    // p.clear();
 }
 
-Game::~Game()
-{
+void Game::destroyGame(){
     for (auto &player : players)
     {
         delete player;
     }
     players.clear();
-    delete appWindow;
-    delete scene;
-    delete screenSurface;
     delete mainMenu;
-	delete mainChooseSkin1;
-	delete mainChooseSkin2;
-    appWindow->destroyWindow();
+    mainMenu = NULL;
+    delete mainChooseSkin1;
+    mainChooseSkin1 = NULL;
+    delete mainChooseSkin2;
+    mainChooseSkin2 = NULL;
+    delete scene;
+    scene = NULL;
+    delete appWindow;
+    appWindow = NULL;
+}
+
+Game::~Game()
+{
+    destroyGame();
 }
 
 void Game::initMainMenu()

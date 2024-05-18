@@ -9,11 +9,10 @@ class Window {
     public:
 
         SDL_Window *mainWindow = NULL;
-        SDL_Surface *screenSurface = NULL;
         SDL_Renderer *renderer = NULL;
 
         void createWindow(const char *windowTitle, const int width, const int height);
-        void destroyWindow();
+        ~Window();
         void handleEvents(SDL_Event &event);
         int HEIGHT;
         int WIDTH;

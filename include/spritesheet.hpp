@@ -16,7 +16,6 @@ public:
 
 private:
     SDL_Rect     m_clip;
-    SDL_Surface *m_spritesheet_image;
     SDL_Texture *m_spritesheet_image_texture;
     SDL_Renderer *renderer;
 

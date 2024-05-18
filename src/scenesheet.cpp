@@ -10,6 +10,7 @@ Scenesheet::Scenesheet(char const *path) : renderer(Game::appWindow->renderer)
    
     // std::cerr << m_clip.w << " " << m_clip.h << std::endl;
     SDL_FreeSurface(m_arena_image);
+    m_arena_image = NULL;
     flip = SDL_FLIP_NONE;
     rotation = 0;
 
@@ -19,6 +20,7 @@ Scenesheet::~Scenesheet()
 {
     // SDL_FreeSurface(m_spritesheet_image);
     SDL_DestroyTexture(m_arena_image_texture);
+    m_arena_image_texture = NULL;
 }
 
 

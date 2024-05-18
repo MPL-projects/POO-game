@@ -35,12 +35,13 @@ Button::Button(int x, int y, int width, int height,
 
 Button::~Button()
 {
-    for (SDL_Texture *texture : m_textures)
+    for (auto& texture : m_textures)
     {
         SDL_DestroyTexture(texture);
     }
     m_textures.clear(); // Clear the vector after destroying the textures
     SDL_DestroyTexture(m_textTexture);
+    m_textTexture = NULL;
     TTF_CloseFont(m_font);
 }
 

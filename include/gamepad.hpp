@@ -8,9 +8,10 @@ using namespace std;
 class Gamepad : public Controller{
     public:
         Gamepad();
-        ~Gamepad(){SDL_GameControllerClose(controller);};
+        ~Gamepad(){SDL_GameControllerClose(controller); controller = NULL;};
         SDL_GameController *controller;
-        void getMove();
+        void handle_events(SDL_Event const &event);
+        void setDir(float x, float y);
 
 };
 

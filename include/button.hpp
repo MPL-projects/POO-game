@@ -18,7 +18,7 @@ public:
     int get_x() const {return m_rect.x;};
     int get_y() const {return m_rect.y;};
     int get_w() const {return m_rect.w;};
-    int get_wh() const {return m_rect.h;};
+    int get_h() const {return m_rect.h;};
     void handleEvent(const SDL_Event& event); 
     void render();
 

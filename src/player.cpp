@@ -5,7 +5,7 @@ Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite
 {
     // controller = new Keyboard();
     controller = new Keyboard();
-    life = 60;
+    life = 50;
     strength = 10;
     id = nb_players;
     nb_players++;

@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <vector>
 #include <iostream>
+#include "player.hpp"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ public:
     int get_w() const {return m_rect.w;};
     int get_h() const {return m_rect.h;};
 
-	void punched();
+	void actualDamages(int life);
     
     void render();
 

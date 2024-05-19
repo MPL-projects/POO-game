@@ -1,6 +1,7 @@
 #include "../include/health_bar.hpp"
 #include "../include/game.hpp"
 #include "../include/utilities.hpp"
+#include "../include/player.hpp"
 
 HealthBar::HealthBar(int x, int y, int width, int height): 
                m_rect({x, y, width, height}), 
@@ -38,8 +39,8 @@ void HealthBar::render()
 }
 
 
-void HealthBar::punched()
+void HealthBar::actualDamages(int life)
 {
-    if (m_currentTextureIndex > 5){ m_currentTextureIndex = 0;}
-	else { m_currentTextureIndex += 1;}
+	if (m_currentTextureIndex == 5) {m_currentTextureIndex = 5;}
+    else {m_currentTextureIndex = 5 - life / 10;}
 }

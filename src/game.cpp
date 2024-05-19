@@ -39,6 +39,8 @@ Game::Game()
 	players.push_back(new Player("assets/images/players/player1.png", 2.5));
 	players.push_back(new Player("assets/images/players/player2.png", 2.5));
 
+	players[1]->move(1366-300.5,0);
+
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	RUNNING = true;
@@ -190,9 +192,15 @@ void Game::drawHealthBars(){
 	std::vector<HealthBar *> hb;
     for (auto &health_bar : health_bars)
         hb.push_back(health_bar);
+	
+	int life_player1 = players[0]->life;
+	int life_player2 = players[1]->life;
+
+	health_bars[0]->actualDamages(life_player1);
+	health_bars[1]->actualDamages(life_player2);
+
     for (auto &health_bar : hb)
         health_bar->render();
-		
 }
 
 void Game::drawPlayers()

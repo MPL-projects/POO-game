@@ -7,9 +7,12 @@ HealthBar::HealthBar(int x, int y, int width, int height):
                m_renderer(Game::appWindow->renderer),
                m_currentTextureIndex(0)
 {
-	std::vector<std::string> imagePaths = {	"assets/images/backgrounds_elements/menu/buttons/left.png", 
-											"assets/images/backgrounds_elements/menu/buttons/left.png", 
-											"assets/images/backgrounds_elements/menu/buttons/left.png"};
+	std::vector<std::string> imagePaths = {	"assets/images/players/health_bar/health_bar_1.png", 
+											"assets/images/players/health_bar/health_bar_2.png", 
+											"assets/images/players/health_bar/health_bar_3.png",
+											"assets/images/players/health_bar/health_bar_4.png",
+											"assets/images/players/health_bar/health_bar_5.png",
+											"assets/images/players/health_bar/health_bar_6.png"};
 
     for (const auto &imagePath : imagePaths)
     {

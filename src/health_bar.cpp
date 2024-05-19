@@ -40,5 +40,6 @@ void HealthBar::render()
 
 void HealthBar::punched()
 {
-    
+    if (m_currentTextureIndex > 5){ m_currentTextureIndex = 0;}
+	else { m_currentTextureIndex += 1;}
 }

@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include "player.hpp"
+#include "health_bar.hpp"
 #include "window.hpp"
 #include "menu.hpp"
 #include "arena.hpp"
@@ -35,6 +36,7 @@ public:
     static int gameStatus;
 
     static vector<Player*> players;
+	static vector<HealthBar *> health_bars;
     // Player *players;
     static Window *appWindow;
     Menu *mainMenu;
@@ -49,6 +51,7 @@ private:
     void initMainMenu();
     void initArena();
     void drawPlayers();
+	void drawHealthBars();
 	void initChooseSkinPlayer1();
     void initChooseSkinPlayer2();
     void destroyGame();

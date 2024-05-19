@@ -1,5 +1,6 @@
 #include "../include/game.hpp"
 #include "../include/player.hpp"
+#include "../include/health_bar.hpp"
 #include "../include/window.hpp"
 #include "../include/menu.hpp"
 #include "../include/button.hpp"
@@ -14,6 +15,7 @@ bool Game::RUNNING = true;
 int Game::gameStatus = 0;
 Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
+std::vector<HealthBar *> Game::health_bars;
 Window* Game::appWindow;
 
 // void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
@@ -37,6 +39,8 @@ Game::Game()
 	players.push_back(new Player("assets/images/players/player1.png", 2.5));
 	players.push_back(new Player("assets/images/players/player2.png", 2.5));
 
+	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
+	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	RUNNING = true;
 }
 
@@ -178,7 +182,17 @@ void Game::renderGame()
     // SDL_RenderFillRect(appWindow->renderer, nullptr);
     scene->drawScene();
     drawPlayers();
+	drawHealthBars();
     // SDL_RenderPresent(appWindow->renderer);
+}
+
+void Game::drawHealthBars(){
+	std::vector<HealthBar *> hb;
+    for (auto &health_bar : health_bars)
+        hb.push_back(health_bar);
+    for (auto &health_bar : hb)
+        health_bar->render();
+		
 }
 
 void Game::drawPlayers()

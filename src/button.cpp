@@ -84,6 +84,11 @@ void Button::handleEvent(const SDL_Event &event)
             m_currentTextureIndex = 1;
             m_isPressed = !m_isPressed;
             Game::gameStatus = action;
+
+            // Play the sound effect when the button is pressed
+            // if (m_soundEffect && !m_soundId.empty()) {
+            //     m_soundEffect->playSound(m_soundId);
+            // }
             
             
         }
@@ -116,4 +121,9 @@ bool Button::isPressed() const
     // std::cout << "isPresse = " << m_isPressed << std::endl;
     return m_isPressed;
     
+}
+
+void Button::setSoundEffect(SoundEffect* soundEffect, const std::string& soundId) {
+    m_soundEffect = soundEffect;
+    m_soundId = soundId;
 }

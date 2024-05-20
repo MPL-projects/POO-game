@@ -10,6 +10,7 @@
 #include "../include/soundMusic.hpp"
 #include <algorithm>
 #include <SDL2/SDL.h>
+#include <iostream>
 
 #define SCREEN_WIDTH 1366
 #define SCREEN_HEIGHT 768
@@ -50,6 +51,7 @@ Game::Game()
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	scene = new Scene();
+	save_sound = -1;
 	RUNNING = true;
 }
 
@@ -62,6 +64,7 @@ void Game::run()
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
 	scene->load_scene("assets/configs/arena.json");
+	
 
 	initEndMenu();
     players[0]->setPos(100, 200);
@@ -90,11 +93,13 @@ void Game::run()
 			{
 				// Initial Menu
 				case MAIN_MENU:
+					
 					mainMenu->handleEvents(event);
 					break;
 
 				// Game Menu
 				case GAME:
+					// music->playSound("soundA");
 					players[0]->handle_events(event);
 					players[1]->handle_events(event);
 					break;
@@ -200,6 +205,7 @@ void Game::run()
                 break;
 		}
 
+		playSound();
 		SDL_RenderPresent(appWindow->renderer);
         SDL_Delay(10);
 
@@ -291,6 +297,9 @@ void Game::destroyGame(){
 	music->cleanSound();
 	delete music;
 	music = NULL;
+	soundEffect->cleanSound();
+	delete soundEffect;
+	soundEffect = NULL;
 }
 
 Game::~Game()
@@ -307,14 +316,18 @@ void Game::initMainMenu()
 	// Go to Combat Button
 	Button *combatButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Combat", GAME);
 	mainMenu->addButton(combatButton);
+	combatButton->setSoundEffect(soundEffect, "button");
 
 	// Go to Choose Skin Menu Button
 	Button *chooseSkinButton1 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 1 Skin", SKIN_MENU_1);
 	mainMenu->addButton(chooseSkinButton1);
+	chooseSkinButton1->setSoundEffect(soundEffect, "button");
 
 	// Go to Choose Skin Menu Button
 	Button *chooseSkinButton2 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", SKIN_MENU_2);
 	mainMenu->addButton(chooseSkinButton2);
+	chooseSkinButton2->setSoundEffect(soundEffect, "button");
+	
 }
 
 void Game::initChooseSkinPlayer1()
@@ -374,6 +387,9 @@ void Game::initEndMenu()
 	endMenu->addButton(playButton_main_menu);
 	endMenu->addButton(playButton_retry);
 
+	playButton_main_menu->setSoundEffect(soundEffect, "button");
+	playButton_retry->setSoundEffect(soundEffect, "button");
+
 	createTransparentTexture(fin_texture,180);
 }
 
@@ -397,6 +413,37 @@ void Game::createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha) {
 }
 
 void Game::initSound(){
-	SoundMusic *music = new SoundMusic();
-	music->loadSound("game","assets/musics/themes/desperate_battle.ogg");
+	music = new SoundMusic();
+	music->loadSound("mainMenu", "assets/musics/themes/menu.ogg");
+    music->loadSound("game", "assets/musics/themes/desperate_battle.ogg");
+    music->loadSound("endMenu", "assets/musics/themes/endmenu.ogg");
+
+	soundEffect = new SoundEffect();
+    soundEffect->loadSound("button", "assets/musics/effects/click-button.wav");
+	
+}
+
+void Game::playSound(){
+	// std::cerr << "gameStatus != save_sound : " << (gameStatus != save_sound) << "\n";
+	if (gameStatus != save_sound && gameStatus != SKIN_MENU_1 && gameStatus != SKIN_MENU_2){
+		switch (gameStatus)
+		{
+		case MAIN_MENU:
+				music->setVolume(10);
+				music->playSound("mainMenu");
+				break;
+		case GAME:
+				music->setVolume(5);
+				music->playSound("game");
+				break;
+		case DEATH:
+			music->setVolume(10);
+			music->playSound("endMenu");
+			break;
+		default:
+			break;
+		}
+
+		save_sound = gameStatus;
+	}
 }

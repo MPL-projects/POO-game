@@ -24,6 +24,7 @@ Window::~Window()
     renderer = NULL;
     SDL_DestroyWindow(mainWindow);
     mainWindow = NULL;
+    Mix_CloseAudio();
     SDL_Quit();   
 }
 

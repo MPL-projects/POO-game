@@ -57,3 +57,12 @@ void SoundMusic::cleanSound(){
     m_SoundMap.clear();
 }
 
+void SoundMusic::setVolume(int volume) {
+    if (volume < 0) {
+        volume = 0;
+    } else if (volume > MIX_MAX_VOLUME) {
+        volume = MIX_MAX_VOLUME;
+    }
+    currentVolume = volume;
+    Mix_VolumeMusic(currentVolume);
+}

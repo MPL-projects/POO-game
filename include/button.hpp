@@ -9,6 +9,7 @@
 #include <vector>
 #include <iostream>
 #include "utilities.hpp"
+#include "soundEffect.hpp"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ public:
     void render();
 
     bool isPressed() const;
+    void setSoundEffect(SoundEffect* soundEffect, const std::string& soundId);
 
 private:
     SDL_Rect m_rect;
@@ -35,6 +37,9 @@ private:
 
     bool m_isPressed;
     GameStatus action;
+
+    SoundEffect* m_soundEffect;
+    std::string m_soundId;
 
 };
 

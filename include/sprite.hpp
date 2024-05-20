@@ -29,6 +29,7 @@ public:
 	void set_alive(bool var) {alive = var;};
 	bool get_alive() {return alive;};
 	void initSprite();
+    void setPos(double x, double y);
 
 protected:
     

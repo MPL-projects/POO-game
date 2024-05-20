@@ -17,6 +17,19 @@ enum class Direction
     RIGHT
 };
 
+enum GameStatus{
+    MAIN_MENU,
+    SKIN_MENU_1,
+    SKIN_MENU_2,
+    GAME,
+    DEATH,
+    SKIN1_LEFT,
+    SKIN1_RIGHT,
+    SKIN2_LEFT,
+    SKIN2_RIGHT,
+    INIT_PLAYERS
+};
+
 typedef struct
 {
     SDL_Rect pos;

@@ -19,8 +19,8 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_
 {
     
     renderer = Game::appWindow->renderer;
-    m_position.x = 100;
-    m_position.y = 200;
+    m_position.x = 0;
+    m_position.y = 0;
     m_position.w = 48 * ratio;
     m_position.h = 48 * ratio;
 
@@ -127,6 +127,14 @@ void Sprite::draw()
 void bounds(double &p, int bb_p, int bb_s, int bb_off_p, int size_p){
     if(bb_p < 0){p = - bb_off_p;}
     else if( bb_p + bb_s > size_p ){p = size_p - bb_s - bb_off_p;}
+}
+
+void Sprite::setPos(double x1, double y1){
+    x = x1;
+    y = y1;
+    move_boxes();
+    m_position.x = x;
+    m_position.y = y;
 }
 
 void Sprite::move(double dx, double dy){

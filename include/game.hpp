@@ -61,7 +61,7 @@ private:
 
     void destroyGame();
 
-	void createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha);
+	void createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha);
 	SDL_Texture *fin_texture;
 };
 #endif

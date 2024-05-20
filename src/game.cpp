@@ -365,5 +365,5 @@ void Game::createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha) {
 }
 
 void Game::intiSound(){
-	SoundMusic music = new SoundMusic();
+	SoundMusic *music = new SoundMusic();
 }

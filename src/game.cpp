@@ -43,6 +43,7 @@ Game::Game()
 
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
+	scene = new Scene();
 	RUNNING = true;
 }
 
@@ -53,7 +54,8 @@ void Game::run()
 	initMainMenu();
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
-	initArena();
+	scene->load_scene("assets/configs/arena.json");
+
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
 	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
@@ -300,7 +302,3 @@ void Game::initChooseSkinPlayer2()
 	mainChooseSkin2->addButton(goBackButton);	
 }
 
-void Game::initArena()
-{
-	scene = new Arena();
-}

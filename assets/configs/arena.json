@@ -1,0 +1,3065 @@
+{
+    "assests":[
+        {
+            "asset0":[
+                {
+                    "path": "assets/images/backgrounds_elements/floors/TilesetFloor.png",
+                    "clips0": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 32,
+                                    "y": 176,
+                                    "w": 32,
+                                    "h" : 32
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 228,
+                                                    "y": 0,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 456,
+                                                    "y": 0,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 684,
+                                                    "y": 0,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile5":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 912,
+                                                    "y": 0,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile6":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1140,
+                                                    "y": 0,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile7":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 128,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile8":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 228,
+                                                    "y": 128,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile9":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 456,
+                                                    "y": 128,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile10":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 684,
+                                                    "y": 128,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile11":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 912,
+                                                    "y": 128,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile12":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1140,
+                                                    "y": 128,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile13":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 256,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile14":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 228,
+                                                    "y": 256,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile15":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 456,
+                                                    "y": 256,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile16":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 684,
+                                                    "y": 256,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile17":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 912,
+                                                    "y": 256,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile18":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1140,
+                                                    "y": 256,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile19":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 384,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile20":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 228,
+                                                    "y": 384,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile21":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 456,
+                                                    "y": 384,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile22":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 684,
+                                                    "y": 384,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile23":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 912,
+                                                    "y": 384,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile24":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1140,
+                                                    "y": 384,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile25":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 512,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile26":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 228,
+                                                    "y": 512,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile27":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 456,
+                                                    "y": 512,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile28":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 684,
+                                                    "y": 512,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile29":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 912,
+                                                    "y": 512,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile30":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1140,
+                                                    "y": 512,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile31":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 640,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile32":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 228,
+                                                    "y": 640,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile33":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 456,
+                                                    "y": 640,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile34":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 684,
+                                                    "y": 640,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile35":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 912,
+                                                    "y": 640,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile36":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 7,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1140,
+                                                    "y": 640,
+                                                    "w": 34,
+                                                    "h" : 34
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                    
+                                }
+                            ]
+                        
+                        }
+                    ]
+                }
+            ],
+            "asset1":[
+                {
+                    "path": "assets/images/backgrounds_elements/TilesetWater1.png",
+                    "clips0": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 0,
+                                    "y": 100,
+                                    "w": 50,
+                                    "h" : 15
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 1,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 401,
+                                                    "y": 668,
+                                                    "w": 750,
+                                                    "h" : 100
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                    
+                                }
+                            ]
+                        
+                        }
+                    ]
+                }
+            ],
+            "asset2":[
+                {
+                    "path": "assets/images/backgrounds_elements/TilesetVillageAbandoned.png",
+                    "clips0": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 128,
+                                    "y": 50,
+                                    "w": 32,
+                                    "h" : 30
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 96,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 192,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 288,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile5":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 384,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile6":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 480,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile7":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 576,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile8":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 672,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile9":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 768,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile10":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 864,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile11":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 960,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile12":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1056,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile13":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1152,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile14":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1248,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile15":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1344,
+                                                    "y": 0,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile16":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 180,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile17":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 192,
+                                                    "y": 180,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile18":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1270,
+                                                    "y": 180,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile19":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1270,
+                                                    "y": 360,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                    
+                                }
+                            ]
+                        
+                        }
+                    ],
+                    "clips1": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 96,
+                                    "y": 50,
+                                    "w": 32,
+                                    "h" : 30
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 96,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 192,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 288,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile5":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 384,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile6":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 480,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile7":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 576,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile8":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 672,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile9":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 768,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile10":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 864,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile11":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 960,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile12":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1056,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile13":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_VERTICAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1152,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile14":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1248,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile15":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1344,
+                                                    "y": 90,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile16":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_HORIZONTAL",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1270,
+                                                    "y": 270,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile17":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1174,
+                                                    "y": 180,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile18":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 96,
+                                                    "y": 180,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile19":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 270,
+                                                    "w": 32,
+                                                    "h" : 30
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                    
+                                }
+                            ]
+                        
+                        }
+                    ],
+                    "clips2": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 113,
+                                    "y": 65,
+                                    "w": 15,
+                                    "h" : 15
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 0,
+                                                    "y": 360,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 288,
+                                                    "y": 180,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 96,
+                                                    "y": 270,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1123,
+                                                    "y": 180,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile5":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1071,
+                                                    "y": 180,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile6":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1219,
+                                                    "y": 270,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile7":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1321,
+                                                    "y": 450,
+                                                    "w": 15,
+                                                    "h" : 15
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips3": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 0,
+                                    "y": 0,
+                                    "w": 64,
+                                    "h" : 50
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 113,
+                                                    "y": 10,
+                                                    "w": 64,
+                                                    "h" : 50
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips4": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 64,
+                                    "y": 0,
+                                    "w": 64,
+                                    "h" : 50
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 455,
+                                                    "y": 0,
+                                                    "w": 64,
+                                                    "h" : 50
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips5": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 128,
+                                    "y": 0,
+                                    "w": 48,
+                                    "h" : 50
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 796,
+                                                    "y": 0,
+                                                    "w": 48,
+                                                    "h" : 50
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips6": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 176,
+                                    "y": 0,
+                                    "w": 48,
+                                    "h" : 50
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1024,
+                                                    "y": 10,
+                                                    "w": 48,
+                                                    "h" : 50
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips7": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 64,
+                                    "y": 58,
+                                    "w": 33,
+                                    "h" : 22
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 221,
+                                                    "y": 140,
+                                                    "w": 33,
+                                                    "h" : 22
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips8": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 178,
+                                    "y": 112,
+                                    "w": 13,
+                                    "h" : 33
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1239,
+                                                    "y": 70,
+                                                    "w": 13,
+                                                    "h" : 33
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1198,
+                                                    "y": 70,
+                                                    "w": 13,
+                                                    "h" : 33
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1280,
+                                                    "y": 70,
+                                                    "w": 13,
+                                                    "h" : 33
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 90
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1239,
+                                                    "y": 149,
+                                                    "w": 13,
+                                                    "h" : 33
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips9": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 97,
+                                    "y": 95,
+                                    "w": 14,
+                                    "h" : 33
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 718,
+                                                    "y": 20,
+                                                    "w": 14,
+                                                    "h" : 33
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips10": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 97,
+                                    "y": 128,
+                                    "w": 14,
+                                    "h" : 16
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 668,
+                                                    "y": 60,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 10,
+                                                    "y": 50,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 60,
+                                                    "y": 30,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips11": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 97,
+                                    "y": 144,
+                                    "w": 14,
+                                    "h" : 33
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 70
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 354,
+                                                    "y": 20,
+                                                    "w": 14,
+                                                    "h" : 33
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips12": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 178,
+                                    "y": 96,
+                                    "w": 13,
+                                    "h" : 16
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 70
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 370,
+                                                    "y": 87,
+                                                    "w": 13,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips13": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 146,
+                                    "y": 113,
+                                    "w": 30,
+                                    "h" : 29
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 20,
+                                                    "y": 100,
+                                                    "w": 30,
+                                                    "h" : 29
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips14": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 144,
+                                    "y": 85,
+                                    "w": 32,
+                                    "h" : 29
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 20,
+                                                    "y": 215,
+                                                    "w": 32,
+                                                    "h" : 29
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips15": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 48,
+                                    "y": 58,
+                                    "w": 16,
+                                    "h" : 23
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 985,
+                                                    "y": 640,
+                                                    "w": 16,
+                                                    "h" : 25
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips16": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 32,
+                                    "y": 52,
+                                    "w": 16,
+                                    "h" : 45
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 450,
+                                                    "y": 580,
+                                                    "w": 16,
+                                                    "h" : 45
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "asset3":[
+                {
+                    "path": "assets/images/backgrounds_elements/TilesetNature.png",
+                    "clips0": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 0,
+                                    "y": 31,
+                                    "w": 64,
+                                    "h" : 49
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": -20,
+                                                    "y": 350,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": -15,
+                                                    "y": 420,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": -10,
+                                                    "y": 490,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": -30,
+                                                    "y": 560,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile5":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": -15,
+                                                    "y": 630,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile6":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 110,
+                                                    "y": 520,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile7":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 95,
+                                                    "y": 590,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile8":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 120,
+                                                    "y": 660,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile10":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1209,
+                                                    "y": 450,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile11":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1204,
+                                                    "y": 520,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile9":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1194,
+                                                    "y": 660,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile12":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1194,
+                                                    "y": 590,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile14":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1086,
+                                                    "y": 580,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile15":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1061,
+                                                    "y": 650,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile16":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 3,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 240,
+                                                    "y": 650,
+                                                    "w": 64,
+                                                    "h" : 49
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                    
+                                }
+                            ]
+                        
+                        }
+                    ],
+                    "clips1": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 49,
+                                    "y": 176,
+                                    "w": 14,
+                                    "h" : 16
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 276,
+                                                    "y": 460,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 734,
+                                                    "y": 345,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1005,
+                                                    "y": 246,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips2": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 1,
+                                    "y": 176,
+                                    "w": 14,
+                                    "h" : 16
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 288,
+                                                    "y": 801,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 734,
+                                                    "y": 134,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 634,
+                                                    "y": 518,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 990,
+                                                    "y": 412,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile5":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 412,
+                                                    "y": 368,
+                                                    "w": 14,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips3": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 96,
+                                    "y": 176,
+                                    "w": 16,
+                                    "h" : 16
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 1202,
+                                                    "y": 364,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 668,
+                                                    "y": 385,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 395,
+                                                    "y": 195,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "clips4": [
+                        {
+                            "clip":[
+                                {
+                                    "x": 64,
+                                    "y": 176,
+                                    "w": 16,
+                                    "h" : 16
+                                }
+                            ],
+                            "positions":[
+                                {
+                                    "tile1":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 133,
+                                                    "y": 268,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile2":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 968,
+                                                    "y": 576,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile3":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 700,
+                                                    "y": 249,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "tile4":[
+                                        {
+                                            "parameters":[
+                                                {
+                                                    "ratio": 2,
+                                                    "flip" : "SDL_FLIP_NONE",
+                                                    "angle" : 0
+                                                }
+                                            ],
+                                            "pos":[
+                                                {
+                                                    "x": 453,
+                                                    "y": 486,
+                                                    "w": 16,
+                                                    "h" : 16
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]  
+        }
+    ],
+    "bounding_box":[
+        {
+            "box1":[
+                {
+                    "x": 0,
+                    "y": 350,
+                    "w": 120,
+                    "h" : 418
+                }
+            ],
+            "box2":[
+                {
+                    "x": 120,
+                    "y": 400,
+                    "w": 60,
+                    "h" : 368
+                }
+            ],
+            "box3":[
+                {
+                    "x": 180,
+                    "y": 530,
+                    "w": 80,
+                    "h" : 238
+                }
+            ],
+            "box4":[
+                {
+                    "x": 260,
+                    "y": 580,
+                    "w": 40,
+                    "h" : 188
+                }
+            ],
+            "box5":[
+                {
+                    "x": 300,
+                    "y": 655,
+                    "w": 75,
+                    "h" : 113
+                }
+            ],
+            "box6":[
+                {
+                    "x": 375,
+                    "y": 710,
+                    "w": 50,
+                    "h" : 58
+                }
+            ],
+            "box7":[
+                {
+                    "x": 425,
+                    "y": 720,
+                    "w": 680,
+                    "h" : 48
+                }
+            ],
+            "box8":[
+                {
+                    "x": 445,
+                    "y": 585,
+                    "w": 55,
+                    "h" : 140
+                }
+            ],
+            "box9":[
+                {
+                    "x": 590,
+                    "y": 690,
+                    "w": 443,
+                    "h" : 30
+                }
+            ],
+            "box10":[
+                {
+                    "x": 985,
+                    "y": 645,
+                    "w": 47,
+                    "h" : 60
+                }
+            ],
+            "box11":[
+                {
+                    "x": 1090,
+                    "y": 640,
+                    "w": 276,
+                    "h" : 128
+                }
+            ],
+            "box12":[
+                {
+                    "x": 1140,
+                    "y": 585,
+                    "w": 226,
+                    "h" : 60
+                }
+            ],
+            "box13":[
+                {
+                    "x": 1210,
+                    "y": 510,
+                    "w": 156,
+                    "h" : 80
+                }
+            ],
+            "box14":[
+                {
+                    "x": 1260,
+                    "y": 450,
+                    "w": 106,
+                    "h" : 70
+                }
+            ],
+            "box15":[
+                {
+                    "x": 0,
+                    "y": 0,
+                    "w": 320,
+                    "h" : 200
+                }
+            ],
+            "box16":[
+                {
+                    "x": 320,
+                    "y": 0,
+                    "w": 700,
+                    "h" : 140
+                }
+            ],
+            "box17":[
+                {
+                    "x": 1020,
+                    "y": 0,
+                    "w": 346,
+                    "h" : 170
+                }
+            ],
+            "box18":[
+                {
+                    "x": 1210,
+                    "y": 170,
+                    "w": 100,
+                    "h" : 50
+                }
+            ],
+            "box19":[
+                {
+                    "x": 0,
+                    "y": 200,
+                    "w": 120,
+                    "h" : 100
+                }
+            ]
+        }
+    ]
+}

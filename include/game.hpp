@@ -5,7 +5,6 @@
 #include "health_bar.hpp"
 #include "window.hpp"
 #include "menu.hpp"
-#include "arena.hpp"
 #include "scene.hpp"
 
 
@@ -49,7 +48,6 @@ public:
 
 private:
     void initMainMenu();
-    void initArena();
     void drawPlayers();
 	void drawHealthBars();
 	void initChooseSkinPlayer1();

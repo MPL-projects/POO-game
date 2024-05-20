@@ -4,11 +4,17 @@ int Player::nb_players = 0;
 Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite, ratio_)
 {
     // controller = new Keyboard();
-    controller = new Gamepad();
+	controller = new Gamepad();
+	initPlayer();
+    
+}
+
+void Player::initPlayer(){
     life = 50;
     strength = 10;
     id = nb_players;
     nb_players++;
+	
 }
 
 void Player::handle_events(SDL_Event const &event)

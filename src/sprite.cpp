@@ -34,7 +34,12 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_
     bb.push_back(r);
     effect = new Effect("assets/images/effects/Retro_Impact_Effect_Pack_1_F.png", ratio_/3, r, bb_off[0][0], bb_off[0][1]);
     
-    m_direction = Direction::NONE;
+    initSprite();
+    
+}
+
+void Sprite::initSprite(){
+	m_direction = Direction::NONE;
     m_direction_prev = Direction::DOWN;
 
     m_spritesheet.select_sprite(0, 0);

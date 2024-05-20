@@ -43,6 +43,7 @@ Game::Game()
 
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
+	scene = new Scene();
 	RUNNING = true;
 }
 
@@ -53,7 +54,9 @@ void Game::run()
 	initMainMenu();
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
-	initArena();
+	scene->load_scene("assets/configs/arena.json");
+
+	initEndMenu();
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
 	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
@@ -127,6 +130,9 @@ void Game::run()
 					players[1]->change_skin(paths_to_sprites[x_p2]);
 					gameStatus = 3;
 					break;
+				case 8:
+					endMenu->handleEvents(event);
+					break;
 
 			}
 		}
@@ -154,6 +160,9 @@ void Game::run()
 				skinPlayer2.update();
 				mainChooseSkin2->displayMenu();
 				skinPlayer2.draw();
+				break;
+			case 8:
+				endMenu->displayMenu();
 				break;
 		}
 
@@ -196,6 +205,15 @@ void Game::drawHealthBars(){
 
 	health_bars[0]->actualDamages(players[0]->life);
 	health_bars[1]->actualDamages(players[1]->life);
+
+	if (!(players[0]->get_alive()&&players[1]->get_alive()))
+	{
+		players[0]->initSprite();
+		players[1]->initSprite();
+		players[0]->initPlayer();
+		players[1]->initPlayer();
+		gameStatus = 8;
+	}
 
     for (auto &health_bar : hb)
         health_bar->render();
@@ -300,7 +318,19 @@ void Game::initChooseSkinPlayer2()
 	mainChooseSkin2->addButton(goBackButton);	
 }
 
-void Game::initArena()
+
+
+void Game::initEndMenu()
 {
-	scene = new Arena();
+	endMenu = new Menu();
+    endMenu->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
+
+	// Init the arrow buttons to choose character
+	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
+
+	Button *playButton_main_menu = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Menu", 0);
+	Button *playButton_retry = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Retry", 1);
+
+	endMenu->addButton(playButton_main_menu);
+	endMenu->addButton(playButton_retry);
 }

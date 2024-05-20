@@ -27,6 +27,9 @@ public:
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
     int life;
+
+	void initPlayer();
+
 private:
     void initMeleeAttack();
     

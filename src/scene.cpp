@@ -172,7 +172,7 @@ void Scene::drawScene() {
         }
     }
 
-    draw_boxes();
+    // draw_boxes();
 
     SDL_RenderSetScale(renderer, 1.0f, 1.0f);
 }

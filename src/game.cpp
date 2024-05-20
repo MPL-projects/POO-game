@@ -39,8 +39,6 @@ Game::Game()
 	players.push_back(new Player("assets/images/players/player1.png", 2.5));
 	players.push_back(new Player("assets/images/players/player2.png", 2.5));
 
-	players[1]->move(1366-300.5,0);
-
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	scene = new Scene();
@@ -57,6 +55,7 @@ void Game::run()
 	scene->load_scene("assets/configs/arena.json");
 
 	initEndMenu();
+    players[1]->move(1366-300.5,0);
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
 	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2

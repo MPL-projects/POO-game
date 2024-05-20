@@ -61,7 +61,7 @@ void Game::run()
 	Sprite skinPlayer2("assets/images/players/player2.png", 15);
 	skinPlayer2.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2);
 
-	std::vector<char *> paths_to_sprites;
+	std::vector<const char *> paths_to_sprites;
 	paths_to_sprites.push_back("assets/images/players/player1.png");
 	paths_to_sprites.push_back("assets/images/players/player2.png");
 
@@ -190,14 +190,12 @@ void Game::renderGame()
 
 void Game::drawHealthBars(){
 	std::vector<HealthBar *> hb;
-    for (auto &health_bar : health_bars)
+    for (auto &health_bar : health_bars){
         hb.push_back(health_bar);
-	
-	int life_player1 = players[0]->life;
-	int life_player2 = players[1]->life;
+    }
 
-	health_bars[0]->actualDamages(life_player1);
-	health_bars[1]->actualDamages(life_player2);
+	health_bars[0]->actualDamages(players[0]->life);
+	health_bars[1]->actualDamages(players[1]->life);
 
     for (auto &health_bar : hb)
         health_bar->render();
@@ -219,7 +217,11 @@ void Game::destroyGame(){
     {
         delete player;
     }
+    for (auto &hb : health_bars){
+        delete hb;
+    }
     players.clear();
+    health_bars.clear();
     delete mainMenu;
     mainMenu = NULL;
     delete mainChooseSkin1;

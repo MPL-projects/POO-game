@@ -16,7 +16,6 @@ Effect::Effect(const char *path_to_effect, float ratio_, SDL_Rect position, int 
     m_spritesheet.select_sprite(0, 14);
     m_spritesheet_column = 0;
     show = false;
-    std::cerr << m_spritesheet.m_clip.h << " | " << m_spritesheet.m_clip.w << std::endl;
 }
 
 Effect::~Effect(){

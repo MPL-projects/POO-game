@@ -14,10 +14,8 @@ class Keyboard : public Controller{
         Keyboard();
         ~Keyboard();
         void handle_events(SDL_Event const &event);
+        Controller* switchController();
     private:
-        // enum class Keys{UP=SDL_SCANCODE_W, DOWN=SDL_SCANCODE_S, RIGHT=SDL_SCANCODE_D, LEFT=SDL_SCANCODE_A};
-        // Keys keys_g;
-        void setKeys();
         std::map<std::string, vector<SDL_KeyCode>> Keys;
         int id;
         static int nb_keyboard;

@@ -27,6 +27,10 @@ public:
     double y;
     void change_skin(const char* path);
 
+	void set_alive(bool var) {alive = var;};
+	bool get_alive() {return alive;};
+	void initSprite();
+
 protected:
     
     Spritesheet m_spritesheet;

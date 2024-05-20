@@ -42,6 +42,7 @@ public:
     Menu *mainMenu;
     Menu *mainChooseSkin1;
 	Menu *mainChooseSkin2;
+	Menu *endMenu;
 
     static Scene *scene ;
     static bool RUNNING;
@@ -49,6 +50,7 @@ public:
 
 private:
     void initMainMenu();
+	void initEndMenu();
     void initArena();
     void drawPlayers();
 	void drawHealthBars();

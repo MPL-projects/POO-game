@@ -32,10 +32,12 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_
     SDL_Rect r = {(int)x + bb_off[0][0], (int)y + bb_off[0][1], m_position.w/3, m_position.h/3};
     bb.push_back(r);
     
+    initSprite();
     
-    
+}
 
-    m_direction = Direction::NONE;
+void Sprite::initSprite(){
+	m_direction = Direction::NONE;
     m_direction_prev = Direction::DOWN;
 
     m_spritesheet.select_sprite(0, 0);

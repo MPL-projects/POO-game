@@ -58,13 +58,14 @@ void Game::run()
 	scene->load_scene("assets/configs/arena.json");
 
 	initEndMenu();
-    players[1]->move(1366-300.5,0);
+    players[0]->setPos(100, 200);
+    players[1]->setPos(1366-200.5,200);
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
-	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
-
+	// skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
+    skinPlayer1.setPos(SCREEN_WIDTH / 2 - 10 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 200 - 48 * 15 / 2);
 	Sprite skinPlayer2("assets/images/players/player2.png", 15);
-	skinPlayer2.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2);
+	skinPlayer2.setPos(SCREEN_WIDTH / 2 - 10 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 200 - 48 * 15 / 2);
 
 	std::vector<const char *> paths_to_sprites;
 	paths_to_sprites.push_back("assets/images/players/player1.png");
@@ -140,6 +141,9 @@ void Game::run()
                 skinPlayer1.change_skin(paths_to_sprites[x_p1]);
                 players[0]->change_skin(paths_to_sprites[x_p1]);
                 gameStatus = SKIN_MENU_1;
+                skinPlayer1.update();
+				mainChooseSkin1->displayMenu();
+				skinPlayer1.draw();
                 break;
 
             case SKIN1_LEFT:
@@ -148,6 +152,9 @@ void Game::run()
                 skinPlayer1.change_skin(paths_to_sprites[x_p1]);
                 players[0]->change_skin(paths_to_sprites[x_p1]);
                 gameStatus = SKIN_MENU_1;
+                skinPlayer1.update();
+				mainChooseSkin1->displayMenu();
+				skinPlayer1.draw();
                 break;
 
             case SKIN2_RIGHT:
@@ -156,6 +163,9 @@ void Game::run()
                 skinPlayer2.change_skin(paths_to_sprites[x_p2]);
                 players[1]->change_skin(paths_to_sprites[x_p2]);
                 gameStatus = SKIN_MENU_2;
+                skinPlayer2.update();
+				mainChooseSkin2->displayMenu();
+				skinPlayer2.draw();
                 break;
 
             case SKIN2_LEFT:
@@ -164,6 +174,9 @@ void Game::run()
                 skinPlayer2.change_skin(paths_to_sprites[x_p2]);
                 players[1]->change_skin(paths_to_sprites[x_p2]);
                 gameStatus = SKIN_MENU_2;
+                skinPlayer2.update();
+				mainChooseSkin2->displayMenu();
+				skinPlayer2.draw();
                 break;
 			case DEATH:
 				update();

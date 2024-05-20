@@ -11,7 +11,7 @@ Keyboard::Keyboard() : Controller(){
     Keys["LEFT"].insert(Keys["LEFT"].end(),{SDLK_q, SDLK_LEFT});
     Keys["ATT"].insert(Keys["ATT"].end(),{SDLK_e, SDLK_m});
     Keys["DEF"].insert(Keys["DEF"].end(),{SDLK_r, SDLK_l});
-    id = nb_keyboard%2;
+    id = nb_keyboard;
     nb_keyboard++;
     ev.push_back(Direction::NONE);
     block = false;
@@ -55,6 +55,7 @@ void Keyboard::handle_events(SDL_Event const &event)
             break;
         case SDL_CONTROLLERDEVICEADDED:
             changeController = true;
+            nb_keyboard--;
             // if (!controller) {
             //     controller = SDL_GameControllerOpen(event.cdevice.which);
             // }

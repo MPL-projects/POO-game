@@ -44,6 +44,7 @@ public:
 
     static Scene *scene ;
     static bool RUNNING;
+    SoundMusic *music 
 
 
 private:
@@ -53,5 +54,6 @@ private:
 	void initChooseSkinPlayer1();
     void initChooseSkinPlayer2();
     void destroyGame();
+    void intiSound();
 };
 #endif

@@ -6,6 +6,8 @@
 #include "../include/button.hpp"
 #include "../include/scenesheet.hpp"
 #include "../include/scene.hpp"
+#include "../include/soundEffect.hpp"
+#include "../include/soundMusic.hpp"
 #include <algorithm>
 
 #define SCREEN_WIDTH 1366
@@ -17,6 +19,9 @@ Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
 std::vector<HealthBar *> Game::health_bars;
 Window* Game::appWindow;
+EffectMap SoundEffect::e_SoundMap;
+MusicMap SoundMusic::m_SoundMap;
+
 
 // void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
 //     SDL_Rect rect = {x, y - w / 2, 1, w};
@@ -302,3 +307,7 @@ void Game::initChooseSkinPlayer2()
 	mainChooseSkin2->addButton(goBackButton);	
 }
 
+
+void Game::intiSound(){
+	SoundMusic music = new SoundMusic();
+}

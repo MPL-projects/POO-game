@@ -2,7 +2,7 @@
 #include "../include/game.hpp"
 
 void Window::createWindow(const char *windowTitle, const int width, const int height){
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0)
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER | SDL_INIT_AUDIO) < 0)
     {
         fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
         return;

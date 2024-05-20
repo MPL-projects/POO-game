@@ -4,7 +4,7 @@ int Player::nb_players = 0;
 Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite, ratio_)
 {
     // controller = new Keyboard();
-	controller = new Keyboard();
+	controller = new Gamepad();
 	initPlayer();
     
 }
@@ -19,10 +19,15 @@ void Player::initPlayer(){
 
 void Player::handle_events(SDL_Event const &event)
 {
+    if (controller->ev.back() != Direction::NONE)
+        m_direction_prev = controller->ev.back();
+    controller->handle_events(event);
+    if(controller->changeController){
+        Controller* c = controller->switchController();
+        delete controller;
+        controller = c;
+    }
     if(alive){
-        if (controller->ev.back() != Direction::NONE)
-            m_direction_prev = controller->ev.back();
-        controller->handle_events(event);
         m_direction = controller->ev.back();
         if(att_dir != Direction::NONE)
             controller->att = false;
@@ -81,4 +86,5 @@ void Player::take_damage(int damages){
             m_spritesheet_column = 0;
         }
     }
+    effect->show = true;
 }

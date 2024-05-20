@@ -14,8 +14,8 @@ public:
     SDL_RendererFlip flip;
     void load_skin(char const *path);
 
-private:
     SDL_Rect     m_clip;
+private:
     SDL_Texture *m_spritesheet_image_texture;
     SDL_Renderer *renderer;
 

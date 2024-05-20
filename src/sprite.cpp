@@ -17,6 +17,7 @@ map<Direction, SDL_RendererFlip> fl = {{Direction::UP, SDL_FLIP_NONE}, {Directio
 
 Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_sprite, 10, 6), ratio(ratio_)
 {
+    
     renderer = Game::appWindow->renderer;
     m_position.x = 100;
     m_position.y = 100;
@@ -31,6 +32,7 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_
     // SDL_Rect r = {m_position.x + bb_off[0][0], m_position.y + bb_off[1][0], m_position.w/4, m_position.h/2};
     SDL_Rect r = {(int)x + bb_off[0][0], (int)y + bb_off[0][1], m_position.w/3, m_position.h/3};
     bb.push_back(r);
+    effect = new Effect("assets/images/effects/Retro_Impact_Effect_Pack_1_F.png", ratio_/3, r, bb_off[0][0], bb_off[0][1]);
     
     initSprite();
     
@@ -50,6 +52,8 @@ void Sprite::initSprite(){
 }
 
 Sprite::~Sprite(){
+    delete effect;
+    effect = NULL;
 }
 
 void Sprite::update()
@@ -94,6 +98,8 @@ void Sprite::update()
 
     if(m_spritesheet_column > mult*5)
         m_spritesheet_column = 0;
+    effect->move(x, y);
+    effect->update();
 }
 
 void Sprite::meleeAttack(){
@@ -111,6 +117,7 @@ void Sprite::meleeAttack(){
 void Sprite::draw()
 {
     m_spritesheet.draw_selected_sprite(renderer, &m_position);
+    effect->draw();
     // SDL_RenderDrawRect(renderer, &m_position);
     // SDL_RenderDrawRect(renderer, &bb[0]);
     // if(bb.size() > 1)
@@ -182,27 +189,6 @@ void Sprite::move_boxes(){
         bb[i].x = x + bb_att_off[i][0];
         bb[i].y = y + bb_att_off[i][1];
     }
-    // //Go through the dot's collision boxes
-    // for(auto &box : collisions_boxes)
-    // {
-    //     box.x += dx;
-    //     box.y += dy;
-    // }
-    //The row offset
-    // int r = 0;
-
-    // //Go through the dot's collision boxes
-    // for( int set = 0; set < mColliders.size(); ++set )
-    // {
-    //     //Center the collision box
-    //     mColliders[ set ].x = mPosX + ( DOT_WIDTH - mColliders[ set ].w ) / 2;
-
-    //     //Set the collision box at its row offset
-    //     mColliders[ set ].y = mPosY + r;
-
-    //     //Move the row offset down the height of the collision box
-    //     r += mColliders[ set ].h;
-    // }
 }
 
 std::vector<SDL_Rect>& Sprite::get_boxes()

@@ -43,6 +43,7 @@ Game::Game()
 
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
+	scene = new Scene();
 	RUNNING = true;
 }
 
@@ -53,7 +54,8 @@ void Game::run()
 	initMainMenu();
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
-	initArena();
+	scene->load_scene("assets/configs/arena.json");
+
 	initEndMenu();
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
@@ -62,7 +64,7 @@ void Game::run()
 	Sprite skinPlayer2("assets/images/players/player2.png", 15);
 	skinPlayer2.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2);
 
-	std::vector<char *> paths_to_sprites;
+	std::vector<const char *> paths_to_sprites;
 	paths_to_sprites.push_back("assets/images/players/player1.png");
 	paths_to_sprites.push_back("assets/images/players/player2.png");
 
@@ -197,14 +199,12 @@ void Game::renderGame()
 
 void Game::drawHealthBars(){
 	std::vector<HealthBar *> hb;
-    for (auto &health_bar : health_bars)
+    for (auto &health_bar : health_bars){
         hb.push_back(health_bar);
-	
-	int life_player1 = players[0]->life;
-	int life_player2 = players[1]->life;
+    }
 
-	health_bars[0]->actualDamages(life_player1);
-	health_bars[1]->actualDamages(life_player2);
+	health_bars[0]->actualDamages(players[0]->life);
+	health_bars[1]->actualDamages(players[1]->life);
 
 	if (!(players[0]->get_alive()&&players[1]->get_alive()))
 	{
@@ -235,7 +235,11 @@ void Game::destroyGame(){
     {
         delete player;
     }
+    for (auto &hb : health_bars){
+        delete hb;
+    }
     players.clear();
+    health_bars.clear();
     delete mainMenu;
     mainMenu = NULL;
     delete mainChooseSkin1;
@@ -314,10 +318,7 @@ void Game::initChooseSkinPlayer2()
 	mainChooseSkin2->addButton(goBackButton);	
 }
 
-void Game::initArena()
-{
-	scene = new Arena();
-}
+
 
 void Game::initEndMenu()
 {

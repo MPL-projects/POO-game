@@ -17,4 +17,23 @@ enum class Direction
     RIGHT
 };
 
+typedef struct
+{
+    SDL_Rect pos;
+    SDL_RendererFlip flip;
+    int rotation;
+} Param;
+
+typedef struct
+{
+    SDL_Rect clip;
+    std::vector<Param> params;
+} Clip;
+
+typedef struct
+{
+    SDL_Texture *asset;
+    std::vector<Clip> clips;
+} Tiles;
+
 #endif

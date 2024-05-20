@@ -22,8 +22,11 @@ Menu::~Menu() {
     TTF_Quit();
 }
 
-void Menu::displayMenu() {
-    render_background();
+void Menu::displayMenu(bool var) {
+	if (var == true){
+		render_background();
+	}
+    
     for(auto button : buttons) {
         button->render(); // Render each button
     }

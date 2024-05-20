@@ -7,6 +7,7 @@
 #include "../include/scenesheet.hpp"
 #include "../include/scene.hpp"
 #include <algorithm>
+#include <SDL2/SDL.h>
 
 #define SCREEN_WIDTH 1366
 #define SCREEN_HEIGHT 768
@@ -31,6 +32,8 @@ Window* Game::appWindow;
 //     renderCross1(screenSurface, x + x1 * SCREEN_WIDTH * 0.2f, y + x2 * SCREEN_HEIGHT * 0.2f,
 //             10, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xAA));
 // }
+
+
 
 Game::Game()
 {
@@ -136,7 +139,6 @@ void Game::run()
 
 			}
 		}
-
 		SDL_RenderClear(appWindow->renderer);
 
 		switch (gameStatus)
@@ -162,7 +164,10 @@ void Game::run()
 				skinPlayer2.draw();
 				break;
 			case 8:
-				endMenu->displayMenu();
+				update();
+				renderGame();
+				SDL_RenderCopy(appWindow->renderer,fin_texture,NULL,NULL);
+				endMenu->displayMenu(false);
 				break;
 		}
 
@@ -250,6 +255,7 @@ void Game::destroyGame(){
     scene = NULL;
     delete appWindow;
     appWindow = NULL;
+	SDL_DestroyTexture(fin_texture);
 }
 
 Game::~Game()
@@ -323,7 +329,6 @@ void Game::initChooseSkinPlayer2()
 void Game::initEndMenu()
 {
 	endMenu = new Menu();
-    endMenu->setBackground("assets/images/backgrounds_elements/menu/foggy.png");
 
 	// Init the arrow buttons to choose character
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
@@ -333,4 +338,24 @@ void Game::initEndMenu()
 
 	endMenu->addButton(playButton_main_menu);
 	endMenu->addButton(playButton_retry);
+
+	createTransparentTexture(&fin_texture,180);
+}
+
+
+void Game::createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha) {
+    // Create a surface with an alpha channel
+    SDL_Surface *surface = SDL_CreateRGBSurfaceWithFormat(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_PIXELFORMAT_RGBA32);
+    
+    // Set the blend mode of the surface
+    SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND);
+
+    // Fill the surface with a transparent color
+    SDL_FillRect(surface, NULL, SDL_MapRGBA(surface->format, 0, 0, 0, alpha));
+
+    // Create a texture from the surface
+    *texture_fin = SDL_CreateTextureFromSurface(appWindow->renderer, surface);
+
+    // Free the surface
+    SDL_FreeSurface(surface);
 }

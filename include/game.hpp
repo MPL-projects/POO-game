@@ -43,6 +43,7 @@ public:
 	Menu *mainChooseSkin2;
 	Menu *endMenu;
 
+
     static Scene *scene ;
     static bool RUNNING;
 
@@ -51,10 +52,16 @@ private:
     void initMainMenu();
 	void initEndMenu();
     void initArena();
+
     void drawPlayers();
 	void drawHealthBars();
+
 	void initChooseSkinPlayer1();
     void initChooseSkinPlayer2();
+
     void destroyGame();
+
+	void createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha);
+	SDL_Texture *fin_texture;
 };
 #endif

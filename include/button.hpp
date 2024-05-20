@@ -8,12 +8,13 @@
 #include <stdexcept>
 #include <vector>
 #include <iostream>
+#include "utilities.hpp"
 
 using namespace std;
 
 class Button {
 public:
-    Button(int x, int y, int width, int height, const vector<string>& imagePaths, const string& fontPath, const string& name, int a);
+    Button(int x, int y, int width, int height, const vector<string>& imagePaths, const string& fontPath, const string& name, GameStatus a);
     ~Button();
     int get_x() const {return m_rect.x;};
     int get_y() const {return m_rect.y;};
@@ -33,7 +34,7 @@ private:
     SDL_Texture* m_textTexture;
 
     bool m_isPressed;
-    int action;
+    GameStatus action;
 
 };
 

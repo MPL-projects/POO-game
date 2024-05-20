@@ -6,13 +6,13 @@ Button::Button(int x, int y, int width, int height,
                const vector<string> &imagePaths, 
                const string &fontPath, 
                const string &name, 
-               int a): 
+               GameStatus a): 
                m_rect({x, y, width, height}), 
                m_renderer(Game::appWindow->renderer),
                m_currentTextureIndex(0), 
-               m_isPressed(false), 
-               action(a)
+               m_isPressed(false)
 {
+    action = a;
     for (const auto &imagePath : imagePaths)
     {
         SDL_Surface *surface = load_png(imagePath.c_str());

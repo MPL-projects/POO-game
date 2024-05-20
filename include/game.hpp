@@ -6,6 +6,7 @@
 #include "window.hpp"
 #include "menu.hpp"
 #include "scene.hpp"
+#include "utilities.hpp"
 
 
 
@@ -32,7 +33,7 @@ public:
 
     static bool isRunning(){return RUNNING;};
     static void stopGame(){RUNNING = false;};
-    static int gameStatus;
+    static GameStatus gameStatus;
 
     static vector<Player*> players;
 	static vector<HealthBar *> health_bars;

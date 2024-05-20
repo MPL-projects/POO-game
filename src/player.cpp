@@ -14,6 +14,8 @@ void Player::initPlayer(){
     strength = 10;
     id = nb_players;
     nb_players++;
+	controller->ev.clear();
+	controller->ev.push_back(Direction::NONE);
 	
 }
 

@@ -1,5 +1,6 @@
 #include "../include/game.hpp"
 #include "../include/player.hpp"
+#include "../include/health_bar.hpp"
 #include "../include/window.hpp"
 #include "../include/menu.hpp"
 #include "../include/button.hpp"
@@ -14,6 +15,7 @@ bool Game::RUNNING = true;
 int Game::gameStatus = 0;
 Scene *Game::scene = nullptr;
 std::vector<Player *> Game::players;
+std::vector<HealthBar *> Game::health_bars;
 Window* Game::appWindow;
 
 // void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
@@ -37,6 +39,10 @@ Game::Game()
 	players.push_back(new Player("assets/images/players/player1.png", 2.5));
 	players.push_back(new Player("assets/images/players/player2.png", 2.5));
 
+	players[1]->move(1366-300.5,0);
+
+	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
+	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	RUNNING = true;
 }
 
@@ -49,8 +55,11 @@ void Game::run()
 	initChooseSkinPlayer2();
 	initArena();
 
-	Sprite skinPlayer1("assets/images/players/player1.png", 2.5);
-	Sprite skinPlayer2("assets/images/players/player2.png", 2.5);
+	Sprite skinPlayer1("assets/images/players/player1.png", 15);
+	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
+
+	Sprite skinPlayer2("assets/images/players/player2.png", 15);
+	skinPlayer2.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2);
 
 	std::vector<char *> paths_to_sprites;
 	paths_to_sprites.push_back("assets/images/players/player1.png");
@@ -175,7 +184,23 @@ void Game::renderGame()
     // SDL_RenderFillRect(appWindow->renderer, nullptr);
     scene->drawScene();
     drawPlayers();
+	drawHealthBars();
     // SDL_RenderPresent(appWindow->renderer);
+}
+
+void Game::drawHealthBars(){
+	std::vector<HealthBar *> hb;
+    for (auto &health_bar : health_bars)
+        hb.push_back(health_bar);
+	
+	int life_player1 = players[0]->life;
+	int life_player2 = players[1]->life;
+
+	health_bars[0]->actualDamages(life_player1);
+	health_bars[1]->actualDamages(life_player2);
+
+    for (auto &health_bar : hb)
+        health_bar->render();
 }
 
 void Game::drawPlayers()
@@ -227,7 +252,7 @@ void Game::initMainMenu()
 	mainMenu->addButton(chooseSkinButton1);
 
 	// Go to Choose Skin Menu Button
-	Button *chooseSkinButton2 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", 2);
+	Button *chooseSkinButton2 = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 + 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Player 2 Skin", 3);
 	mainMenu->addButton(chooseSkinButton2);
 }
 

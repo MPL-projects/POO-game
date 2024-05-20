@@ -261,6 +261,9 @@ void Game::destroyGame(){
     delete appWindow;
     appWindow = NULL;
 	SDL_DestroyTexture(fin_texture);
+    fin_texture = NULL;
+    delete endMenu;
+    endMenu = NULL;
 }
 
 Game::~Game()
@@ -344,11 +347,11 @@ void Game::initEndMenu()
 	endMenu->addButton(playButton_main_menu);
 	endMenu->addButton(playButton_retry);
 
-	createTransparentTexture(&fin_texture,180);
+	createTransparentTexture(fin_texture,180);
 }
 
 
-void Game::createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha) {
+void Game::createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha) {
     // Create a surface with an alpha channel
     SDL_Surface *surface = SDL_CreateRGBSurfaceWithFormat(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_PIXELFORMAT_RGBA32);
     
@@ -359,10 +362,11 @@ void Game::createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha) {
     SDL_FillRect(surface, NULL, SDL_MapRGBA(surface->format, 0, 0, 0, alpha));
 
     // Create a texture from the surface
-    *texture_fin = SDL_CreateTextureFromSurface(appWindow->renderer, surface);
+    texture_fin = SDL_CreateTextureFromSurface(appWindow->renderer, surface);
 
     // Free the surface
     SDL_FreeSurface(surface);
+    surface = NULL;
 }
 
 void Game::intiSound(){

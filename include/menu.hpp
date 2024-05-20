@@ -2,7 +2,7 @@
 #ifndef MENU_HPP
 #define MENU_HPP
 
-#include <SDL2/SDL.h>		if ()
+#include <SDL2/SDL.h>
 
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>

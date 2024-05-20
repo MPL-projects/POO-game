@@ -9,6 +9,7 @@
 #include "../include/soundEffect.hpp"
 #include "../include/soundMusic.hpp"
 #include <algorithm>
+#include <SDL2/SDL.h>
 
 #define SCREEN_WIDTH 1366
 #define SCREEN_HEIGHT 768
@@ -37,14 +38,14 @@ MusicMap SoundMusic::m_SoundMap;
 //             10, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xAA));
 // }
 
+
+
 Game::Game()
 {
 	appWindow = new Window;
 	appWindow->createWindow("POO-Game", SCREEN_WIDTH, SCREEN_HEIGHT);
 	players.push_back(new Player("assets/images/players/player1.png", 2.5));
 	players.push_back(new Player("assets/images/players/player2.png", 2.5));
-
-	players[1]->move(1366-300.5,0);
 
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
@@ -61,6 +62,8 @@ void Game::run()
 	initChooseSkinPlayer2();
 	scene->load_scene("assets/configs/arena.json");
 
+	initEndMenu();
+    players[1]->move(1366-300.5,0);
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
 	skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
@@ -90,8 +93,8 @@ void Game::run()
 
 				// Game Menu
 				case 1:
-					players[1]->handle_events(event);
 					players[0]->handle_events(event);
+					players[1]->handle_events(event);
 					break;
 
 				// Choose Skin Menu
@@ -134,10 +137,12 @@ void Game::run()
 					players[1]->change_skin(paths_to_sprites[x_p2]);
 					gameStatus = 3;
 					break;
+				case 8:
+					endMenu->handleEvents(event);
+					break;
 
 			}
 		}
-
 		SDL_RenderClear(appWindow->renderer);
 
 		switch (gameStatus)
@@ -161,6 +166,12 @@ void Game::run()
 				skinPlayer2.update();
 				mainChooseSkin2->displayMenu();
 				skinPlayer2.draw();
+				break;
+			case 8:
+				update();
+				renderGame();
+				SDL_RenderCopy(appWindow->renderer,fin_texture,NULL,NULL);
+				endMenu->displayMenu(false);
 				break;
 		}
 
@@ -204,6 +215,15 @@ void Game::drawHealthBars(){
 	health_bars[0]->actualDamages(players[0]->life);
 	health_bars[1]->actualDamages(players[1]->life);
 
+	if (!(players[0]->get_alive()&&players[1]->get_alive()))
+	{
+		players[0]->initSprite();
+		players[1]->initSprite();
+		players[0]->initPlayer();
+		players[1]->initPlayer();
+		gameStatus = 8;
+	}
+
     for (auto &health_bar : hb)
         health_bar->render();
 }
@@ -239,6 +259,7 @@ void Game::destroyGame(){
     scene = NULL;
     delete appWindow;
     appWindow = NULL;
+	SDL_DestroyTexture(fin_texture);
 }
 
 Game::~Game()
@@ -307,6 +328,41 @@ void Game::initChooseSkinPlayer2()
 	mainChooseSkin2->addButton(goBackButton);	
 }
 
+
+
+void Game::initEndMenu()
+{
+	endMenu = new Menu();
+
+	// Init the arrow buttons to choose character
+	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
+
+	Button *playButton_main_menu = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Menu", 0);
+	Button *playButton_retry = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Retry", 1);
+
+	endMenu->addButton(playButton_main_menu);
+	endMenu->addButton(playButton_retry);
+
+	createTransparentTexture(&fin_texture,180);
+}
+
+
+void Game::createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha) {
+    // Create a surface with an alpha channel
+    SDL_Surface *surface = SDL_CreateRGBSurfaceWithFormat(0, SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_PIXELFORMAT_RGBA32);
+    
+    // Set the blend mode of the surface
+    SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND);
+
+    // Fill the surface with a transparent color
+    SDL_FillRect(surface, NULL, SDL_MapRGBA(surface->format, 0, 0, 0, alpha));
+
+    // Create a texture from the surface
+    *texture_fin = SDL_CreateTextureFromSurface(appWindow->renderer, surface);
+
+    // Free the surface
+    SDL_FreeSurface(surface);
+}
 
 void Game::intiSound(){
 	SoundMusic music = new SoundMusic();

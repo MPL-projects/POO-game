@@ -41,6 +41,7 @@ void HealthBar::render()
 
 void HealthBar::actualDamages(int life)
 {
-	if (m_currentTextureIndex == 5) {m_currentTextureIndex = 5;}
-    else {m_currentTextureIndex = 5 - life / 10;}
+	m_currentTextureIndex = 5 - life / 10;
+	if (m_currentTextureIndex > 5) {m_currentTextureIndex = 5;}
+
 }

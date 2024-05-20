@@ -20,7 +20,7 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_
     
     renderer = Game::appWindow->renderer;
     m_position.x = 100;
-    m_position.y = 100;
+    m_position.y = 200;
     m_position.w = 48 * ratio;
     m_position.h = 48 * ratio;
 
@@ -34,7 +34,12 @@ Sprite::Sprite(const char* path_to_sprite, float ratio_): m_spritesheet(path_to_
     bb.push_back(r);
     effect = new Effect("assets/images/effects/Retro_Impact_Effect_Pack_1_F.png", ratio_/3, r, bb_off[0][0], bb_off[0][1]);
     
-    m_direction = Direction::NONE;
+    initSprite();
+    
+}
+
+void Sprite::initSprite(){
+	m_direction = Direction::NONE;
     m_direction_prev = Direction::DOWN;
 
     m_spritesheet.select_sprite(0, 0);
@@ -135,6 +140,8 @@ void Sprite::move(double dx, double dy){
     // if(bb[0].x < 0){x = - bb_off[0][0];}
     // else if( bb[0].x + bb[0].w > Window::WIDTH ){x = Window::WIDTH - bb[0].w - bb_off[0][0];}
     bounds(x, bb[0].x, bb[0].w, bb_off[0][0], Game::appWindow->WIDTH);
+    if(checkCollision2(bb, Game::scene->get_boxes()))
+        x -= dx;
 
 
 
@@ -154,6 +161,8 @@ void Sprite::move(double dx, double dy){
     // if(bb[0].y < 0){y = - bb_off[0][1];}
     // else if( bb[0].y + bb[0].h > Window::HEIGHT ){y = Window::HEIGHT - bb[0].h - bb_off[0][1];}
     bounds(y, bb[0].y, bb[0].h, bb_off[0][1], Game::appWindow->HEIGHT);
+    if(checkCollision2(bb, Game::scene->get_boxes()))
+        y -= dy;
 
 
 

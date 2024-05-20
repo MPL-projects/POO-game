@@ -7,6 +7,10 @@ void Window::createWindow(const char *windowTitle, const int width, const int he
         fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
         return;
     }
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        std::cerr << "Failed to initialize SDL_mixer: " << Mix_GetError() << std::endl;
+        return ;
+    }
     WIDTH = width;
     HEIGHT = height;
     mainWindow = SDL_CreateWindow(windowTitle, 10, 10, width, height, SDL_WINDOW_SHOWN);

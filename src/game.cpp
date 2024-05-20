@@ -58,6 +58,7 @@ void Game::run()
 	SDL_Event event;
 	
 	initMainMenu();
+	initSound();
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
 	scene->load_scene("assets/configs/arena.json");
@@ -152,7 +153,7 @@ void Game::run()
 				break;
 
 			case 1:
-				music->loadSound("game");
+				// music->playSound("game");
 				update();
 				renderGame();
 				break;
@@ -264,6 +265,9 @@ void Game::destroyGame(){
     fin_texture = NULL;
     delete endMenu;
     endMenu = NULL;
+	music->cleanSound();
+	delete music;
+	music = NULL;
 }
 
 Game::~Game()
@@ -369,7 +373,7 @@ void Game::createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha) {
     surface = NULL;
 }
 
-void Game::intiSound(){
+void Game::initSound(){
 	SoundMusic *music = new SoundMusic();
-	music->loadSound("game","assets/musics/themes/desperate_battle.mp3");
+	music->loadSound("game","assets/musics/themes/desperate_battle.ogg");
 }

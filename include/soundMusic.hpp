@@ -15,6 +15,8 @@ public:
     void playSound(const std::string& id) override;
     void loadSound(const std::string& id, const std::string& filePath) override;
     void cleanSound() override;
+    void stopSound();
+
 
     void printSoundMap();
     static MusicMap m_SoundMap;

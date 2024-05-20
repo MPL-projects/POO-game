@@ -48,6 +48,8 @@ public:
     static Scene *scene ;
     static bool RUNNING;
     SoundMusic *music;
+    void destroyGame();
+    void initSound();
 
 
 private:
@@ -61,10 +63,10 @@ private:
 	void initChooseSkinPlayer1();
     void initChooseSkinPlayer2();
 
-    void destroyGame();
+    // void destroyGame();
 
 	void createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha);
 	SDL_Texture *fin_texture;
-    void intiSound();
+    // void initSound();
 };
 #endif

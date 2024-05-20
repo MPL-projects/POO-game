@@ -83,8 +83,8 @@ void Game::run()
 
 				// Game Menu
 				case 1:
-					players[1]->handle_events(event);
 					players[0]->handle_events(event);
+					players[1]->handle_events(event);
 					break;
 
 				// Choose Skin Menu

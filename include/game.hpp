@@ -6,6 +6,7 @@
 #include "window.hpp"
 #include "menu.hpp"
 #include "scene.hpp"
+#include "soundMusic.hpp"
 
 
 

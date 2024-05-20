@@ -7,9 +7,7 @@ void SoundMusic::playSound(const std::string& id){
         std::cerr << Mix_GetError() << ": " << id << std::endl;
         Mix_FreeMusic(sound);
     }
-    std::cout << "Press Enter to stop the loop..." << std::endl;
-    std::cin.get();
-
+    
     Mix_HaltMusic();  // Stop the sound
     Mix_FreeMusic(sound); // Free the sound chunk
 }

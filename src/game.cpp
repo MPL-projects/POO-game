@@ -152,6 +152,7 @@ void Game::run()
 				break;
 
 			case 1:
+				music->loadSound("game");
 				update();
 				renderGame();
 				break;
@@ -366,4 +367,5 @@ void Game::createTransparentTexture(SDL_Texture **texture_fin, Uint8 alpha) {
 
 void Game::intiSound(){
 	SoundMusic *music = new SoundMusic();
+	music->loadSound("game","assets/musics/themes/desperate_battle.mp3");
 }

@@ -7,12 +7,13 @@ Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite
 	controller = new Gamepad();
     id = nb_players;
     nb_players++;
+    max_life = 100;
 	initPlayer();
     
 }
 
 void Player::initPlayer(){
-    life = 50;
+    life = max_life;
     strength = 10;
 	controller->ev.clear();
 	controller->ev.push_back(Direction::NONE);

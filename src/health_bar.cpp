@@ -5,23 +5,20 @@
 
 HealthBar::HealthBar(int x, int y, int width, int height): 
                m_rect({x, y, width, height}), 
-               m_renderer(Game::appWindow->renderer),
-               m_currentTextureIndex(0)
+               m_renderer(Game::appWindow->renderer)
 {
-	std::vector<std::string> imagePaths = {	"assets/images/players/health_bar/health_bar_1.png", 
-											"assets/images/players/health_bar/health_bar_2.png", 
-											"assets/images/players/health_bar/health_bar_3.png",
-											"assets/images/players/health_bar/health_bar_4.png",
-											"assets/images/players/health_bar/health_bar_5.png",
-											"assets/images/players/health_bar/health_bar_6.png"};
+	std::vector<std::string> imagePaths = {	"assets/images/players/health_bar/health_bar_empty.png", 
+                                            "assets/images/players/health_bar/health_bar_content.png"};
 
     for (const auto &imagePath : imagePaths)
     {
         SDL_Surface *surface = load_png(imagePath.c_str());
         SDL_Texture *texture = SDL_CreateTextureFromSurface(m_renderer, surface);
-        SDL_FreeSurface(surface);
+        SDL_FreeSurface(surface); surface = NULL;
         m_textures.push_back(texture);
     }
+    lifeRect = {m_rect.x + m_rect.w/6, m_rect.y, m_rect.w-m_rect.w/6, m_rect.h};
+    // m_rect.y -= 30;
 }
 
 HealthBar::~HealthBar()
@@ -35,13 +32,14 @@ HealthBar::~HealthBar()
 
 void HealthBar::render()
 {
-    SDL_RenderCopy(m_renderer, m_textures[m_currentTextureIndex], NULL, &m_rect);
+    SDL_RenderCopy(m_renderer, m_textures[1], NULL, &lifeRect);
+    SDL_RenderCopy(m_renderer, m_textures[0], NULL, &m_rect);
 }
 
 
-void HealthBar::actualDamages(int life)
+void HealthBar::actualDamages(int life, int max_life)
 {
-	m_currentTextureIndex = 5 - life / 10;
-	if (m_currentTextureIndex > 5) {m_currentTextureIndex = 5;}
+    float a = ((float)life/(float)max_life)*(float)(m_rect.w-m_rect.w/6);
+    lifeRect.w = (int)a;
 
 }

@@ -34,7 +34,7 @@ class HealthBar
 		int get_w() const {return m_rect.w;};			// "get_w" accessor method : getter
 		int get_h() const {return m_rect.h;};			// "get_h" accessor method : getter
 
-		void actualDamages(int life);					// "actualDamages" method : 
+		void actualDamages(int life, int max_life);		// "actualDamages" method : 
 		
 		void render();									// "render" method : 
 
@@ -43,6 +43,7 @@ class HealthBar
 		// Private Attributes
 
 		SDL_Rect m_rect;
+		SDL_Rect lifeRect;
 		SDL_Renderer* m_renderer;
 		SDL_Texture* m_textTexture;
 

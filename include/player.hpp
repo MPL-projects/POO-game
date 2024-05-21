@@ -34,6 +34,7 @@ class Player : public Sprite
 		// Public Attributes
 
 		int life;
+		int max_life;
 
 		void initPlayer();
 

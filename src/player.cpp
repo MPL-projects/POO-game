@@ -7,8 +7,8 @@ Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite
 	controller = new Gamepad();
     id = nb_players;
     nb_players++;
-	initPlayer();
     max_life = 100;
+	initPlayer();
     
 }
 

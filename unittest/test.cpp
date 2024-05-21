@@ -81,9 +81,9 @@ TEST_CASE("Player Construction", "[player]") {
     Player *player = new Player("assets/images/players/player1.png",2.5);
 
     // Verify that the player's attributes are correctly initialized
-    REQUIRE(player->life == 50);
+    REQUIRE(player->life == player->max_life);
     player->take_damage(20);
-    REQUIRE(player->life == 30);
+    REQUIRE(player->life == player->max_life-20);
 
 
     // Clean up SDL

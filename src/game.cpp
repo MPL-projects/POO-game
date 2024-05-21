@@ -53,8 +53,6 @@ void Game::run()
 	
 
 	initEndMenu();
-    players[0]->setPos(100, 200);
-    players[1]->setPos(1366-200.5,200);
 
 	Sprite skinPlayer1("assets/images/players/player1.png", 15);
 	// skinPlayer1.move(SCREEN_WIDTH / 2 - 110 - 48 * 15 / 2, SCREEN_HEIGHT / 2 - 300 - 48 * 15 / 2); // longueur ecran / 2 - (offset + valeur arbitraire) - 48 * ratio / 2
@@ -66,6 +64,25 @@ void Game::run()
 	paths_to_sprites.push_back("assets/images/players/player1.png");
 	paths_to_sprites.push_back("assets/images/players/player2.png");
 
+    TTF_Font* m_font = TTF_OpenFont("assets/ttf/liberation.ttf", 50);
+    if (!m_font)
+    {
+        throw std::runtime_error("Failed to load font");
+    }
+
+    SDL_Color textColor = {255, 255, 255}; // White text color
+
+    SDL_Surface *textSurfaceP1 = TTF_RenderText_Solid(m_font, "Player 1 win !", textColor);
+    SDL_Texture* P1_textTexture = SDL_CreateTextureFromSurface(appWindow->renderer, textSurfaceP1);
+
+    SDL_Surface *textSurfaceP2 = TTF_RenderText_Solid(m_font, "Player 2 win !", textColor);
+    SDL_Texture* P2_textTexture = SDL_CreateTextureFromSurface(appWindow->renderer, textSurfaceP2);
+
+    SDL_Rect winPos = {(appWindow->WIDTH - textSurfaceP1->w)/2 + 10, 3*appWindow->HEIGHT/5, textSurfaceP1->w, textSurfaceP1->h};
+    SDL_FreeSurface(textSurfaceP1); textSurfaceP1 = NULL;
+    SDL_FreeSurface(textSurfaceP2); textSurfaceP2 = NULL;
+    TTF_CloseFont(m_font); m_font = NULL;
+
 	int x_p1 = 0;
 	int x_p2 = 1;
 
@@ -74,6 +91,8 @@ void Game::run()
 		while (SDL_PollEvent(&event))
 		{
 			appWindow->handleEvents(event);
+            players[0]->handle_events(event);
+            players[1]->handle_events(event);
 
 			switch (gameStatus)
 			{
@@ -83,11 +102,8 @@ void Game::run()
 					mainMenu->handleEvents(event);
 					break;
 
-				// Game Menu
+				// Game
 				case GAME:
-					// music->playSound("soundA");
-					players[0]->handle_events(event);
-					players[1]->handle_events(event);
 					break;
 
 				// Choose Skin Menu
@@ -180,13 +196,20 @@ void Game::run()
 				renderGame();
 				SDL_RenderCopy(appWindow->renderer,fin_texture,NULL,NULL);
 				endMenu->displayMenu(false);
+                if(players[0]->get_alive())
+                    SDL_RenderCopy(appWindow->renderer, P1_textTexture, NULL, &winPos);
+                else
+                    SDL_RenderCopy(appWindow->renderer, P2_textTexture, NULL, &winPos);
 				break;
             case INIT_PLAYERS:
                 players[0]->initSprite();
                 players[1]->initSprite();
                 players[0]->initPlayer();
                 players[1]->initPlayer();
+                players[0]->setPos(100, 200);
+                players[1]->setPos(1366-200.5,200);
                 gameStatus = GAME;
+                scene->drawScene();
                 break;
             default:
                 break;
@@ -196,7 +219,8 @@ void Game::run()
 		SDL_RenderPresent(appWindow->renderer);
         SDL_Delay(10);
 	}
-
+    SDL_DestroyTexture(P1_textTexture); P1_textTexture = NULL;
+    SDL_DestroyTexture(P2_textTexture); P2_textTexture = NULL;
     destroyGame();
 }
 
@@ -228,10 +252,6 @@ void Game::drawHealthBars(){
 
 	if (!(players[0]->get_alive()&&players[1]->get_alive()))
 	{
-		// players[0]->initSprite();
-		// players[1]->initSprite();
-		// players[0]->initPlayer();
-		// players[1]->initPlayer();
 		gameStatus = DEATH;
 	}
 
@@ -247,7 +267,6 @@ void Game::drawPlayers()
     std::sort(p.begin(), p.end(), [](Player* &a, Player* &b){ return a->y < b->y; });
     for (auto &player : p)
         player->draw();
-    // p.clear();
 }
 
 void Game::destroyGame(){
@@ -292,7 +311,7 @@ void Game::initMainMenu()
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 
 	// Go to Combat Button
-	Button *combatButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Combat", GAME);
+	Button *combatButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT - 80) / 2 - 100, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Combat", INIT_PLAYERS);
 	mainMenu->addButton(combatButton);
 	combatButton->setSoundEffect(soundEffect, "button");
 

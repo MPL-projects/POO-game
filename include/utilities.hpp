@@ -26,7 +26,8 @@ enum GameStatus{
     SKIN1_RIGHT,
     SKIN2_LEFT,
     SKIN2_RIGHT,
-    INIT_PLAYERS
+    INIT_PLAYERS,
+    NONE
 };
 
 typedef struct

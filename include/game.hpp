@@ -25,35 +25,39 @@ using namespace std;
 class Game
 {
 public:
-    Game();
     ~Game();
 
-    // void init();
-    void update();
-    void renderGame();
     void run();
 
-    static bool isRunning(){return RUNNING;};
     static void stopGame(){RUNNING = false;};
     static GameStatus gameStatus;
-
     static vector<Player*> players;
 	static vector<HealthBar *> health_bars;
-    // Player *players;
     static Window *appWindow;
+    static Scene *scene ;
+
+    Game(Game &other) = delete;
+    void operator=(const Game &) = delete;
+    static Game *GetInstance(){
+        if(game_==nullptr){
+            game_ = new Game();
+        }
+        return game_;
+    }
+
+private:
+    Game();
+    static Game* game_;
+
+    static bool RUNNING;
+    SoundMusic *music;
+    SoundEffect *soundEffect;
     Menu *mainMenu;
     Menu *mainChooseSkin1;
 	Menu *mainChooseSkin2;
 	Menu *endMenu;
-
-
-    static Scene *scene ;
-    static bool RUNNING;
-    SoundMusic *music;
-    SoundEffect *soundEffect;
-
-
-private:
+    void update();
+    void renderGame();
     void initMainMenu();
 	void initEndMenu();
     void initArena();
@@ -70,6 +74,6 @@ private:
 	SDL_Texture *fin_texture;
     void initSound();
     void playSound();
-    int save_sound;
+    GameStatus save_sound;
 };
 #endif

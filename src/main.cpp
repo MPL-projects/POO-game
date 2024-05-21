@@ -9,8 +9,8 @@
 
 int main(int argc, char **argv)
 {
-    Game game;
-    game.run();
+    Game* game = Game::GetInstance();
+    game->run();
     return 0;
 }
 

@@ -8,6 +8,7 @@
 #include "../include/scene.hpp"
 #include "../include/soundEffect.hpp"
 #include "../include/soundMusic.hpp"
+#include "../include/utilities.hpp"
 #include <algorithm>
 #include <SDL2/SDL.h>
 #include <iostream>
@@ -15,6 +16,7 @@
 #define SCREEN_WIDTH 1366
 #define SCREEN_HEIGHT 768
 
+Game* Game::game_= nullptr;
 bool Game::RUNNING = true;
 GameStatus Game::gameStatus = MAIN_MENU;
 Scene *Game::scene = nullptr;
@@ -35,7 +37,7 @@ Game::Game()
 	health_bars.push_back(new HealthBar(75, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	health_bars.push_back(new HealthBar(950, 10, SCREEN_WIDTH / 4, SCREEN_WIDTH / 16));
 	scene = new Scene();
-	save_sound = -1;
+	save_sound = NONE;
 	RUNNING = true;
 }
 
@@ -185,6 +187,8 @@ void Game::run()
                 players[0]->initPlayer();
                 players[1]->initPlayer();
                 gameStatus = GAME;
+                break;
+            default:
                 break;
 		}
 
@@ -403,7 +407,6 @@ void Game::initSound(){
 }
 
 void Game::playSound(){
-	// std::cerr << "gameStatus != save_sound : " << (gameStatus != save_sound) << "\n";
 	if (gameStatus != save_sound && gameStatus != SKIN_MENU_1 && gameStatus != SKIN_MENU_2){
 		switch (gameStatus)
 		{

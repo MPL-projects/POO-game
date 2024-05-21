@@ -1,0 +1,190 @@
+<mxfile host="app.diagrams.net" modified="2024-05-21T13:42:04.307Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="C13U4nTjkNofqUyuFyw-" version="24.4.4" type="device">
+  <diagram name="Page-1" id="9bk-zSSSie337HakggBB">
+    <mxGraphModel dx="7930" dy="4320" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="iii1bWwukVLjW2tawZAj-1" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;ev : std::vector&amp;lt;Direction&amp;gt; &lt;br&gt;att : bool &lt;br&gt;block : bool &lt;br&gt;&amp;nbsp;changeController : bool &lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-230" y="440" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-2" value="Controller" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-230" y="420" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-3" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Controller ( )&lt;br&gt;~Controller ( ) { } : virtual &lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;handle_events (SDL_Event const &amp;amp;event) = 0 : virtual void&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;switchController ( ) = 0 : virtual Controller* &lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-230" y="520" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-4" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;m_rect : SDL_Rect&lt;br&gt;m_textures : vector&amp;lt;SDL_Texture*&amp;gt; &lt;br&gt;m_renderer : SDL_Renderer* &lt;br&gt;m_currentTextureIndex : int&lt;br&gt;m_font : TTF_Font* &lt;br&gt;m_textTexture : SDL_Texture* &lt;br&gt;m_isPressed : bool &lt;br&gt;action : int&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="1160" width="530" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-5" value="Button" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="1140" width="530" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-6" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Button (int x, int y, int width, int height, const vector&amp;lt;string&amp;gt;&amp;amp; imagePaths, const string&amp;amp; fontPath, const string&amp;amp; name, int a)&lt;br&gt;~Button()&lt;br&gt;get_x ( ) : int&lt;br&gt;get_y ( ) : int&lt;br&gt;get_w ( ) : int&lt;br&gt;get_h ( ) : int&lt;br&gt;handleEvent (const SDL_Event&amp;amp; event) : void&lt;br&gt;render ( ) : void&lt;br&gt;isPressed ( ) const : bool&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1740" y="1300" width="530" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-7" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;&lt;div&gt;x : double&lt;br&gt;y : double&lt;br&gt;x_off : double&lt;br&gt;y_off : double&lt;br&gt;&lt;/div&gt;&lt;div&gt;show : bool&lt;br&gt;&lt;/div&gt;&lt;div&gt;m_spritesheet : Spritesheet&lt;br&gt;m_spritesheet_column : int&lt;br&gt;m_position : SDL_Rect&lt;br&gt;*renderer : SDL_Renderer&lt;br&gt;ratio : float&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="780" y="320" width="550" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-8" target="iii1bWwukVLjW2tawZAj-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-8" value="Effect" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="780" y="300" width="550" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-9" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Effect (const char* path_to_effect, float ratio_, SDL_Rect position, int x_off_, int y_off_)&lt;br&gt;~Effect ( )&lt;br&gt;update ( ) : void&lt;br&gt;draw ( ) : void&lt;br&gt;move (double x1, double y1) : void&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="780" y="500" width="550" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-10" value="&lt;br&gt;&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;gameStatus : static int &lt;br&gt;players : static vector&amp;lt;Player*&amp;gt; &lt;br&gt;health_bars : static vector&amp;lt;HealthBar *&amp;gt; &lt;br&gt;*appWindow : static Window &lt;br&gt;*mainMenu : Menu&lt;br&gt;*mainChooseSkin1 : Menu&lt;br&gt;*mainChooseSkin2 : Menu&lt;br&gt;*endMenu : Menu&lt;br&gt;*scene : static Scene&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;RUNNING : static bool&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;*fin_texture : SDL_Texture&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1050" y="2270" width="470" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-11" target="iii1bWwukVLjW2tawZAj-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-11" target="iii1bWwukVLjW2tawZAj-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-11" target="iii1bWwukVLjW2tawZAj-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-11" target="iii1bWwukVLjW2tawZAj-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-11" target="iii1bWwukVLjW2tawZAj-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-11" value="Game" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1050" y="2250" width="470" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-12" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Game ( )&lt;br&gt;~Game ( )&lt;br&gt;update ( ) : void&lt;br&gt;renderGame ( ) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;run ( ) :void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;initMainMenu ( ) : void&lt;br&gt;initEndMenu ( ) : void&lt;br&gt;initArena ( ) : void&lt;br&gt;drawPlayers ( ) : void&lt;br&gt;drawHealthBars ( ) : void&lt;br&gt;initChooseSkinPlayer1 ( ) : void&lt;br&gt;initChooseSkinPlayer2 ( ) : void&lt;br&gt;destroyGame ( ) : void&lt;br&gt;createTransparentTexture (SDL_Texture* &amp;amp;texture_fin, Uint8 alpha) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;isRunning ( ): static bool&lt;br&gt;stopGame ( ) : static void&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1050" y="2460" width="470" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-14" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;id_gamepad : static int&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;*controller : SDL_GameController &lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-530" y="1105" width="470" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-15" value="Gamepad" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-530" y="1085" width="470" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-16" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Gamepad ( )&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;~Gamepad ( )&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;handle_events (SDL_Event const &amp;amp;event) : void &lt;/div&gt;&lt;div align=&quot;left&quot;&gt;setDir (float x, float y) : void&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;getControllerInstanceID (SDL_GameController *controller) : static inline SDL_JoystickID &lt;br&gt;connect ( ) : void&lt;br&gt;switchController ( ) : Controller* &lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-530" y="1165" width="470" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-18" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;m_rect : SDL_Rect&amp;nbsp;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;m_textures : vector&amp;lt;SDL_Texture*&amp;gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;m_renderer : SDL_Renderer*&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;m_currentTextureIndex : int&lt;br&gt;m_textTexture : SDL_Texture* &lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="830" y="1670" width="310" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-19" value="HealthBar" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="830" y="1650" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-20" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;HealthBar (int x, int y, int width, int height)&lt;br&gt;~HealthBar ( )&lt;br&gt;get_x() const : int&lt;br&gt;get_y() const : int&lt;br&gt;get_w() const&amp;nbsp; : int&lt;br&gt;get_h() const&amp;nbsp; : int&lt;br&gt;actualDamages(int life) : void&lt;br&gt;render() : void&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="830" y="1770" width="310" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-21" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Keys :&amp;nbsp; std::map&amp;lt;std::string, vector&amp;lt;SDL_KeyCode&amp;gt;&amp;gt;&lt;br&gt;id : int&lt;br&gt;nb_keyboard : static int&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-20" y="1160" width="370" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-22" value="Keyboard" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-20" y="1140" width="370" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-23" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Keyboard()&lt;br&gt;~Keyboard()&lt;br&gt;handle_events(SDL_Event const &amp;amp;event) : void&lt;br&gt;switchController() : Controller*&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-20" y="1230" width="370" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-24" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;buttons: std::vector&amp;lt;Button*&amp;gt;&lt;br&gt;*back_texture : SDL_Texture&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;windowHeight : int&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;windowWidth : int&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;*m_renderer : SDL_Renderer&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="1670" width="410" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-25" target="iii1bWwukVLjW2tawZAj-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-25" value="Menu" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="1650" width="410" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-26" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Menu ( )&lt;br&gt;~Menu ( )&lt;br&gt;displayMenu (bool var = true) : void&lt;br&gt;handleEvents (SDL_Event &amp;amp;event) : void&lt;br&gt;addButton (Button* button) : void&lt;br&gt;buttonStatus (Button* button) : bool&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;setBackground (const std::string&amp;amp;&amp;nbsp; imagePath) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;render_background ( ) : void&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1780" y="1770" width="410" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-27" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;*controller : Controller&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;nb_players : static int&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;life : int&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="350" y="1730" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-28" target="iii1bWwukVLjW2tawZAj-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-28" target="iii1bWwukVLjW2tawZAj-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-28" value="Player" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="1710" width="340" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-29" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Player (const char* path_to_sprite, float ratio_)&lt;br&gt;~Player ( )&lt;br&gt;handle_events (SDL_Event const &amp;amp;event) : void&lt;br&gt;take_damage (int damages) : void&lt;br&gt;operator= (const Player &amp;amp;player) : Player&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;initPlayer ( ) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;initMeleeAttack ( ) : void&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="350" y="1790" width="340" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-30" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;boxes : std::vector&amp;lt;SDL_Rect&amp;gt;&lt;br&gt;assests : vector&amp;lt;Tiles&amp;gt;&lt;br&gt;id : static int&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="1680" width="460" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-31" value="Scene" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="1660" width="460" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-32" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Scene ( )&lt;br&gt;~Scene ( ) : virtual&lt;br&gt;drawScene ( ) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;draw_boxes ( ) : void&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;get_boxes ( ) : std::vector&amp;lt;SDL_Rect&amp;gt;&amp;amp;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;load_scene (const std::string&amp;amp; jsonFilePath) : void&lt;br&gt;set_param (SDL_Rect pos, SDL_RendererFlip flip, int rotation) : Param&lt;br&gt;set_clip (SDL_Rect clip, vector&amp;lt;Param&amp;gt; params) : Clip&lt;br&gt;set_tiles (SDL_Texture *asset, std::vector&amp;lt;Clip&amp;gt; clips) : Tiles&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="1220" y="1750" width="460" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-36" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;m_spritesheet : Spritesheet&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;*effect : Effect&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;m_spritesheet_column : int&lt;br&gt;bb : std::vector&amp;lt;SDL_Rect&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;bb_off : std::vector&amp;lt;std::vector&amp;lt;int&amp;gt;&amp;gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;bb_att : std::vector&amp;lt;SDL_Rect&amp;gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&amp;nbsp;&amp;nbsp; bb_att_off : std::vector&amp;lt;std::vector&amp;lt;int&amp;gt;&amp;gt;&lt;br&gt;m_position : SDL_Rect&lt;br&gt;att_dir : Direction&lt;br&gt;hit : bool&lt;br&gt;block : bool&lt;br&gt;strength : int&lt;br&gt;alive : bool&lt;br&gt;*renderer : SDL_Renderer&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;ratio :&amp;nbsp; float&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;id : int&lt;br&gt;x : double&lt;br&gt;y : double&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;m_direction : Direction&lt;br&gt;m_direction_prev : Direction&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="400" y="910" width="330" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-37" target="iii1bWwukVLjW2tawZAj-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-37" target="iii1bWwukVLjW2tawZAj-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-37" value="Sprite" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="400" y="890" width="330" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-38" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Sprite (const char* path_to_sprite, float ratio_)&lt;br&gt;~Sprite ( )&lt;br&gt;update ( ) : void&lt;br&gt;draw ( ) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;move (double x1, double y1) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;&amp;amp;get_boxes ( ) : std::vector&amp;lt;SDL_Rect&amp;gt;&lt;br&gt;move_boxes ( ) : void&lt;br&gt;meleeAttack ( ) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;change_skin (const char* path) : void&lt;br&gt;set_alive (bool var) : void&lt;br&gt;get_alive ( ) : bool&lt;br&gt;initSprite ( ) : void&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="400" y="1230" width="330" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-39" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;flip : SDL_RendererFlip&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;m_clip : SDL_Rect&lt;br&gt;*m_spritesheet_image_texture : SDL_Texture&lt;br&gt;*renderer : SDL_Renderer &lt;br&gt;m_start_x : int&lt;br&gt;m_start_y : int&lt;br&gt;height : int&lt;br&gt;width : int&lt;br&gt;row : int &lt;br&gt;column : int&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="240" y="-270" width="490" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-40" value="Spritesheet" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="-290" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-41" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;Spritesheet (char const *path, int row, int column)&lt;br&gt;~Spritesheet ( )&lt;br&gt;select_sprite (int x, int y) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;draw_selected_sprite (SDL_Renderer *renderer, SDL_Rect *position) : void&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;load_skin (char const *path) : void&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="240" y="-100" width="490" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-45" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;HEIGHT : int&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;WIDTH : int&lt;br&gt;&lt;/div&gt;&lt;div align=&quot;left&quot;&gt;*mainWindow = NULL : SDL_Window &lt;br&gt;*renderer = NULL : SDL_Renderer &lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="2300" y="1760" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-46" value="Window" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2300" y="1740" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="iii1bWwukVLjW2tawZAj-47" value="&lt;blockquote&gt;&lt;div align=&quot;left&quot;&gt;createWindow (const char *windowTitle, const int width, const int height) : void&lt;br&gt;~Window()&lt;br&gt;handleEvents(SDL_Event &amp;amp;event) : void&lt;br&gt;&lt;/div&gt;&lt;/blockquote&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="2300" y="1840" width="500" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-23" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-28" target="iii1bWwukVLjW2tawZAj-38">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="670" y="1550" as="sourcePoint" />
+            <mxPoint x="830" y="1550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="1510" />
+              <mxPoint x="565" y="1510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-24" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-285" y="1085" as="sourcePoint" />
+            <mxPoint x="-20" y="600" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-285" y="890" />
+              <mxPoint x="-20" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ODNF7Fn5UEUcKimGkwpi-28" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="iii1bWwukVLjW2tawZAj-22">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-95" y="1125" as="sourcePoint" />
+            <mxPoint x="-20" y="600" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="165" y="890" />
+              <mxPoint x="-20" y="890" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

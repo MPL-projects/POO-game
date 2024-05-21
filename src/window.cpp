@@ -2,10 +2,14 @@
 #include "../include/game.hpp"
 
 void Window::createWindow(const char *windowTitle, const int width, const int height){
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER) < 0)
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMECONTROLLER | SDL_INIT_AUDIO) < 0)
     {
         fprintf(stderr, "could not initialize sdl2: %s\n", SDL_GetError());
         return;
+    }
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        std::cerr << "Failed to initialize SDL_mixer: " << Mix_GetError() << std::endl;
+        return ;
     }
     WIDTH = width;
     HEIGHT = height;
@@ -20,6 +24,7 @@ Window::~Window()
     renderer = NULL;
     SDL_DestroyWindow(mainWindow);
     mainWindow = NULL;
+    Mix_CloseAudio();
     SDL_Quit();   
 }
 

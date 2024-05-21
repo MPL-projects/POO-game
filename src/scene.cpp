@@ -1,8 +1,6 @@
 #include <nlohmann/json.hpp>
 #include <iostream>
 #include <fstream>
-
-#include "../include/scenesheet.hpp"
 #include "../include/scene.hpp"
 #include "../include/utilities.hpp"
 #include "../include/game.hpp"

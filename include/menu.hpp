@@ -21,6 +21,7 @@ public:
     void addButton(Button* button); // Function to add buttons to the menu
     bool buttonStatus(Button* button);
     void setBackground(const std::string&  imagePath);
+    SDL_Texture* getBackground(){return back_texture;};
 
     SDL_Renderer *m_renderer;
 

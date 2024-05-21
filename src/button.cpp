@@ -6,13 +6,13 @@ Button::Button(int x, int y, int width, int height,
                const vector<string> &imagePaths, 
                const string &fontPath, 
                const string &name, 
-               int a): 
+               GameStatus a): 
                m_rect({x, y, width, height}), 
                m_renderer(Game::appWindow->renderer),
                m_currentTextureIndex(0), 
-               m_isPressed(false), 
-               action(a)
+               m_isPressed(false)
 {
+    action = a;
     for (const auto &imagePath : imagePaths)
     {
         SDL_Surface *surface = load_png(imagePath.c_str());
@@ -83,7 +83,12 @@ void Button::handleEvent(const SDL_Event &event)
         {
             m_currentTextureIndex = 1;
             m_isPressed = !m_isPressed;
+            // Play the sound effect when the button is pressed
+            if (m_soundEffect && !m_soundId.empty()) {
+                m_soundEffect->playSound(m_soundId);
+            }
             Game::gameStatus = action;
+
             
             
         }
@@ -116,4 +121,9 @@ bool Button::isPressed() const
     // std::cout << "isPresse = " << m_isPressed << std::endl;
     return m_isPressed;
     
+}
+
+void Button::setSoundEffect(SoundEffect* soundEffect, const std::string& soundId) {
+    m_soundEffect = soundEffect;
+    m_soundId = soundId;
 }

@@ -6,6 +6,9 @@
 #include "window.hpp"
 #include "menu.hpp"
 #include "scene.hpp"
+#include "utilities.hpp"
+#include "soundMusic.hpp"
+#include "soundEffect.hpp"
 
 
 
@@ -22,33 +25,39 @@ using namespace std;
 class Game
 {
 public:
-    Game();
     ~Game();
 
-    // void init();
-    void update();
-    void renderGame();
     void run();
 
-    static bool isRunning(){return RUNNING;};
     static void stopGame(){RUNNING = false;};
-    static int gameStatus;
-
+    static GameStatus gameStatus;
     static vector<Player*> players;
 	static vector<HealthBar *> health_bars;
-    // Player *players;
     static Window *appWindow;
+    static Scene *scene ;
+
+    Game(Game &other) = delete;
+    void operator=(const Game &) = delete;
+    static Game *GetInstance(){
+        if(game_==nullptr){
+            game_ = new Game();
+        }
+        return game_;
+    }
+
+private:
+    Game();
+    static Game* game_;
+
+    static bool RUNNING;
+    SoundMusic *music;
+    SoundEffect *soundEffect;
     Menu *mainMenu;
     Menu *mainChooseSkin1;
 	Menu *mainChooseSkin2;
 	Menu *endMenu;
-
-
-    static Scene *scene ;
-    static bool RUNNING;
-
-
-private:
+    void update();
+    void renderGame();
     void initMainMenu();
 	void initEndMenu();
     void initArena();
@@ -63,5 +72,8 @@ private:
 
 	void createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha);
 	SDL_Texture *fin_texture;
+    void initSound();
+    void playSound();
+    GameStatus save_sound;
 };
 #endif

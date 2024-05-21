@@ -5,7 +5,6 @@
 #include <vector>
 
 SDL_Surface *load_png(char const *path);
-bool checkCollision(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b);
 bool checkCollision2(std::vector<SDL_Rect>& a, std::vector<SDL_Rect>& b);
 
 enum class Direction
@@ -15,6 +14,20 @@ enum class Direction
     DOWN,
     LEFT,
     RIGHT
+};
+
+enum GameStatus{
+    MAIN_MENU,
+    SKIN_MENU_1,
+    SKIN_MENU_2,
+    GAME,
+    DEATH,
+    SKIN1_LEFT,
+    SKIN1_RIGHT,
+    SKIN2_LEFT,
+    SKIN2_RIGHT,
+    INIT_PLAYERS,
+    NONE
 };
 
 typedef struct

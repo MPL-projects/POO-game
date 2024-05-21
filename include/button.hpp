@@ -8,12 +8,14 @@
 #include <stdexcept>
 #include <vector>
 #include <iostream>
+#include "utilities.hpp"
+#include "soundEffect.hpp"
 
 using namespace std;
 
 class Button {
 public:
-    Button(int x, int y, int width, int height, const vector<string>& imagePaths, const string& fontPath, const string& name, int a);
+    Button(int x, int y, int width, int height, const vector<string>& imagePaths, const string& fontPath, const string& name, GameStatus a);
     ~Button();
     int get_x() const {return m_rect.x;};
     int get_y() const {return m_rect.y;};
@@ -23,6 +25,7 @@ public:
     void render();
 
     bool isPressed() const;
+    void setSoundEffect(SoundEffect* soundEffect, const std::string& soundId);
 
 private:
     SDL_Rect m_rect;
@@ -33,7 +36,10 @@ private:
     SDL_Texture* m_textTexture;
 
     bool m_isPressed;
-    int action;
+    GameStatus action;
+
+    SoundEffect* m_soundEffect;
+    std::string m_soundId;
 
 };
 

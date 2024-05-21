@@ -1,37 +1,51 @@
+// Filename : player.hpp
+
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
+
+// Include header files
 #include "gamepad.hpp"
 #include "keyboard.hpp"
-#include <iostream>
 #include "sprite.hpp"
+
+// Include libraries
+#include <iostream>
 #include <SDL2/SDL.h>
 
 using namespace std;
 
+/* Definition of the class : "Player" inheritating from "Sprite" */
+
 class Player : public Sprite
 {
-public:
-    Controller *controller;
-    // Player(SDL_Renderer *renderer, const char *imagePath, int startX, int startY) : Sprite(renderer, imagePath, startX, startY){};
-    // Player(const Player &player_);
-    Player(const char* path_to_sprite, float ratio_);
-    ~Player(){delete controller;};
-    void handle_events(SDL_Event const &event);
+	public:
+		
+		// Public methods
 
-    static int nb_players;
-    void take_damage(int damages);
+		Player(const char* path_to_sprite, float ratio_);	// Constructor
+		~Player(){delete controller;};						// Destructor
 
-    Player operator=(const Player &player);
+		void handle_events(SDL_Event const &event);			// "handle_events" method :
+		void take_damage(int damages);						// "take_damage" method : 
+
+		Player operator=(const Player &player);				// "=" operator : 
 
 
-    // void addController() { controller = Gamepad(); };
-    // void update() { controller.events(); };
-    int life;
+		// Public Attributes
 
-	void initPlayer();
+		int life;
 
-private:
-    void initMeleeAttack();
+		void initPlayer();
+
+		Controller *controller;
+
+		static int nb_players;
+
+	private:
+
+		// Private methods 
+
+		void initMeleeAttack();								// initMeleeAttack method
     
 };
 #endif

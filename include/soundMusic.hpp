@@ -1,30 +1,48 @@
+// Filename : soundMusic.hpp
+
 #ifndef SOUNDMUSIC_HPP
 #define SOUNDMUSIC_HPP
 
+// Include header files
+#include "soundMgr.hpp"
+
+// Include libraries
 #include <string>
 #include <iostream>
 #include <SDL2/SDL_mixer.h>
-#include "soundMgr.hpp"
 
 using MusicMap = std::map<std::string, Mix_Music*>;
 
-class SoundMusic : public SoundMgr {
-public:
-    SoundMusic() : currentVolume(MIX_MAX_VOLUME / 8) {};
-    ~SoundMusic();
 
-    void playSound(const std::string& id);
-    void loadSound(const std::string& id, const std::string& filePath);
-    void cleanSound();
-    void stopSound();
-    void setVolume(int volume); 
+/* Definition of the class : "SoundMusic" inheriting from "SoundMgr" */
+
+class SoundMusic : public SoundMgr 
+{
+	public:
+
+		// Public methods
+
+		SoundMusic() : currentVolume(MIX_MAX_VOLUME / 8) {};				// Constructor
+		~SoundMusic();														// Destructor
+
+		void playSound(const std::string& id);								// "playSound" method : 
+		void loadSound(const std::string& id, const std::string& filePath);	// "loadSound" method : 		
+		void cleanSound();													// "cleanSound" method :
+		void stopSound();													// "stopSound" method :
+		void printSoundMap();												// "printSoundMap" method : 
+
+		void setVolume(int volume); 										// "setVolume" accessor method : setter
 
 
-    void printSoundMap();
-    static MusicMap m_SoundMap;
+		// Public attributes
 
-private:
-    int currentVolume; 
+		static MusicMap m_SoundMap;
+
+	private:
+
+		// Private attributes
+
+		int currentVolume; 
 };
 
-#endif // SOUNDMUSIC_HPP
+#endif

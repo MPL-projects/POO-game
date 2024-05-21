@@ -1,32 +1,52 @@
+// Filename : effect.hpp
+
 #ifndef EFFECT_HPP
 #define EFFECT_HPP
-#include <SDL2/SDL.h>
+
+// Include header files
 #include "spritesheet.hpp"
 #include "utilities.hpp"
 
+// Include libraries
+#include <SDL2/SDL.h>
+
+/* Definition of the class : "Effect" */
+
 class Effect
 {
-public:
-    Effect(const char* path_to_effect, float ratio_, SDL_Rect position, int x_off_, int y_off_);
-    ~Effect();
+	public:
 
-    void update();
-    void draw();
-    void move(double x1, double y1);
+		// Public methods
 
-    double x;
-    double y;
-    double x_off;
-    double y_off;
-    bool show;
+		Effect(const char* path_to_effect, float ratio_, SDL_Rect position, int x_off_, int y_off_);	// Constructor
+		~Effect();																						// Destructor
 
-protected:
-    
-    Spritesheet m_spritesheet;
-    int m_spritesheet_column;
-    SDL_Rect m_position;
+		void update();																					// "update" method : 
+		void draw();																					// "draw" method :
+		void move(double x1, double y1);																// "move" method : 
 
-    SDL_Renderer *renderer;
-    float ratio;
+
+		// Public attributes
+
+		double x;
+		double y;
+		double x_off;
+		double y_off;
+
+		bool show;
+
+	protected:
+
+		// Protected attributes 
+
+		Spritesheet m_spritesheet;
+		
+		SDL_Rect m_position;
+		SDL_Renderer *renderer;
+
+		int m_spritesheet_column;
+
+		float ratio;
 };
+
 #endif

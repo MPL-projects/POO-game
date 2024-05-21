@@ -1,26 +1,44 @@
+// Filename : soundEffect.hpp
+
 #ifndef SOUNDEFFECT_HPP
 #define SOUNDEFFECT_HPP
 
+// Include header files
+#include "soundMgr.hpp"
+
+// Include libraries
 #include <string>
 #include <iostream>
 #include <SDL2/SDL_mixer.h>
-#include "soundMgr.hpp"
+
 
 using EffectMap = std::map<std::string, Mix_Chunk*>;
 
+/* Definition of the class : "SoundEffect" inheritating from "SoundMgr" */
 
-class SoundEffect : public SoundMgr {
-public:
-    SoundEffect() : currentVolume(MIX_MAX_VOLUME / 8) {}
-    ~SoundEffect();
+class SoundEffect : public SoundMgr 
+{
+	public:
 
-    void playSound(const std::string& id);
-    void loadSound(const std::string& id, const std::string& filePath);
-    void cleanSound();
-    void setVolume(int volume); 
-    static EffectMap e_SoundMap;
-private:
-    int currentVolume; 
+		// Public methods
+
+		SoundEffect() : currentVolume(MIX_MAX_VOLUME / 8) {}				// Constructor
+		~SoundEffect();														// Destructor
+
+		void playSound(const std::string& id);								// "playSound" method : 
+		void loadSound(const std::string& id, const std::string& filePath);	// "loadSound" method : 
+		void cleanSound();													// "cleanSound" method : 
+		void setVolume(int volume); 										// "setVolume" method : 
+
+		// Public Attributes
+
+		static EffectMap e_SoundMap;
+
+	private:
+
+		// Private attributes
+
+		int currentVolume; 
 };
 
-#endif // SOUNDEFFECT_HPP
+#endif

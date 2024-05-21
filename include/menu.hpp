@@ -1,37 +1,58 @@
-// menu.hpp
+// Filename : menu.hpp
+
 #ifndef MENU_HPP
 #define MENU_HPP
 
-#include <SDL2/SDL.h>
+// Include header files
+#include "button.hpp"
 
+// Include libraries
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <string>
 #include <stdexcept> 
 #include <vector>
-#include "../include/button.hpp"
 
-class Menu {
-public:
-    Menu();
-    ~Menu(); // Destructor to handle cleanup
 
-    void displayMenu(bool var = true);
-    void handleEvents(SDL_Event &event);
-    void addButton(Button* button); // Function to add buttons to the menu
-    bool buttonStatus(Button* button);
-    void setBackground(const std::string&  imagePath);
-    SDL_Texture* getBackground(){return back_texture;};
+/* Definition of the class : "Menu" */
 
-    SDL_Renderer *m_renderer;
+class Menu 
+{
+	public:
 
-private:
-    std::vector<Button*> buttons;
-    SDL_Texture *back_texture;
+		// Public methods
+		Menu();												// Constructor
+		~Menu(); 											// Destructor to handle cleanup
 
-    int windowHeight, windowWidth;
+		void displayMenu(bool var = true);					// "displayMenu" method : 
+		void handleEvents(SDL_Event &event);				// "handleEvents" method : 
+		void addButton(Button* button); 					// "addButton" method : to add buttons to the menu
+		bool buttonStatus(Button* button);					// "buttonStatus" method : 
 
-    void render_background();
+		void setBackground(const std::string&  imagePath);	// "setBackGround" acessor method : setter
+		SDL_Texture* getBackground(){return back_texture;};	// "getBackground" accessor method : getter
+
+
+		// Public attributes
+
+		SDL_Renderer *m_renderer;
+
+	private:
+
+		// Private methods
+		void render_background();							// "render_background" method :
+
+
+		//Private attributes
+
+		std::vector<Button*> buttons;
+
+		SDL_Texture *back_texture;
+
+		int windowHeight, windowWidth;
+
+		
 };
 
 #endif

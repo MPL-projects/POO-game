@@ -1,5 +1,9 @@
+// Filename : utilities.hpp
+
 #ifndef UTILITIES_HPP
 #define UTILITIES_HPP
+
+// Include libraries
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <vector>

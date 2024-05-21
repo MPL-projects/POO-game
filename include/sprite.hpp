@@ -1,52 +1,78 @@
+// Filename : sprite.hpp
+
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
-#include <SDL2/SDL.h>
+
+// Include header files
 #include "spritesheet.hpp"
 #include "utilities.hpp"
 #include "effect.hpp"
 
+// Include libraries
+#include <SDL2/SDL.h>
+
+
+/* Definition of the class : "Sprite" */
+
 class Sprite
 {
-public:
+	public:
 
-    Sprite(const char* path_to_sprite, float ratio_);
-    ~Sprite();
+		// Public methods
 
-    void update();
-    void draw();
-    void move(double x1, double y1);
+		Sprite(const char* path_to_sprite, float ratio_);	// Constructor
+		~Sprite();											// Destructor
 
-    Direction m_direction;
-    Direction m_direction_prev;
-    std::vector<SDL_Rect> &get_boxes();
-    void move_boxes();
-    void meleeAttack();
-    int id;
-    double x;
-    double y;
-    void change_skin(const char* path);
+		void update();										// "update" method : 
+		void draw();										// "draw" method :
+		void move(double x1, double y1);					// "move" method :
+		void move_boxes();									// "move_boxes" method : 
+		void meleeAttack();									// "meleeAttack" method : 
+		void initSprite();									// "initSprite" method :
+		void change_skin(const char* path);					// "change_skin" method : 
 
-	void set_alive(bool var) {alive = var;};
-	bool get_alive() {return alive;};
-	void initSprite();
-    void setPos(double x, double y);
+		std::vector<SDL_Rect> &get_boxes();					// "get_boxes accessor" method : getter for boxes
+		bool get_alive() {return alive;};					// "get_alive accessor" method : getter for alive
+		void set_alive(bool var) {alive = var;};			// "set_alive accessor" method : setter for alive 
+		void setPos(double x, double y);					// "setPos accessor" method : setter for x and y
 
-protected:
-    
-    Spritesheet m_spritesheet;
-    Effect *effect;
-    int m_spritesheet_column;
-    std::vector<SDL_Rect> bb; // boundings boxes
-    std::vector<std::vector<int>> bb_off; // boundings boxes offset
-    std::vector<SDL_Rect> bb_att; // boundings boxes
-    std::vector<std::vector<int>> bb_att_off; // boundings boxes offset
-    SDL_Rect m_position;
-    Direction att_dir;
-    bool hit;
-    bool block;
-    int strength;
-    bool alive;
-    SDL_Renderer *renderer;
-    float ratio;
+
+		// Public Attributes
+
+		Direction m_direction;
+		Direction m_direction_prev;
+
+		int id;
+
+		double x;
+		double y;
+
+	protected:
+		
+		// Protected attributes
+
+		Spritesheet m_spritesheet;
+
+		Effect *effect;
+
+		std::vector<SDL_Rect> bb; 							// boundings boxes
+		std::vector<std::vector<int>> bb_off; 				// boundings boxes offset
+		std::vector<SDL_Rect> bb_att; 						// boundings boxes
+		std::vector<std::vector<int>> bb_att_off; 			// boundings boxes offset
+
+		SDL_Rect m_position;
+		SDL_Renderer *renderer;
+
+		Direction att_dir;
+
+		bool hit;
+		bool block;
+		bool alive;
+
+		int strength;
+		int m_spritesheet_column;
+		
+		float ratio;
 };
+
 #endif

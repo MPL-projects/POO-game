@@ -1,33 +1,47 @@
+// Filename : scene.hpp
+
 #ifndef SCENE_HPP
 #define SCENE_HPP
 
+// Include header files
+#include "utilities.hpp"
+
+// Include libraries
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <vector>
-#include "utilities.hpp"
+
 
 using namespace std;
 
+/* Definition of the class : "Scene" */
+
 class Scene
 {
-public:
-    Scene(){};
-    virtual ~Scene(){};
-    void drawScene();
-    void draw_boxes();
-    std::vector<SDL_Rect>& get_boxes(){return boxes;};
+	public:
 
-    void load_scene(const std::string& jsonFilePath);
-    Param set_param(SDL_Rect pos, SDL_RendererFlip flip, int rotation);
-    Clip set_clip(SDL_Rect clip, vector<Param> params);
-    Tiles set_tiles(SDL_Texture *asset, std::vector<Clip> clips);
+		// Public methods 
 
-private:
+		Scene(){};															// Constructor
+		virtual ~Scene(){};													// Virtual Destructor
 
-    std::vector<SDL_Rect> boxes;
-    vector<Tiles> assests;
-    
-    static int id;
+		void drawScene();													// "drawScene" method : 
+		void draw_boxes();													// "draw_boxes" method : 
+		void load_scene(const std::string& jsonFilePath);					// "load_scene" method : 
+		Param set_param(SDL_Rect pos, SDL_RendererFlip flip, int rotation);	// "set_param" method :
+		Clip set_clip(SDL_Rect clip, vector<Param> params);					// "set_clip" method :
+		Tiles set_tiles(SDL_Texture *asset, std::vector<Clip> clips);		// "set_tiles" method :
+
+		std::vector<SDL_Rect>& get_boxes(){return boxes;};					// "get_boxes" accessor method : getter
+
+	private:
+
+		// Private Attributes
+
+		std::vector<SDL_Rect> boxes;
+		vector<Tiles> assests;
+		
+		static int id;
 };
 
 #endif

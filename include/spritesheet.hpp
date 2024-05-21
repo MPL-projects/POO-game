@@ -1,30 +1,47 @@
+// Filename : spritesheet.hpp
+
 #ifndef SPRITESHEET_HPP
 #define SPRITESHEET_HPP
+
+// Include libraries
 #include <SDL2/SDL.h>
 #include "utilities.hpp"
 
+/* Definition of the class : "SpriteSheet" */
+
 class Spritesheet
 {
-public:
-    Spritesheet(char const *path, int row, int column);
-    ~Spritesheet();
+	public:
 
-    void select_sprite(int x, int y);
-    void draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position);
-    SDL_RendererFlip flip;
-    void load_skin(char const *path);
+		// Public methods 
 
-    SDL_Rect     m_clip;
-private:
-    SDL_Texture *m_spritesheet_image_texture;
-    SDL_Renderer *renderer;
+		Spritesheet(char const *path, int row, int column);						// Constructor
+		~Spritesheet();															// Destructor
 
-    int m_start_x;
-    int m_start_y;
+		void select_sprite(int x, int y);										// "select_sprite" method :
+		void draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position);	// "draw_selected_sprite" method : 
+		void load_skin(char const *path);										// "load_skin" method : 
 
-    int height;
-    int width;
-    int row;
-    int column;
+
+		// Public attributes
+
+		SDL_RendererFlip flip;
+		SDL_Rect     m_clip;
+
+	private:
+
+		// Private attributes
+
+		SDL_Texture *m_spritesheet_image_texture;
+		SDL_Renderer *renderer;
+
+		int m_start_x;
+		int m_start_y;
+
+		int height;
+		int width;
+		int row;
+		int column;
 };
+
 #endif

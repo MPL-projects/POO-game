@@ -107,7 +107,6 @@ void Sprite::meleeAttack(){
         if(player->id != id && !hit){
             if(checkCollision2(bb_att, player->bb)){
                 hit=true;
-                std::cerr << "Player " << player->id << " was hit" << std::endl;
                 player->take_damage(strength);
             }
         }
@@ -141,46 +140,17 @@ void Sprite::move(double dx, double dy){
     x += dx;
     move_boxes();
 
-    // bool isCollisions = checkCollision(bb, Game::scene->get_boxes());
-    // SDL_HasIntersection();
-
-
-    // if(bb[0].x < 0){x = - bb_off[0][0];}
-    // else if( bb[0].x + bb[0].w > Window::WIDTH ){x = Window::WIDTH - bb[0].w - bb_off[0][0];}
     bounds(x, bb[0].x, bb[0].w, bb_off[0][0], Game::appWindow->WIDTH);
     if(checkCollision2(bb, Game::scene->get_boxes()))
         x -= dx;
 
-
-
-    // if( ( bb[0].x < 0 ) || ( bb[0].x + bb[0].w > Window::WIDTH ) || isCollisions )
-    // {
-    //     //Move back
-    //     x -= dx;
-    //     move_boxes();
-    // }
-    move_boxes(); // not necessary
-
     y += dy;
     move_boxes();
-    // isCollisions = checkCollision(bb, Game::scene->get_boxes());
 
-
-    // if(bb[0].y < 0){y = - bb_off[0][1];}
-    // else if( bb[0].y + bb[0].h > Window::HEIGHT ){y = Window::HEIGHT - bb[0].h - bb_off[0][1];}
     bounds(y, bb[0].y, bb[0].h, bb_off[0][1], Game::appWindow->HEIGHT);
     if(checkCollision2(bb, Game::scene->get_boxes()))
         y -= dy;
 
-
-
-    //If the dot collided or went too far up or down
-    // if( ( bb[0].y < 0 ) || ( bb[0].y + bb[0].h > Window::HEIGHT ) || isCollisions )
-    // {
-    //     //Move back
-    //     y -= dy;
-    //     move_boxes();
-    // }
     move_boxes();
 
     m_position.x = x;

@@ -5,6 +5,8 @@ Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite
 {
     // controller = new Keyboard();
 	controller = new Gamepad();
+    id = nb_players;
+    nb_players++;
 	initPlayer();
     
 }
@@ -12,8 +14,6 @@ Player::Player(const char* path_to_sprite, float ratio_) : Sprite(path_to_sprite
 void Player::initPlayer(){
     life = 50;
     strength = 10;
-    id = nb_players;
-    nb_players++;
 	controller->ev.clear();
 	controller->ev.push_back(Direction::NONE);
 	

@@ -49,6 +49,10 @@ void SoundMusic::printSoundMap() {
     }
 }
 
+SoundMusic::~SoundMusic(){
+    cleanSound();
+}
+
 
 void SoundMusic::cleanSound(){
     for (auto& pair : m_SoundMap) {

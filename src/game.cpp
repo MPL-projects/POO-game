@@ -25,22 +25,6 @@ EffectMap SoundEffect::e_SoundMap;
 MusicMap SoundMusic::m_SoundMap;
 
 
-// void renderCross1(SDL_Surface *screenSurface, int x, int y, int w, Uint32 color) {
-//     SDL_Rect rect = {x, y - w / 2, 1, w};
-//     SDL_FillRect(screenSurface, &rect, color);
-
-//     rect = {x - w / 2, y, w, 1};
-//     SDL_FillRect(screenSurface, &rect, color);
-// }
-
-// void renderCross(SDL_Surface *screenSurface , int x, int y, float x1, float x2) {
-//     renderCross1(screenSurface, x, y, 20, SDL_MapRGB(screenSurface->format, 0x99, 0x99, 0x99));
-//     renderCross1(screenSurface, x + x1 * SCREEN_WIDTH * 0.2f, y + x2 * SCREEN_HEIGHT * 0.2f,
-//             10, SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xAA));
-// }
-
-
-
 Game::Game()
 {
 	appWindow = new Window;
@@ -59,8 +43,8 @@ void Game::run()
 {
 	SDL_Event event;
 	
-	initMainMenu();
 	initSound();
+	initMainMenu();
 	initChooseSkinPlayer1();
 	initChooseSkinPlayer2();
 	scene->load_scene("assets/configs/arena.json");
@@ -130,7 +114,6 @@ void Game::run()
 				break;
 
 			case GAME:
-				// music->playSound("game");
 				update();
 				renderGame();
 				break;
@@ -208,13 +191,6 @@ void Game::run()
 		playSound();
 		SDL_RenderPresent(appWindow->renderer);
         SDL_Delay(10);
-
-		// SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0x33, 0x33, 0x33));
-		// eventHandler.handleEvents();
-		// update();
-		// renderGame();
-		// SDL_UpdateWindowSurface(window);
-		// SDL_UpdateWindowSurface(appWindow->mainWindow);
 	}
 
     destroyGame();
@@ -294,10 +270,8 @@ void Game::destroyGame(){
     fin_texture = NULL;
     delete endMenu;
     endMenu = NULL;
-	music->cleanSound();
 	delete music;
 	music = NULL;
-	soundEffect->cleanSound();
 	delete soundEffect;
 	soundEffect = NULL;
 }
@@ -341,7 +315,8 @@ void Game::initChooseSkinPlayer1()
 
 	Button *playButton_right = new Button((SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", SKIN1_RIGHT);
 	Button *playButton_left = new Button((SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", SKIN1_LEFT);
-
+    playButton_right->setSoundEffect(soundEffect, "button");
+    playButton_left->setSoundEffect(soundEffect, "button");
 	mainChooseSkin1->addButton(playButton_right);
 	mainChooseSkin1->addButton(playButton_left);
 
@@ -349,6 +324,7 @@ void Game::initChooseSkinPlayer1()
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 	Button *goBackButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", MAIN_MENU);
 	mainChooseSkin1->addButton(goBackButton);
+    goBackButton->setSoundEffect(soundEffect, "button");
 }
 
 void Game::initChooseSkinPlayer2()
@@ -362,7 +338,8 @@ void Game::initChooseSkinPlayer2()
 
 	Button *playButton_right = new Button((SCREEN_WIDTH - 160) / 2 + 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_right, "assets/ttf/liberation.ttf", "", SKIN2_RIGHT);
 	Button *playButton_left = new Button((SCREEN_WIDTH - 160) / 2 - 250, (SCREEN_HEIGHT) * 3 / 4, 160, 80, buttonImagePaths_left, "assets/ttf/liberation.ttf", "", SKIN2_LEFT);
-
+    playButton_right->setSoundEffect(soundEffect, "button");
+    playButton_left->setSoundEffect(soundEffect, "button");
 	mainChooseSkin2->addButton(playButton_right);
 	mainChooseSkin2->addButton(playButton_left);
 
@@ -370,6 +347,7 @@ void Game::initChooseSkinPlayer2()
 	std::vector<std::string> buttonImagePaths = {"assets/images/backgrounds_elements/menu/buttons/button_normal.png", "assets/images/backgrounds_elements/menu/buttons/button_hover.png", "assets/images/backgrounds_elements/menu/buttons/button_pressed.png"};
 	Button *goBackButton = new Button((SCREEN_WIDTH - 220) / 2, (SCREEN_HEIGHT) * 3 / 4, 220, 80, buttonImagePaths, "assets/ttf/liberation.ttf", "Select", MAIN_MENU);
 	mainChooseSkin2->addButton(goBackButton);	
+    goBackButton->setSoundEffect(soundEffect, "button");
 }
 
 
@@ -420,6 +398,7 @@ void Game::initSound(){
 
 	soundEffect = new SoundEffect();
     soundEffect->loadSound("button", "assets/musics/effects/click-button.wav");
+    soundEffect->setVolume(20);
 	
 }
 

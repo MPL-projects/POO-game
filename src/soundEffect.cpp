@@ -24,3 +24,18 @@ void SoundEffect::cleanSound(){
     e_SoundMap.clear();
 }
 
+SoundEffect::~SoundEffect(){
+    cleanSound();
+}
+
+void SoundEffect::setVolume(int volume) {
+    if (volume < 0) {
+        volume = 0;
+    } else if (volume > MIX_MAX_VOLUME) {
+        volume = MIX_MAX_VOLUME;
+    }
+    currentVolume = volume;
+    for(auto& pair : e_SoundMap)
+        Mix_VolumeChunk(pair.second, currentVolume);
+}
+

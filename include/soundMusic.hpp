@@ -10,11 +10,12 @@ using MusicMap = std::map<std::string, Mix_Music*>;
 
 class SoundMusic : public SoundMgr {
 public:
-    SoundMusic() : currentVolume(MIX_MAX_VOLUME / 8) {}
+    SoundMusic() : currentVolume(MIX_MAX_VOLUME / 8) {};
+    ~SoundMusic();
 
-    void playSound(const std::string& id) override;
-    void loadSound(const std::string& id, const std::string& filePath) override;
-    void cleanSound() override;
+    void playSound(const std::string& id);
+    void loadSound(const std::string& id, const std::string& filePath);
+    void cleanSound();
     void stopSound();
     void setVolume(int volume); 
 

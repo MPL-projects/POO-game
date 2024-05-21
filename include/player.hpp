@@ -27,6 +27,7 @@ public:
     // void addController() { controller = Gamepad(); };
     // void update() { controller.events(); };
     int life;
+    int max_life;
 
 	void initPlayer();
 

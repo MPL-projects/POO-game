@@ -246,8 +246,8 @@ void Game::drawHealthBars(){
         hb.push_back(health_bar);
     }
 
-	health_bars[0]->actualDamages(players[0]->life);
-	health_bars[1]->actualDamages(players[1]->life);
+	health_bars[0]->actualDamages(players[0]->life, players[0]->max_life);
+	health_bars[1]->actualDamages(players[1]->life, players[0]->max_life);
 
 	if (!(players[0]->get_alive()&&players[1]->get_alive()))
 	{

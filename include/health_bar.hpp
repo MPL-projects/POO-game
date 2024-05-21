@@ -22,16 +22,15 @@ public:
     int get_w() const {return m_rect.w;};
     int get_h() const {return m_rect.h;};
 
-	void actualDamages(int life);
+	void actualDamages(int life, int max_life);
     
     void render();
 
 private:
     SDL_Rect m_rect;
-
+    SDL_Rect lifeRect;
     vector<SDL_Texture*> m_textures;
     SDL_Renderer* m_renderer;
-    int m_currentTextureIndex;
     SDL_Texture* m_textTexture;
 };
 

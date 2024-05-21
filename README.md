@@ -8,13 +8,15 @@
 ## Bibliothèques et outils externes utilisés
 - SDL2
 - SDL2_mixer
+- SDL2_image
+- SDL2_ttf
 - nlohmann_json
 
 ## Instructions de compilation et d'installation
 
 1. Téléchargez les bibliothèques nécessaires en utilisant les commandes suivantes :
     ```sh
-    sudo apt-get install libsdl2-dev libsdl2-mixer-dev
+    sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-_image-dev libsdl2-mixer-dev
     sudo apt install nlohmann-json3-dev
     ```
 
@@ -48,10 +50,10 @@ Deux joueurs, sur un même pc, se battent sur un jeu type 8 bits. Le but étant 
 - **Touches par défaut :**
   - **Joueur 1 :**
     - Déplacement : 
-		-> Haut : `Z`
-		-> Bas : `S`
-		-> Droite : `D`
-		-> Gauche : `Q`
+		- Haut : `Z`
+		- Bas : `S`
+		- Droite : `D`
+		- Gauche : `Q`
     - Attaque : `E`
     - Parer : `R`
   - **Joueur 2 :**
@@ -60,8 +62,9 @@ Deux joueurs, sur un même pc, se battent sur un jeu type 8 bits. Le but étant 
     - Parer : `Ù`
 
 - **Avec des manettes :**
-  - Si une manette est branchée, le joueur 1 utilisera la manette au lieu des touches.
-  - Si deux manettes sont branchées, les deux joueurs utiliseront les manettes.
+  - Deux possibilités, soit :
+	- Un joueur manette, un joueur clavier.
+	- Deux joueurs manettes.
 
 ### Règles du jeu
 - Chaque joueur commence avec 50 points de vie (PV).

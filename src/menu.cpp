@@ -55,6 +55,6 @@ void Menu::addButton(Button* button) {
     buttons.push_back(button);
 }
 
-bool buttonStatus(Button* button){
+bool Menu::buttonStatus(Button* button){
     return button->isPressed();
 }

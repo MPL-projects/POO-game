@@ -4,7 +4,6 @@
 #include "../include/window.hpp"
 #include "../include/menu.hpp"
 #include "../include/button.hpp"
-#include "../include/scenesheet.hpp"
 #include "../include/scene.hpp"
 #include "../include/soundEffect.hpp"
 #include "../include/soundMusic.hpp"

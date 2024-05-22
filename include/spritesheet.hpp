@@ -18,9 +18,9 @@ class Spritesheet
 		Spritesheet(char const *path, int row, int column);						// Constructor
 		~Spritesheet();															// Destructor
 
-		void select_sprite(int x, int y);										// "select_sprite" method :
-		void draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position);	// "draw_selected_sprite" method : 
-		void load_skin(char const *path);										// "load_skin" method : 
+		void select_sprite(int x, int y);										// "select_sprite" method : Select a specific sprite from the spritesheet
+		void draw_selected_sprite(SDL_Renderer *renderer, SDL_Rect *position);	// "draw_selected_sprite" method : Draw the selected sprite on the screen
+		void load_skin(char const *path);										// "load_skin" method : Load the spritesheet image from a file
 
 
 		// Public attributes

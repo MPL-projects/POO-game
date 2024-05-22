@@ -25,11 +25,11 @@ class SoundMusic : public SoundMgr
 		SoundMusic() : currentVolume(MIX_MAX_VOLUME / 8) {};				// Constructor
 		~SoundMusic();														// Destructor
 
-		void playSound(const std::string& id);								// "playSound" method : 
-		void loadSound(const std::string& id, const std::string& filePath);	// "loadSound" method : 		
-		void cleanSound();													// "cleanSound" method :
-		void stopSound();													// "stopSound" method :
-		void printSoundMap();												// "printSoundMap" method : 
+		void playSound(const std::string& id);								// "playSound" method : Play music by its ID
+		void loadSound(const std::string& id, const std::string& filePath);	// "loadSound" method : Load music from a file and associate it with an ID	
+		void cleanSound();													// "cleanSound" method : Clean up all loaded sounds
+		void stopSound();													// "stopSound" method : Stop any currently playing music
+		void printSoundMap();												// "printSoundMap" method : Print the contents of the sound map
 
 		void setVolume(int volume); 										// "setVolume" accessor method : setter
 

@@ -25,18 +25,17 @@ class Player : public Sprite
 		Player(const char* path_to_sprite, float ratio_);	// Constructor
 		~Player(){delete controller;};						// Destructor
 
-		void handle_events(SDL_Event const &event);			// "handle_events" method :
-		void take_damage(int damages);						// "take_damage" method : 
+		void handle_events(SDL_Event const &event);			// "handle_events" method : Handle events for the player
+		void take_damage(int damages);						// "take_damage" method : Handle taking damage
+		void initPlayer();									// "initPlayer" method : Initialize player-specific attributes
 
-		Player operator=(const Player &player);				// "=" operator : 
+		Player operator=(const Player &player);				// "=" operator
 
 
 		// Public Attributes
 
 		int life;
 		int max_life;
-
-		void initPlayer();
 
 		Controller *controller;
 
@@ -46,7 +45,7 @@ class Player : public Sprite
 
 		// Private methods 
 
-		void initMeleeAttack();								// initMeleeAttack method
+		void initMeleeAttack();								// "initMeleeAttack" method : Initialize melee attack for the player
     
 };
 #endif

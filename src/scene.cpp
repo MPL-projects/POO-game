@@ -5,25 +5,26 @@
 #include "../include/utilities.hpp"
 #include "../include/game.hpp"
 
-
-
 using json = nlohmann::json;
 
+// Set parameters for a clip's position, flip, and rotation
 Param Scene::set_param(SDL_Rect pos, SDL_RendererFlip flip, int rotation) {
-        Param param;
-        param.pos = pos;
-        param.flip = flip;
-        param.rotation = rotation;
-        return param;
-    }
+    Param param;
+    param.pos = pos;
+    param.flip = flip;
+    param.rotation = rotation;
+    return param;
+}
 
-Clip Scene::set_clip(SDL_Rect clip, vector<Param> params) {
+// Set a clip with a rectangle and associated parameters
+Clip Scene::set_clip(SDL_Rect clip, std::vector<Param> params) {
     Clip newClip;
     newClip.clip = clip;
     newClip.params = params;
     return newClip;
 }
 
+// Set tiles with a texture and associated clips
 Tiles Scene::set_tiles(SDL_Texture *asset, std::vector<Clip> clips) {
     Tiles tiles;
     tiles.asset = asset;
@@ -31,7 +32,7 @@ Tiles Scene::set_tiles(SDL_Texture *asset, std::vector<Clip> clips) {
     return tiles;
 }
 
-
+// Load a scene from a JSON file
 void Scene::load_scene(const std::string& jsonFilePath) {
     // Open the JSON file
     std::ifstream file(jsonFilePath);
@@ -40,7 +41,7 @@ void Scene::load_scene(const std::string& jsonFilePath) {
         return;
     }
 
-    // Renderer to create Texture
+    // Renderer to create texture
     SDL_Renderer *renderer = Game::appWindow->renderer;
 
     // Load JSON data
@@ -149,6 +150,7 @@ void Scene::load_scene(const std::string& jsonFilePath) {
     }
 }
 
+// Draw the scene
 void Scene::drawScene() {
     // Calculate scaling factors
     SDL_Renderer *renderer = Game::appWindow->renderer;
@@ -170,20 +172,24 @@ void Scene::drawScene() {
         }
     }
 
-    // draw_boxes();
+    // draw_boxes(); // Uncomment to draw bounding boxes
 
+    // Reset the scaling for the renderer
     SDL_RenderSetScale(renderer, 1.0f, 1.0f);
 }
 
+// Draw bounding boxes
 void Scene::draw_boxes() {
     SDL_Renderer *renderer = Game::appWindow->renderer;
 
+    // Set the draw color to red
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 
+    // Draw each bounding box
     for (const auto& box : boxes) {
         SDL_RenderDrawRect(renderer, &box);
     }
 
+    // Reset the draw color to white
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
-

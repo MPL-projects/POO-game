@@ -25,10 +25,10 @@ class Menu
 		Menu();												// Constructor
 		~Menu(); 											// Destructor to handle cleanup
 
-		void displayMenu(bool var = true);					// "displayMenu" method : 
-		void handleEvents(SDL_Event &event);				// "handleEvents" method : 
-		void addButton(Button* button); 					// "addButton" method : to add buttons to the menu
-		bool buttonStatus(Button* button);					// "buttonStatus" method : 
+		void displayMenu(bool var = true);					// "displayMenu" method : Display the menu, optionally rendering the background
+		void handleEvents(SDL_Event &event);				// "handleEvents" method : Handle events for the menu
+		void addButton(Button* button); 					// "addButton" method : Add a button to the menu
+		bool buttonStatus(Button* button);					// "buttonStatus" method : Check if a button is pressed
 
 		void setBackground(const std::string&  imagePath);	// "setBackGround" acessor method : setter
 		SDL_Texture* getBackground(){return back_texture;};	// "getBackground" accessor method : getter
@@ -41,7 +41,7 @@ class Menu
 	private:
 
 		// Private methods
-		void render_background();							// "render_background" method :
+		void render_background();							// "render_background" method : Render the background texture
 
 
 		//Private attributes

@@ -21,9 +21,9 @@ class Effect
 		Effect(const char* path_to_effect, float ratio_, SDL_Rect position, int x_off_, int y_off_);	// Constructor
 		~Effect();																						// Destructor
 
-		void update();																					// "update" method : 
-		void draw();																					// "draw" method :
-		void move(double x1, double y1);																// "move" method : 
+		void update();																					// "update" method : Update function to manage the effect's animation
+		void draw();																					// "draw" method : Draw function to render the effect
+		void move(double x1, double y1);																// "move" method : Move function to change the position of the effect
 
 
 		// Public attributes

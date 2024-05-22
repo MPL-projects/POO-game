@@ -27,8 +27,8 @@ class Keyboard : public Controller
         Keyboard();									// Constructor
         ~Keyboard();								// Destructor
 
-        void handle_events(SDL_Event const &event);	// "handle_events" method : 
-        Controller* switchController();				// "switchController" method : 
+        void handle_events(SDL_Event const &event);	// "handle_events" method : Handle SDL events for the keyboard
+        Controller* switchController();				// "switchController" method : Switch from keyboard to gamepad controller
 
     private:
 

@@ -34,9 +34,9 @@ class HealthBar
 		int get_w() const {return m_rect.w;};			// "get_w" accessor method : getter
 		int get_h() const {return m_rect.h;};			// "get_h" accessor method : getter
 
-		void actualDamages(int life, int max_life);		// "actualDamages" method : 
+		void actualDamages(int life, int max_life);		// "actualDamages" method : Update the life rectangle width based on the current life and maximum life
 		
-		void render();									// "render" method : 
+		void render();									// "render" method : Render the health bar on the screen
 
 	private:
 

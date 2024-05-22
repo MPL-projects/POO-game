@@ -25,10 +25,10 @@ class SoundEffect : public SoundMgr
 		SoundEffect() : currentVolume(MIX_MAX_VOLUME / 8) {}				// Constructor
 		~SoundEffect();														// Destructor
 
-		void playSound(const std::string& id);								// "playSound" method : 
-		void loadSound(const std::string& id, const std::string& filePath);	// "loadSound" method : 
-		void cleanSound();													// "cleanSound" method : 
-		void setVolume(int volume); 										// "setVolume" method : 
+		void playSound(const std::string& id);								// "playSound" method : Play a sound effect by its ID
+		void loadSound(const std::string& id, const std::string& filePath);	// "loadSound" method : Load a sound effect from a file and associate it with an ID
+		void cleanSound();													// "cleanSound" method : Clean up all loaded sound effects
+		void setVolume(int volume); 										// "setVolume" method : Set the volume for all sound effects
 
 		// Public Attributes
 

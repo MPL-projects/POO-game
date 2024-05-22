@@ -23,13 +23,13 @@ class Sprite
 		Sprite(const char* path_to_sprite, float ratio_);	// Constructor
 		~Sprite();											// Destructor
 
-		void update();										// "update" method : 
-		void draw();										// "draw" method :
-		void move(double x1, double y1);					// "move" method :
-		void move_boxes();									// "move_boxes" method : 
-		void meleeAttack();									// "meleeAttack" method : 
-		void initSprite();									// "initSprite" method :
-		void change_skin(const char* path);					// "change_skin" method : 
+		void update();										// "update" method : Update sprite state
+		void draw();										// "draw" method : Draw the sprite
+		void move(double x1, double y1);					// "move" method : Move the sprite by a given delta
+		void move_boxes();									// "move_boxes" method : Update the bounding boxes based on the sprite's position
+		void meleeAttack();									// "meleeAttack" method : Perform a melee attack
+		void initSprite();									// "initSprite" method : Initialize sprite properties
+		void change_skin(const char* path);					// "change_skin" method : Change the sprite's skin
 
 		std::vector<SDL_Rect> &get_boxes();					// "get_boxes accessor" method : getter for boxes
 		bool get_alive() {return alive;};					// "get_alive accessor" method : getter for alive

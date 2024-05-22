@@ -30,11 +30,11 @@ class Game
 
 		~Game();									// Destructor
 
-		void run();									// "run" method : 
-		static void stopGame(){RUNNING = false;};	// "stopGame" method : 
-		Game(Game &other) = delete;					// "..." method :
-		void operator=(const Game &) = delete;		// "=" operator method : 
-		static Game *GetInstance(){					// "GetInstance" Method : 
+		void run();									// "run" method : Run the game loop
+		static void stopGame(){RUNNING = false;};	// "stopGame" method : Stop game loop
+		Game(Game &other) = delete;					// "..." method
+		void operator=(const Game &) = delete;		// "=" operator method
+		static Game *GetInstance(){					// "GetInstance" Method
 			if(game_==nullptr){
 				game_ = new Game();
 			}
@@ -62,24 +62,24 @@ class Game
 
 		Game();							// Constructor
 
-		void update();					// "update" method : 
-		void renderGame();				// "renderGame" method : 
-		void initMainMenu();			// "initMainMenu" method : 
-		void initEndMenu();				// "initEndMenu" method : 
+		void update();					// "update" method : Update game state
+		void renderGame();				// "renderGame" method : Render game elements
+		void initMainMenu();			// "initMainMenu" method : Initialize the main menu
+		void initEndMenu();				// "initEndMenu" method : Initialize the end menu
 		void initArena();				// "initArena" method : 
 
-		void drawPlayers();				// "drawPlayers" method : 
-		void drawHealthBars();			// "drawHealthBars" method : 
+		void drawPlayers();				// "drawPlayers" method : Draw players
+		void drawHealthBars();			// "drawHealthBars" method : Draw health bars
 
-		void initChooseSkinPlayer1();	// "initChooseSkinPlayer1" method : 
-		void initChooseSkinPlayer2();	// "initChooseSkinPlayer2" method : 
+		void initChooseSkinPlayer1();	// "initChooseSkinPlayer1" method : Initialize the menu to choose the skin for player 1
+		void initChooseSkinPlayer2();	// "initChooseSkinPlayer2" method : Initialize the menu to choose the skin for player 2
 
-		void destroyGame();				// "destroyGame" method : 
+		void destroyGame();				// "destroyGame" method : Destroy game resources
 
-		void initSound();				// "initSound" method : 
-		void playSound();				// "PlaySound" method : 
+		void initSound();				// "initSound" method : Initialize game sounds
+		void playSound();				// "PlaySound" method : Play background music and sound effects
 
-		void createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha);	// "createTransparentTexture" method : 
+		void createTransparentTexture(SDL_Texture* &texture_fin, Uint8 alpha);	// "createTransparentTexture" method : Create a transparent texture
 
 
 		// Private attributes

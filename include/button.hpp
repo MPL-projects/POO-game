@@ -28,10 +28,10 @@ class Button {
 		Button(int x, int y, int width, int height, const vector<string>& imagePaths, const string& fontPath, const string& name, GameStatus a);	// Constructor
 		~Button();																		// Destructor
 
-		void handleEvent(const SDL_Event& event); 										// "handleEvent" method :
-		void render();																	// "render" method : 
-		bool isPressed() const;															// "isPressed" method : 
-		void setSoundEffect(SoundEffect* soundEffect, const std::string& soundId);		// "setSoundEffect" method :
+		void handleEvent(const SDL_Event& event); 										// "handleEvent" method : Handle SDL events for the button
+		void render();																	// "render" method : Render the button
+		bool isPressed() const;															// "isPressed" method : Returns true if the button is currently pressed, false otherwise
+		void setSoundEffect(SoundEffect* soundEffect, const std::string& soundId);		// "setSoundEffect" method : Sets the sound effect associated with the button
 
 		int get_x() const {return m_rect.x;};											// get_x accessor method : getter
 		int get_y() const {return m_rect.y;};											// get_x accessor method : getter

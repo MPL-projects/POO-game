@@ -22,12 +22,12 @@ class Gamepad : public Controller
         Gamepad();																				// Constructor
         ~Gamepad();																				// Destructor
         
-        void handle_events(SDL_Event const &event);												// "handle_events" method :
-        void setDir(float x, float y);															// "setDir" method : 
-		void connect();																			// "connect" method :
-        static SDL_GameController* findController();											// "findController" method :
-        static inline SDL_JoystickID getControllerInstanceID(SDL_GameController *controller);	// "getControllerInstanceID" method : 
-        Controller* switchController();															// "switchController" method :
+        void handle_events(SDL_Event const &event);												// "handle_events" method : Handle SDL events for the gamepad
+        void setDir(float x, float y);															// "setDir" method : Set the direction based on joystick input
+		void connect();																			// "connect" method : Connect the gamepad
+        static SDL_GameController* findController();											// "findController" method : Find and open a gamepad controller
+        static inline SDL_JoystickID getControllerInstanceID(SDL_GameController *controller);	// "getControllerInstanceID" method : Get the instance ID of the gamepad controller
+        Controller* switchController();															// "switchController" method : Switch to keyboard controller
 
 		// Public attributes
 

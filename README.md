@@ -59,7 +59,7 @@ Deux joueurs, sur un même pc, se battent sur un jeu type 8 bits. Le but étant 
   - **Joueur 2 :**
     - Déplacement : Flèches directionnelles
     - Attaque : `M`
-    - Parer : `Ù`
+    - Parer : `L`
 
 - **Avec des manettes :**
   - Deux possibilités, soit :

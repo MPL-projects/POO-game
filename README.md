@@ -17,28 +17,33 @@
 ## Compilation and installation instructions
 
 1. Download the necessary libraries using the following commands:
-    ```sh
+    ```
+    sh
     sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-_image-dev libsdl2-mixer-dev
     sudo apt install nlohmann-json3-dev
     ```
 
 2. Clone the game's Git repository:
-    ```sh
+    ```
+    sh
     git clone <url-of-repository>
     ```
 
 3. Access the project directory:
-    ```sh
+    ```
+    sh
     cd path/to/the/repository
     ```
 
 4. Compile the game using `make` :
-    ``sh
+    ```
+    sh
     make
     ```
 
-5. Run the game:
-    ``sh
+6. Run the game:
+    ```
+    sh
     ./main
     ```
 

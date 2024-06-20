@@ -53,15 +53,15 @@ Two players on the same PC battle it out in an 8-bit game. The aim is for one pl
   - Player 1:**
     - Move : 
 		- Up: `Z`
-		- Down: `S
-		- Right: `D
-		- Left: `Q
-    - Attack: `E
-    - Parry: `R
+		- Down: `S`
+		- Right: `D`
+		- Left: `Q`
+    - Attack: `E`
+    - Parry: `R`
   - Player 2:**
     - Movement: Directional arrows
-    - Attack: `M
-    - Parry: `L
+    - Attack: `M`
+    - Parry: `L`
 
 - With joysticks:**
   - Two possibilities:

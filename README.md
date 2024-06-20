@@ -23,26 +23,22 @@
     ```
 
 2. Clone the game's Git repository:
-    ```
-    sh
+    ```sh
     git clone <url-of-repository>
     ```
 
 3. Access the project directory:
-    ```
-    sh
+    ```sh
     cd path/to/the/repository
     ```
 
 4. Compile the game using `make` :
-    ```
-    sh
+    ```sh
     make
     ```
 
 6. Run the game:
-    ```
-    sh
+    ```sh
     ./main
     ```
 
@@ -80,7 +76,7 @@ Two players on the same PC battle it out in an 8-bit game. The aim is for one pl
 
 ### Initial menu options
 - Change each player's skin.
-- Lorsqu'un joueur n'a plus de PV, il meurt et le jeu propose de relancer une partie.
+- When a player runs out of VPs, he dies and the game offers to restart the game.
 
-### Options du menu initial
-- Changer le skin de chaque joueur.
+### Initial menu options
+- Change each player's skin.

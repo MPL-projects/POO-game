@@ -17,8 +17,7 @@
 ## Compilation and installation instructions
 
 1. Download the necessary libraries using the following commands:
-    ```
-    sh
+    ```sh
     sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-_image-dev libsdl2-mixer-dev
     sudo apt install nlohmann-json3-dev
     ```

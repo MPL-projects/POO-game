@@ -49,8 +49,8 @@ Two players on the same PC battle it out in an 8-bit game. The aim is for one pl
 
 ### How to play
 
-- Default keys:**
-  - Player 1:**
+- **Default keys:**
+  - **Player 1:**
     - Move : 
 		- Up: `Z`
 		- Down: `S`
@@ -58,12 +58,12 @@ Two players on the same PC battle it out in an 8-bit game. The aim is for one pl
 		- Left: `Q`
     - Attack: `E`
     - Parry: `R`
-  - Player 2:**
+  - **Player 2:**
     - Movement: Directional arrows
     - Attack: `M`
     - Parry: `L`
 
-- With joysticks:**
+- **With joysticks:**
   - Two possibilities:
 	- One joystick player, one keyboard player.
 	- Two joystick players.

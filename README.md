@@ -1,6 +1,6 @@
 # POO Game
 
-[The POO Game](game.png)
+![The POO Game](game.png)
 
 ## Project authors
 - HAMADY Marie 

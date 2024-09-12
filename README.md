@@ -24,7 +24,7 @@
 
 2. Clone the game's Git repository:
     ```sh
-    git clone <url-of-repository>
+    git clone https://github.com/MPL-projects/POO-game.git
     ```
 
 3. Access the project directory:
